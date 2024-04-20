@@ -1,0 +1,1 @@
+{"Chemo": [{"Name": "cetuximab", "Dosage": 400.0, "DosageMetric": "mg/m2", "Day": "1"}], "NC": "8", "Day1": {"Premed": {"Note": "Dexametazon 20mg iv, Dithiaden 1amp iv, Pantoprazol 40mg p.o."}, "Instructions": [{"Name": "cetuximab", "Inst": "prv\u00fdch 100mg v 500ml FR iv na 60min, zvysok na 90 min"}]}}

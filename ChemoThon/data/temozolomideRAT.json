@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "temozolomid",
+            "Dosage": 75.0,
+            "DosageMetric": "mg/m2",
+            "Day": "pocas RAT"
+        }
+    ],
+    "NC": "pocas RAT kazdy",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "temozolomid",
+                "Inst": "p.o."
+            }
+        ]
+    }
+}

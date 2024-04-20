@@ -1,0 +1,42 @@
+{
+    "Chemo": [
+        {
+            "Name": "oxaliplatina",
+            "Dosage": 85,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "irinotekan",
+            "Dosage": 135,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "leukovorin",
+            "Dosage": 400,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv/ Granisetron 2mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "oxaliplatina",
+                "Inst": "v 500ml 5%GLC iv"
+            },
+            {
+                "Name": "irinotekan",
+                "Inst": "v 500ml FR iv"
+            },
+            {
+                "Name": "leukovorin",
+                "Inst": "v 500ml FR iv"
+            }
+        ]
+    }
+}

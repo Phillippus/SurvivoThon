@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "prednison",
+            "Dosage": 10,
+            "DosageMetric": "mg",
+            "Day": "1-28"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": ""
+        },
+        "Instructions": [
+            {
+                "Name": "prednison",
+                "Inst": "rozdelit na 2x 5mg tbl "
+            }
+        ]
+    }
+}

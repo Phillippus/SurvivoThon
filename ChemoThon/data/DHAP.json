@@ -1,0 +1,42 @@
+{
+    "Chemo": [
+        {
+            "1Name": "ARA-C",
+            "1Dosage": 2000,
+            "1DosageMetric": "mg/m2",
+            "1Day": "2"
+        },
+        {
+            "1Name": "ARA-C",
+            "1Dosage": 2000,
+            "1DosageMetric": "mg/m2",
+            "1Day": "2"
+        }
+            
+    ],
+    "FlatChemo": [
+        {
+            "2Name": "Dexametazon",
+            "2Dosage2": 40,
+            "2DosageMetric2": "mg flat dose",
+            "2Day": "1-4"
+            
+        }
+    ],
+    "NC": "22",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2 tbl p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "ARA-C",
+                "Inst": "podať v D2 v 500ml FR/ 3 hodiny (2x za den)"
+            },
+            {
+                "Name": "Dexametazon",
+                "Inst": "p.o. (+pantoprazol 40mg tbl p.o.)"
+            }
+        ]
+    }
+}

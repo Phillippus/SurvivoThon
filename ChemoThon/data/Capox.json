@@ -1,0 +1,33 @@
+{
+    "Chemo" : [{
+        "Name":  "Oxaliplatina",
+        "Dosage" : 130,
+        "DosageMetric" : "mg/m2",
+        "Day" : "1"
+      },
+      {
+        "Name":  "kapecitabín",
+        "Dosage" : 2000,
+        "DosageMetric" : "mg/m2",
+        "Day" : "1-14"
+      }
+      ],
+      
+     "NC" : 21,
+
+     "Day1": {
+        "Premed" : {
+            "Note" : "Granisetron 2mg p.o./ Ondasetron 8mg v 250ml FR iv"
+        },
+        "Instructions" : [
+            {
+                "Name" : "Oxaliplatina",
+                "Inst" : "v 500ml 5%GLC iv"
+            },
+            {
+                "Name":  "kapecitabín",
+                "Inst" : "p.o. rozdeliť na 2 dávky"
+            }
+        ]
+    }   
+}

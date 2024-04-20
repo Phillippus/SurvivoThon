@@ -1,0 +1,1 @@
+{"Chemo": [{"Name": "temozolomide", "Dosage": 200.0, "DosageMetric": "mg/m2", "Day": "1-5"}], "NC": "29", "Day1": {"Premed": {"Note": "Granegis 2 tbl p.o."}, "Instructions": [{"Name": "temozolomide", "Inst": "tbl p.o."}]}}

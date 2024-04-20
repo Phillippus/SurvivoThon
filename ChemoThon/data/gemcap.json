@@ -1,0 +1,1 @@
+{"Chemo": [{"Name": "gemcitabine", "Dosage": 1000, "DosageMetric": "mg/m2", "Day": "1, 8"}, {"Name": "capecitabine", "Dosage": 1300, "DosageMetric": "mg/m2", "Day": "1-14"}], "NC": "21", "Day1": {"Premed": {"Note": "Granisetron 2 tbl p.o."}, "Instructions": [{"Name": "gemcitabine", "Inst": "v 500ml FR iv"}, {"Name": "capecitabine", "Inst": "p.o. rozdelit na 2 denne davky"}]}}

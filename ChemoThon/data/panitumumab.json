@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "panitumumab",
+            "Dosage": 6.0,
+            "DosageMetric": "mg/kg",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Day1": {
+        "Premed": {
+            "Note": ""
+        },
+        "Instructions": [
+            {
+                "Name": "panitumumab",
+                "Inst": "v 500ml FR iv /60- 90 minut"
+            }
+        ]
+    }
+}

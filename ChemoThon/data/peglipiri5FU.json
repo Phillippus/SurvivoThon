@@ -1,0 +1,32 @@
+{
+    "Chemo": [
+        {
+            "Name": "peg/lip irinotecan",
+            "Dosage": 70,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "leukovorin",
+            "Dosage": 400,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv, (Atropin 0.2mg sc)"
+        },
+        "Instructions": [
+            {
+                "Name": "peg/lip irinotecan",
+                "Inst": "v 500ml FR iv/ 90 minut"
+            },
+            {
+                "Name": "leukovorin",
+                "Inst": "v 500ml FR iv"
+            }
+        ]
+    }
+}

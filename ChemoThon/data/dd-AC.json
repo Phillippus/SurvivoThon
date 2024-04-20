@@ -1,0 +1,32 @@
+{
+    "Chemo": [
+        {
+            "Name": "adriamycin",
+            "Dosage": 60,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "cyklofosfamid",
+            "Dosage": 600,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazon 8mg iv, Granisetron 2 mg p.o., pantoprazol 40mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "adriamycin",
+                "Inst": "v 500ml FR iv"
+            },
+            {
+                "Name": "cyklofosfamid",
+                "Inst": "v 500ml FR iv"
+            }
+        ]
+    }
+}

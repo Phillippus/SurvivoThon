@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "abirateron",
+            "Dosage": 1000.0,
+            "DosageMetric": "mg",
+            "Day": "1-28"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": ""
+        },
+        "Instructions": [
+            {
+                "Name": "abirateron",
+                "Inst": "rozdeli\u0165 na 4x 250mg tbl p.o."
+            }
+        ]
+    }
+}

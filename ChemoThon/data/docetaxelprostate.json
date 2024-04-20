@@ -1,0 +1,1 @@
+{"Chemo": [{"Name": "docetaxel", "Dosage": 75.0, "DosageMetric": "mg/m2", "Day": "1"}], "NC": "21", "Day1": {"Premed": {"Note": "Dexametazon 20mg iv, Pantoprazol 40 mg p.o., Dithiaden 1 amp iv"}, "Instructions": [{"Name": "docetaxel", "Inst": "prvych 30mg v 500ml FR iv /45 min, zvysok v 500ml FR / 60 min"}]}}

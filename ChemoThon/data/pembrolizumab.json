@@ -1,0 +1,1 @@
+{"Chemo": [{"Name": "pembrolizumab", "Dosage": 200.0, "DosageMetric": "mg", "Day": "1"}], "NC": "21", "Day1": {"Premed": {"Note": ""}, "Instructions": [{"Name": "pembrolizumab", "Inst": "v 500ml FR iv"}]}}
