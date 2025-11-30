@@ -10,12 +10,12 @@
     "NC": "21",
     "Day1": {
         "Premed": {
-            "Note": "Degan 1 tbl p.p."
+            "Note": "bez premedikácie"
         },
         "Instructions": [
             {
                 "Name": "capecitabine",
-                "Inst": "rozdeli\u0165 na 2 denne davky"
+                "Inst": "do 30 min po jedle, rozdelené do dvoch dávok 14 dní, potom 7 dní pauza"
             }
         ]
     }

@@ -1,0 +1,138 @@
+{
+    "imunoterapie": [
+      {
+        "name": "Atezolizumab (Tecentriq)",
+        "regimen name": "Atezolizumab 2 weekly",
+        "dosage": "840 mg",
+        "frequency": "14 dní",
+        "administration": "prvá dávka na 60 minút, následné na 30 minút"
+      },
+      {
+        "name": "Atezolizumab (Tecentriq)",
+        "regimen name": "Atezolizumab 3 weekly",
+        "dosage": "1200 mg",
+        "frequency": "21 dní",
+        "administration": "prvá dávka na 60 minút, následné na 30 minút"
+      },
+      {
+        "name": "Atezolizumab (Tecentriq)",
+        "regimen name": "Atezolizumab 4 weekly",
+        "dosage": "1680 mg",
+        "frequency": "28 dní",
+        "administration": "prvá dávka na 60 minút, následné na 30 minút"
+      },
+      {
+        "name": "Avelumab (Bavencio)",
+        "regimen name": "Avelumab 2 weekly",
+        "dosage": "800 mg",
+        "frequency": "14 dní",
+        "administration": "na 60 minút",
+        "premedication": "levocetirizin 5mg  a paracetamol 500mg alebo ibuprofen 400mg  pred každou infúziou."
+      },
+      {
+        "name": "Cemiplimab (Libtayo)",
+        "regimen name": "Cemiplimab 3 weekly",
+        "dosage": "350 mg",
+        "frequency": "21 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Durvalumab (Imfinzi)",
+        "regimen name": "Durvalumab 2 weekly monoterapia",
+        "dosage": "10 mg/kg",
+        "frequency": "14 dní",
+        "administration": "na 60 minút"
+      },
+      {
+        "name": "Durvalumab (Imfinzi)",
+        "regimen name": "Durvalumab 4 weekly",
+        "dosage": "1500 mg",
+        "frequency": "28 dní",
+        "administration": "na 60 minút"
+      },
+      {
+        "name": "Durvalumab (Imfinzi)",
+        "regimen name": "Durvalumab 3 weekly s karboplatinou a paklitaxelom",
+        "dosage": "1120 mg",
+        "frequency": "21 dní",
+        "administration": "na 60 minút"
+      },
+      {
+        "name": "Durvalumab (Imfinzi)",
+        "regimen name": "Durvalumab 4 weekly po kombinácii s chemoterapiou",
+        "dosage": "1500 mg",
+        "frequency": "28 dní",
+        "administration": "na 60 minút"
+      },
+      {
+        "name": "Ipilimumab (Yervoy)",
+        "regimen name": "Ipilimumab 1 mg/kg s Nivolumabom",
+        "dosage": "1 mg/kg",
+        "frequency": "21 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Ipilimumab (Yervoy)",
+        "regimen name": "Ipilimumab 3 mg/kg",
+        "dosage": "3 mg/kg",
+        "frequency": "21 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Ipilimumab (Yervoy)",
+        "regimen name": "Ipilimumab 1 mg/kg 6 weekly s Nivolumabom",
+        "dosage": "1 mg/kg",
+        "frequency": "42 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Nivolumab (Opdivo)",
+        "regimen name": "Nivolumab 2 weekly",
+        "dosage": "240 mg",
+        "frequency": "14 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Nivolumab (Opdivo)",
+        "regimen name": "Nivolumab 4 weekly",
+        "dosage": "480 mg",
+        "frequency": "28 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Nivolumab (Opdivo)",
+        "regimen name": "Nivolumab 1 mg/kg s Ipilimumab 3 mg/kg",
+        "dosage": "1 mg/kg",
+        "frequency": "21 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Nivolumab (Opdivo)",
+        "regimen name": "Nivolumab 240 mg po kombinácii s Ipilimumab",
+        "dosage": "240 mg",
+        "frequency": "14 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Nivolumab (Opdivo)",
+        "regimen name": "Nivolumab 480 mg po kombinácii s Ipilimumab",
+        "dosage": "480 mg",
+        "frequency": "28 dní",
+        "administration": "na 60 minút"
+      },
+      {
+        "name": "Pembrolizumab (Keytruda)",
+        "regimen name": "Pembrolizumab 3 weekly",
+        "dosage": "200 mg",
+        "frequency": "21 dní",
+        "administration": "na 30 minút"
+      },
+      {
+        "name": "Pembrolizumab (Keytruda)",
+        "regimen name": "Pembrolizumab 6 weekly",
+        "dosage": "400 mg",
+        "frequency": "42 dní",
+        "administration": "na 30 minút"
+      }
+    ]
+  }

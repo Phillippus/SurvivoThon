@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "paclitaxel ",
+            "Dosage": 175,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron/Netupitant (Akynzeo) 300mg/0.5mg p.o., Dexametazon 12mg iv, Dithiaden 1amp iv, Pantoprazol 40mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "paclitaxel ",
+                "Inst": ", prvych 30mg do 500ml/ 45min, zvysok v 500ml FR na 90 min"
+            }
+        ]
+    }
+}

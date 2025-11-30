@@ -1,15 +1,5 @@
 import json
 
-def Ending():
-    endseq=str(input("Prajete si rozpísať ďalšiu chemoterapiu a/n?"))
-    if endseq=="a":
-        inpt()
-    elif endseq=="n":
-        quit()
-    else:
-        print("Musíte zadať a alebo n!")
-        Ending()    
-
 def Chemo(rbodysurf,  chemoType):
     """Táto funkcia rozpisuje jednoduché chemoterapie s priamou umerou"""
     chemoFile = open('data/' + chemoType, "r")
@@ -38,11 +28,9 @@ def Chemo(rbodysurf,  chemoType):
     for x in range(len(chemoJson["Chemo"])):
         print (Day1[x]["Name"], round(C1[x]["Dosage"]*rbodysurf,2),"mg", Day1[x]["Inst"] )
     
-    Ending() 
-    
 def ChemoMass(weight, chemoType):
     """Táto funkcia rozpisuje chemoterapie/ biologika podľa hmotnosti"""
-    chemoFile = open('data/'+ chemoType, "r")
+    chemoFile = open(chemoType, "r")
     chemoJson = json.loads(chemoFile.read())
     chemoFile.close()
                    
@@ -67,8 +55,6 @@ def ChemoMass(weight, chemoType):
     
     for x in range(len(chemoJson["Chemo"])):
         print (Day1[x]["Name"], round(C1[x]["Dosage"]*weight,2),"mg", Day1[x]["Inst"] )
-        
-    Ending() 
         
 def Chemo5FU(rbodysurf,  chemoType):
     """Táto funkcia rozpisuje chemoterapie s kontinualnym 5FU"""
@@ -121,8 +107,7 @@ def Chemo5FU(rbodysurf,  chemoType):
         print (Day1[x]["Name"], round(C1[x]["Dosage"]*rbodysurf,2),"mg", Day1[x]["Inst"] )
     print("""5-fluoruracil""",rbodysurf*dos15FU,"""mg/kivi""",day15FU)
             
-    Ending() 
-                 
+                   
 def ChemoDDP(rbodysurf,  chemoType):
     """Táto funkcia slúži pre chemoterapie s DDP"""
        
@@ -165,8 +150,6 @@ def ChemoDDP(rbodysurf,  chemoType):
     for x in range(len(chemoJson["Chemo"])):
         print (ordo+2,".",Day1[x]["Name"], C1[x]["Dosage"]*rbodysurf,"mg", Day1[x]["Inst"] )
         
-    Ending() 
-    
 def ChemoCBDCA(rbodysurf,chemoType):
     """Táto funkcia slúži pre rozpis chemoterapie obsahujúcu karboplatinu"""
     chemoFile = open('data/'+chemoType, "r")
@@ -221,8 +204,7 @@ def ChemoCBDCA(rbodysurf,chemoType):
     for x in range(len(chemoJson["Chemo"])):
         print (Day1[x]["Name"], round(C1[x]["Dosage"]*rbodysurf,2),"mg", Day1[x]["Inst"] )
 
-    Ending() 
-    
+
 def platinum5FU(rbodysurf):
     """Táto chemoterapia sluzi na rozpis chemoterapie s platinou a 5FU"""
     
@@ -251,8 +233,7 @@ b) Karboplatina\n"""))
         print(ordo,""". Cisplatina""",int(c),"""mg v 500ml RR iv""")
         print(ordo+1,""". Manitol 10% 250ml iv""")
         print(ordo+2,""". 5-fluoruracil""",rbodysurf*1000,"""mg na 24 hodin/ kivi""")
-    
-            
+        
     elif whichPt=="b":
         while True:
             try:
@@ -287,8 +268,6 @@ b) Karboplatina\n"""))
 Dexametazon 8mg iv, Pantoprazol 40 mg p.o., Ondasetron 8mg v 250ml FR iv""")
         print("""CBDCA AUC""",AUC,"""............""",(CrCl+25)*AUC,"""mg  D1""") 
         print("""5-fluoruracil""",rbodysurf*1000,"""mg na 24 hodin/ kivi""")
-    
-    Ending() 
 
 def Flatdoser(rbodysurf,chemoType, chemoFlat):
     chemoFile = open('data/'+chemoType, "r")
@@ -334,8 +313,6 @@ def Flatdoser(rbodysurf,chemoType, chemoFlat):
     for y in range(len(chemoJson2["Chemo"])):
         print (DayF1[y]["Name"], round(CF[y]["Dosage"]),"mg", DayF1[y]["Inst"] )        
 
-    Ending() 
-    
 def ChemoIfo(rbodysurf,dose, otherCHT):
     ifo=int(dose*rbodysurf)
     mesna=ifo*0.8
@@ -372,8 +349,6 @@ mesna 0.8 x ifosfamid........""",mesna,"""mg D1,D2,D3
             for cycifo in range(0,ifocycle):
                 print("""Ifosfamid 2000mg v 500ml FR iv""")
                 print("""MESNA""",mesnacont,"""mg v 100ml FR iv/ 4 hodiny""")
-        
-        Ending() 
     
    
    
@@ -400,8 +375,7 @@ mesna 0.8 x ifosfamid........""",mesna,"""mg D1,D2,D3
             for cycifo in range(0,ifocycle):
                 print("""Ifosfamid 2000mg v 500ml FR iv""")
                 print("""MESNA""",mesnacont,"""mg v 100ml FR iv/ 4 hodiny""")
-    
-        Ending()            
+                
 
 def DHAP(rbodysurf):
     """Táto funkcia je len a len pre DHAP"""
@@ -428,13 +402,9 @@ prednison 40mg ....................40mg D1-D4
         print(ordo+1,""". manitol 10% 250ml iv""")
         print(ordo+2,""". prednison 40mg tbl p.o. """)
         
-        
-        
     else:
         print(ordo,""". manitol 10% 250ml iv""")
         print(ordo+1,""". prednison 40mg tbl p.o. """)
-        
-    Ending() 
     
 
              
@@ -505,7 +475,7 @@ k) TD-M1\n"""))
     elif brs=="j":
         Chemo(rbodysurf,"pegdoxo.json")
     elif brs=="k":
-        ChemoMass(weight,"TDM1.json")
+        Chemo(rbodysurf,"TDM1.json")
     else:   
         print("""Musite zadat a-k!""")
         breast(rbodysurf)
@@ -560,7 +530,7 @@ k)irinotecan
 l)FOLFIRINOX\n"""))
     
     if crc=="a":
-        Chemo5FU(rbodysurf,"FOLFOX.json")
+        Chemo5FU(rbodysurf,"data/FOLFOX.json")
     elif crc=="b":
         Chemo5FU(rbodysurf,"FOLFIRI.json")
     elif crc=="c":

@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "peg/lip irinotecan",
+            "Name": "nanolipozomálny irinotekán (Onivyde)",
             "Dosage": 70,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -20,7 +20,7 @@
         },
         "Instructions": [
             {
-                "Name": "peg/lip irinotecan",
+                "Name": "nanolipozomálny irinotekán (Onivyde)",
                 "Inst": "v 500ml FR iv/ 90 minut"
             },
             {

@@ -16,16 +16,16 @@
     "NC": "21",
     "Day1": {
         "Premed": {
-            "Note": "Granisetron 2 mg, Dexametazon 8mg iv, Pantoprazol 40mg p.o."
+            "Note": "Palonosetron/Netupitant 300mg/0.5mg p.o., Dexametazon 4mg iv, Pantoprazol 40mg p.o."
         },
         "Instructions": [
             {
                 "Name": "adriamycin",
-                "Inst": "v 500ml FR iv"
+                "Inst": "v 250ml FR iv"
             },
             {
                 "Name": "cyklofosfamid",
-                "Inst": "v 500ml FR iv"
+                "Inst": "v 250ml FR iv"
             }
         ]
     }

@@ -1,1 +1,26 @@
-{"Chemo": [{"Name": "docetaxel", "Dosage": 100, "DosageMetric": "mg/m2", "Day": "1"}], "NC": "21", "Day1": {"Premed": {"Note": "Dexametazon 20mg iv, Dithiaden 1 amp iv, Nolpaza 1amp iv, Granisetron 2 tbl p.o."}, "Instructions": [{"Name": "docetaxel", "Inst": "- prvych 30mg v 500ml FR iv/ 45 min, nasledne zvysok na 60min"}]}}
+{
+  "Chemo": [
+    {
+      "Name": "docetaxel",
+      "Dosage": 100,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
+    }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "Dexametazon 20mg i.v., Bisulepin (Dithiaden) 1mg i.v., Pantoprazol 40mg tbl p.o., Granisetron 2mg p.o."
+    },
+    "Instructions": [
+      {
+        "Name": "docetaxel",
+        "Inst": "- prvych 30mg v 500ml FR i.v./ 45 min, nasledne zvysok na 60min"
+      },
+      {
+        "Name": "",
+        "Inst": "pegfilgrastim alebo lipegfilgrastim 6mg s.c. 24–48 hodín po dotečení chemoterapie"
+      }
+    ]
+  }
+}

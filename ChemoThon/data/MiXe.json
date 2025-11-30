@@ -1,0 +1,32 @@
+{
+    "Chemo": [
+      {
+        "Name": "Mitomycín (iba každý druhý cyklus!)",
+        "Dosage": 7,
+        "DosageMetric": "mg/m2",
+        "Day": "1"
+      },
+      {
+        "Name": "Kapecitabín",
+        "Dosage": 2000,
+        "DosageMetric": "mg/m2",
+        "Day": "1-14"
+      }
+    ],
+    "NC": 21,
+    "Day1": {
+      "Premed": {
+        "Note": "Dexametazón 8 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. / Ondansetron 8 mg v 250 ml FR i.v."
+      },
+      "Instructions": [
+        {
+          "Name": "Mitomycín (iba každý druhý cyklus!)",
+          "Inst": "v 250 ml NaCl 0,9 % i.v. počas 30 minút + 100ml FR preplach"
+        },
+        {
+          "Name": "Kapecitabín",
+          "Inst": "p.o., rozdeliť na 2 dávky denne po jedle"
+        }
+      ]
+    }
+  }

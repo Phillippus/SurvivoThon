@@ -34,6 +34,42 @@ def display_chemotherapy_details(rbodysurf, filename):
                 adjusted_dosage = round(dosage * rbodysurf, 2)
                 st.write(f"{drug_name} {adjusted_dosage} mg {instruction['Inst']}")
 
+
+def Flatdoser(rbodysurf, chemoType, chemoFlat):
+    """ Function to handle chemotherapy regimens that include flat-dose chemotherapy. """
+    chemo_json = load_json(chemoType)
+    chemo_json2 = load_json(chemoFlat)
+    
+    if chemo_json and chemo_json2:
+        regimen_name = chemoType.replace('.json', '')
+        st.write(f"### {regimen_name} Protocol")
+        
+        for chemo in chemo_json['Chemo']:
+            dosage = round(chemo['Dosage'] * rbodysurf, 2)
+            st.write(f"{chemo['Name']} {chemo['Dosage']} mg/m2 ......... {dosage} mg D {chemo['Day']}")
+        
+        for chemo in chemo_json2['Chemo']:
+            st.write(f"{chemo['Name']} (flat dose) ......... {chemo['Dosage']} mg D {chemo['Day']}")
+
+        st.write(f"                       NC {chemo_json.get('NC', 'Nie je určené')} . deň")
+        
+        # Adding a space before Day 1 section for better readability
+        st.write(" ")
+        st.write("                                     D1")
+        st.write(chemo_json['Day1']['Premed']['Note'])
+        
+        for instruction in chemo_json['Day1']['Instructions']:
+            drug_name = instruction['Name']
+            dosage = next((item['Dosage'] for item in chemo_json['Chemo'] if item['Name'] == drug_name), None)
+            if dosage:
+                adjusted_dosage = round(dosage * rbodysurf, 2)
+                st.write(f"{drug_name} {adjusted_dosage} mg {instruction['Inst']}")
+        
+        for instruction in chemo_json2['Day1']['Instructions']:
+            flat_dose = next((item['Dosage'] for item in chemo_json2['Chemo'] if item['Name'] == instruction['Name']), None)
+            if flat_dose:
+                st.write(f"{instruction['Name']} (flat dose): {flat_dose} mg {instruction['Inst']}")
+
 def DHAP(rbodysurf):
     """ Špecifická funkcia pre chemoterapeutický režim DHAP. """
     DDP = round(rbodysurf * 100, 2)
@@ -56,73 +92,36 @@ def DHAP(rbodysurf):
     if iremnant > 0:
         st.write(f"{ordo}. cisplatina {iremnant} mg v 500ml RR iv")
         st.write(f"{ordo + 1}. manitol 10% 250ml iv")
-        st.write(f"{ordo + 2}. prednison 40mg tableta p.o.")
+        st.write(f"{ordo + 2}. dexametazon 40mg tableta p.o.")
     else:
         st.write(f"{ordo}. manitol 10% 250ml iv")
         st.write(f"{ordo + 1}. dexametazon 40mg tableta p.o.")
-
-def Flatdoser(rbodysurf, chemoType, chemoFlat):
-    """ Function to handle chemotherapy regimens that include flat-dose chemotherapy. """
-    chemo_json = load_json(chemoType)
-    chemo_json2 = load_json(chemoFlat)
-    
-    if chemo_json and chemo_json2:
-        regimen_name = chemoType.replace('.json', '')
-        st.write(f"### {regimen_name} Protocol")
-        
-        # Displaying chemotherapy details with calculated dosages
-        for chemo in chemo_json['Chemo']:
-            dosage = round(chemo['Dosage'] * rbodysurf, 2)
-            st.write(f"{chemo['Name']} {chemo['Dosage']} mg/m2 ......... {dosage} mg D {chemo['Day']}")
-        
-        # Displaying flat dose chemotherapy separately
-        for chemo in chemo_json2['Chemo']:
-            st.write(f"{chemo['Name']} (flat dose) ......... {chemo['Dosage']} mg D {chemo['Day']}")
-
-        st.write(f"                       NC {chemo_json.get('NC', 'Nie je určené')} . deň")
-        st.write(" ")
-        st.write("                                     D1")
-        st.write(chemo_json['Day1']['Premed']['Note'])
-        
-        # Combine Day 1 instructions from both chemotherapy types, ensuring doses are shown for flat dosages
-        for instruction in chemo_json['Day1']['Instructions']:
-            drug_name = instruction['Name']
-            dosage = next((item['Dosage'] for item in chemo_json['Chemo'] if item['Name'] == drug_name), None)
-            if dosage:
-                adjusted_dosage = round(dosage * rbodysurf, 2)
-                st.write(f"{drug_name} {adjusted_dosage} mg {instruction['Inst']}")
-        
-        for instruction in chemo_json2['Day1']['Instructions']:
-            # Ensure flat dose is clearly displayed with the administration instruction
-            flat_dose = next((item['Dosage'] for item in chemo_json2['Chemo'] if item['Name'] == instruction['Name']), None)
-            if flat_dose:
-                st.write(f"{instruction['Name']} (flat dose): {flat_dose} mg {instruction['Inst']}")
-
-
-
 
 def calculate_bsa(weight, height):
     """ Vypočíta telesný povrch pomocou vzorca DuBois. """
     return round((weight**0.425) * (height**0.725) * 0.007184, 2)
 
+
 def main():
     """Main function to run the Streamlit app."""
-    st.title("ChemoThon HematologySK v. 2.0")
-    st.write("""-------------------- Vitajte v programe ChemoThon !-------------------""")
-    st.write("""Program rozpisuje najbežnejšie chemoterapie podľa povrchu alebo hmotnosti.
-Dávky je nutné upraviť podľa aktuálne dostupných balení liečiv.
-Autor nezodpovedá za prípadné škody spôsobené jeho použitím!
-Pripomienky a požiadavky na úpravy posielajte na filip.kohutek@fntn.sk""")
-    weight = st.sidebar.number_input("Zadajte hmotnosť (kg):", min_value=1, max_value=250, value=70, step=1)
-    height = st.sidebar.number_input("Zadajte výšku (cm):", min_value=1, max_value=250, value=170, step=1)
+    st.title("ChemoThon - HematologySK v. 2.0")
+    st.write(" ")
+    st.write("         Vitajte v programe ChemoThon!")
+    st.write("""Program rozpisuje najbežnejšie chemoterapie podľa povrchu alebo hmotnosti. 
+    Najskôr si vypočítajte BSA a potom sa Vám sprístupní tlačidlo pre výpočet chemoterapie.
+    Dávky je nutné upraviť podľa aktuálne dostupných balení liečiv.
+    Autor nezodpovedá za prípadné škody spôsobené jeho použitím!
+    Pripomienky a požiadavky na úpravu posielajte na filip.kohutek@fntn.sk""")
+
+    weight = st.number_input("Zadajte hmotnosť (kg):", min_value=1, max_value=250, value=70, step=1)
+    height = st.number_input("Zadajte výšku (cm):", min_value=1, max_value=250, value=170, step=1)
     
-    if st.sidebar.button("Vypočítať BSA"):
+    if st.button("Vypočítať BSA"):
         rbodysurf = calculate_bsa(weight, height)
         st.session_state['rbodysurf'] = rbodysurf
-        st.sidebar.write(f"Vypočítaný telesný povrch (BSA): {rbodysurf} m²")
-    
+
     if 'rbodysurf' in st.session_state:
-        st.write(f"Calculated Body Surface Area (BSA): {st.session_state['rbodysurf']} m²")  # Display BSA persistently
+        st.write(f"Vypočítaný telesný povrch (BSA): {st.session_state['rbodysurf']} m²")  # Display BSA persistently
 
     chemo_options = {
         "ABVD": ("ABVD.json", None),

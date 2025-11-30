@@ -1,0 +1,42 @@
+{
+    "Chemo": [
+        {
+            "Name": "oxaliplatina",
+            "Dosage": 60,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "nanolipozomálny irinotekán (Onivyde)",
+            "Dosage": 50,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "leukovorin",
+            "Dosage": 400,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv/ Granisetron 2mg p.o.,(Atropin 0.2mg sc)"
+        },
+        "Instructions": [
+            {
+                "Name": "oxaliplatina",
+                "Inst": "v 500ml 5%GLC iv"
+            },
+            {
+                "Name": "nanolipozomálny irinotekán (Onivyde)",
+                "Inst": "v 500ml FR iv"
+            },
+            {
+                "Name": "leukovorin",
+                "Inst": "v 500ml FR iv"
+            }
+        ]
+    }
+}

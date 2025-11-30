@@ -3,19 +3,19 @@
         {
             "Name": "TD-M1",
             "Dosage": 3.6,
-            "DosageMetric": "mg/m2",
+            "DosageMetric": "mg/kg",
             "Day": "1"
         }
     ],
     "NC": "22",
     "Day1": {
         "Premed": {
-            "Note": "Granisetron 2mg p.o., "
+            "Note": "Granisetron 2mg p.o., Dexametazon 8mg i.v., Pantoprazol 40mg p.o. "
         },
         "Instructions": [
             {
                 "Name": "TD-M1",
-                "Inst": "v 250ml FR /90 min iv"
+                "Inst": "v 500ml FR /90 min iv"
             }
         ]
     }

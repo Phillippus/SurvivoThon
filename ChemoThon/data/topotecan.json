@@ -4,18 +4,18 @@
             "Name": "Topotecan",
             "Dosage": 1,
             "DosageMetric": "mg/m2",
-            "Day": "1"
+            "Day": "1-5"
         }
     ],
     "NC": "21",
     "Day1": {
         "Premed": {
-            "Note": "Granisetron 2mg p.o./ Ondasetron 8mg v 250ml FR iv,"
+            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Granisetron 2mg p.o./ Ondasetron 8mg v 250ml FR iv,"
         },
         "Instructions": [
             {
                 "Name": "Topotecan",
-                "Inst": "v 500 ml FR iv"
+                "Inst": "v 500 ml FR iv,   24 hodín po dotečení posledného dňa pegfilgrastim 6mg sc/ lipegfilgrastim 6mg sc"
             }
         ]
     }

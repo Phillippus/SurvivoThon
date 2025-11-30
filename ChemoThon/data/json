@@ -1,0 +1,22 @@
+{
+  "Chemo": [
+    {
+      "Name": "capecitabine",
+      "Dosage": 3000,
+      "DosageMetric": "mg",
+      "Day": "1-7"
+    }
+  ],
+  "NC": "14",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie, podáva sa perorálne"
+    },
+    "Instructions": [
+      {
+        "Name": "capecitabine",
+        "Inst": "3000 mg denne p.o. rozdelené do dvoch dávok počas 7 dní, potom 7 dní pauza (opakovať každých 14 dní)"
+      }
+    ]
+  }
+}
