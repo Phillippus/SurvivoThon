@@ -807,7 +807,7 @@ def create_excel_report(dates, data_grid, all_doctors, motto, config):
 # --- UI ---
 
 st.set_page_config(page_title="Rozpis FN Trenčín", layout="wide")
-st.title("🏥 Rozpis služieb - Onkologická klinika FN Trenčín")
+st.title("🏥 Rozpis prác - Onkologická klinika FN Trenčín")
 
 if 'config' not in st.session_state:
     st.session_state.config = load_config()
