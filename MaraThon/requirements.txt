@@ -1,5 +1,6 @@
 streamlit
 pandas
 requests
-ics
 openpyxl
+reportlab
+google-generativeai
