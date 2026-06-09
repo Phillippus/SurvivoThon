@@ -1,0 +1,6 @@
+GU+Hem: opravy protokolov podla aktualnych guidelines
+
+GU: cabazitaxel 20mg/m2, cisplatina GC 70mg/m2, vinflunin PS selekcia,
+    NC opravy flatprednison suborov
+Hem: pridane R-CHOP, R-miniCHOP, R-CVP, BR, R-DHAP, R-Gemox, GDP,
+     oprava CHOP NC, fix DHAP.json kluce

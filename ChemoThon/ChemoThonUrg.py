@@ -35,7 +35,7 @@ def ChemoDDP(rbodysurf, chemoType):
     with open('data/' + chemoType, "r") as chemoFile:
         chemoJson = json.loads(chemoFile.read())
     
-    st.write(f"DDP 80mg/m2................ {80 * rbodysurf} mg  D1")
+    st.write(f"DDP 70mg/m2................ {70 * rbodysurf} mg  D1")
     for i in chemoJson["Chemo"]:
         st.write(f"{i['Name']} {i['Dosage']} {i['DosageMetric']} ..... {round(i['Dosage'] * rbodysurf, 2)} mg D{i['Day']}")
     
@@ -152,7 +152,11 @@ def urogenital(rbodysurf):
         elif Ptdecis == "Karboplatina":
             ChemoCBDCA(rbodysurf, "gemcitabin4w.json")
     elif chemo_choice == "Vinflunin":
-        Chemo(rbodysurf, "vinflunine.json")
+        vinflu_ps = st.selectbox("PS pacienta / predchádzajúca panvová RT?", ["Vyberte", "PS 0, bez panvovej RT (320 mg/m²)", "PS 1 alebo predchádzajúca panvová RT (280 mg/m²)"])
+        if vinflu_ps == "PS 0, bez panvovej RT (320 mg/m²)":
+            Chemo(rbodysurf, "vinflunine.json")
+        elif vinflu_ps == "PS 1 alebo predchádzajúca panvová RT (280 mg/m²)":
+            Chemo(rbodysurf, "vinflunine280.json")
     elif chemo_choice == "BEP":
         Flatdoser(rbodysurf, "BEP.json", "flatbleomycin.json")
 

@@ -1,0 +1,14 @@
+{
+    "Chemo": [
+        {"Name": "gemcitabin", "Dosage": 1000, "DosageMetric": "mg/m2", "Day": "1,8"},
+        {"Name": "cisplatina", "Dosage": 75, "DosageMetric": "mg/m2", "Day": "1"}
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {"Note": "Granisetron 2mg p.o., Dexametazon 8mg iv, Pantoprazol 40mg p.o. | Dexametazon 40mg p.o. D1-4 (pozri flatdexametazon)"},
+        "Instructions": [
+            {"Name": "gemcitabin", "Inst": "v 500ml FR iv/ 30min (D1 a D8)"},
+            {"Name": "cisplatina", "Inst": "rozdelit po 50mg v 500ml RR iv, po podani Manitol 10% 250ml iv"}
+        ]
+    }
+}
