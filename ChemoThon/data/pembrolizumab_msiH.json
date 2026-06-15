@@ -1,24 +1,25 @@
 {
-  "_source": "André T et al. NEJM 2020;383:2207 (KEYNOTE-177); SmPC Keytruda",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "pembrolizumab",
-      "Dosage": 200,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "André T et al. NEJM 2020;383:2207 (KEYNOTE-177); SmPC Keytruda",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "pembrolizumab",
+            "Dosage": 200,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Evidence": "Indikácia: dMMR/MSI-H mCRC — 1. línia monoterapia alebo po chemoterapii.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez rutinnej premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "pembrolizumab",
+                "Inst": "v 100 ml FR i.v. počas 30 min. Alternatíva: 400 mg q6w — pozri Immunotherapy.json."
+            }
+        ]
     }
-  ],
-  "NC": "21",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez rutinnej premedikácie. Indikácia: dMMR/MSI-H mCRC — 1. línia monoterapia alebo po chemoterapii."
-    },
-    "Instructions": [
-      {
-        "Name": "pembrolizumab",
-        "Inst": "v 100 ml FR i.v. počas 30 min. Alternatíva: 400 mg q6w — pozri Immunotherapy.json."
-      }
-    ]
-  }
 }

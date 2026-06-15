@@ -1,24 +1,25 @@
 {
-  "_source": "Janjigian YY et al. Lancet 2021;398:27 (CheckMate-649); Moehler M et al. NEJM Evid 2024 (upd.); SmPC Opdivo",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "nivolumab",
-      "Dosage": 360,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "Janjigian YY et al. Lancet 2021;398:27 (CheckMate-649); Moehler M et al. NEJM Evid 2024 (upd.); SmPC Opdivo",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "nivolumab",
+            "Dosage": 360,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Evidence": "Indikácia: HER2- gastric/GEJ adenokarcinóm, CPS≥5, 1. línia + FOLFOX/CAPOX.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez rutinnej premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "nivolumab",
+                "Inst": "v 250 ml FR i.v. počas 30 min D1 každé 3 týždne súbežne s chemoterapiou"
+            }
+        ]
     }
-  ],
-  "NC": "21",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez rutinnej premedikácie. Indikácia: HER2- gastric/GEJ adenokarcinóm, CPS≥5, 1. línia + FOLFOX/CAPOX."
-    },
-    "Instructions": [
-      {
-        "Name": "nivolumab",
-        "Inst": "v 250 ml FR i.v. počas 30 min D1 každé 3 týždne súbežne s chemoterapiou"
-      }
-    ]
-  }
 }

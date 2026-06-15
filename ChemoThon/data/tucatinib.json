@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: HER2+ mBC po ≥1 línii anti-HER2 (HER2CLIMB). Kapecitabín: 1000 mg/m2 2×denne D1-14, tucatinib: 300 mg 2×denne kontinuálne D1-21.",
     "Day1": {
         "Premed": {
-            "Note": "Bez premedikácie. V kombinácii s trastuzumabom iv/sc (podať podľa zvoleného schémy q3w). Indikácia: HER2+ mBC po ≥1 línii anti-HER2 (HER2CLIMB). Kapecitabín: 1000 mg/m2 2×denne D1-14, tucatinib: 300 mg 2×denne kontinuálne D1-21."
+            "Note": "Bez premedikácie. V kombinácii s trastuzumabom iv/sc (podať podľa zvoleného schémy q3w)."
         },
         "Instructions": [
             {

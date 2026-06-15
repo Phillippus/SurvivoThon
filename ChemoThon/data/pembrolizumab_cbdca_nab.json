@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: skvamózny NSCLC, 1. línia. Pridať CBDCA AUC6 D1 (v app).",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazón 8 mg i.v. (pre nab-pac, nie pre pembrolizumab), Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. Indikácia: skvamózny NSCLC, 1. línia. Pridať CBDCA AUC6 D1 (v app)."
+            "Note": "Dexametazón 8 mg i.v. (pre nab-pac, nie pre pembrolizumab), Pantoprazol 40 mg p.o., Granisetron 2 mg p.o."
         },
         "Instructions": [
             {

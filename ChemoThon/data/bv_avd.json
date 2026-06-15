@@ -28,9 +28,10 @@
         }
     ],
     "NC": "28",
+    "Evidence": "Indikácia: Hodgkinov lymfóm štádium III/IV, 1. línia.",
     "Day1": {
         "Premed": {
-            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. G-CSF profylaxia povinná (ECHELON-1). Indikácia: Hodgkinov lymfóm štádium III/IV, 1. línia."
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. G-CSF profylaxia povinná (ECHELON-1)."
         },
         "Instructions": [
             {

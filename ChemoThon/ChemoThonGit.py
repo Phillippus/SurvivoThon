@@ -114,6 +114,7 @@ def gastrointestinal(rbodysurf, weight=None):
                     st.write("cisplatina 50mg v 250ml FR i.v./60 min D8")
                 if ddp_rem > 0:
                     st.write(f"cisplatina {ddp_rem} mg v 250ml FR i.v./60 min D8")
+                show_evidence(bl)
             elif pt_biliary == "Karboplatina AUC 5 D1":
                 CrCl_b = st.number_input("Clearance (ml/min):", min_value=1, max_value=250, value=None, key="crcl_biliary")
                 gem_dose = round(1000 * rbodysurf, 2)
@@ -128,6 +129,7 @@ def gastrointestinal(rbodysurf, weight=None):
                     st.write(bl["Day1"]["Premed"]["Note"])
                     st.write(f"karboplatina {cbdca_dose} mg v 500ml FR i.v./60 min D1")
                     st.write(f"gemcitabin {gem_dose} mg v 500ml FR i.v./30 min D1, D8")
+                    show_evidence(bl)
         elif chemo_choice == "Platina + Kapecitabín + Trastuzumab (HER2+ gastric, ToGA)":
             pt_her2 = st.selectbox("Ktorá platina?", ["Vyberte", "Cisplatina 80 mg/m2 D1", "Karboplatina AUC 5-6 D1", "Oxaliplatina 130 mg/m2 D1 (switch z DDP)"], key="pt_her2")
             # Výpočet dávky trastuzumabu z hmotnosti (8 mg/kg 1. dávka, 6 mg/kg ďalšie)

@@ -10,9 +10,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: platina-rezistentný ovariálny karcinóm (PROC), FRα pozitívny (PS2+). Hmotnosť: použiť ABW (adjusted body weight) ak BMI >25.",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazón 4 mg i.v. + Antihistaminikum (Bisulepin 1 mg i.v.) + Paracetamol 1000 mg p.o. Indikácia: platina-rezistentný ovariálny karcinóm (PROC), FRα pozitívny (PS2+). Hmotnosť: použiť ABW (adjusted body weight) ak BMI >25."
+            "Note": "Dexametazón 4 mg i.v. + Antihistaminikum (Bisulepin 1 mg i.v.) + Paracetamol 1000 mg p.o."
         },
         "Instructions": [
             {

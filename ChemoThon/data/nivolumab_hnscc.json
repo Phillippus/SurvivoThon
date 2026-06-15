@@ -1,24 +1,25 @@
 {
-  "_source": "Ferris RL et al. NEJM 2016;375:1856 (CheckMate-141); SmPC Opdivo",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "nivolumab",
-      "Dosage": 240,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "Ferris RL et al. NEJM 2016;375:1856 (CheckMate-141); SmPC Opdivo",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "nivolumab",
+            "Dosage": 240,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Evidence": "Indikácia: R/M HNSCC, platinum-refrakterné.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez rutinnej premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "nivolumab",
+                "Inst": "v 250 ml FR i.v./30 min. Alternatíva: 480 mg q4w."
+            }
+        ]
     }
-  ],
-  "NC": "14",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez rutinnej premedikácie. Indikácia: R/M HNSCC, platinum-refrakterné."
-    },
-    "Instructions": [
-      {
-        "Name": "nivolumab",
-        "Inst": "v 250 ml FR i.v./30 min. Alternatíva: 480 mg q4w."
-      }
-    ]
-  }
 }

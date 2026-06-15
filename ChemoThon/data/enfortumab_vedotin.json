@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: metastatický urotelový karcinóm, 1. línia. Pozor: neuropatia, kožná toxicita (SJS/TEN — stop pri G≥2), DM.",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazón 12 mg i.v., Bisulepin 1 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. Indikácia: metastatický urotelový karcinóm, 1. línia. Pozor: neuropatia, kožná toxicita (SJS/TEN — stop pri G≥2), DM."
+            "Note": "Dexametazón 12 mg i.v., Bisulepin 1 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o."
         },
         "Instructions": [
             {

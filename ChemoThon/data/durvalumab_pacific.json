@@ -1,24 +1,25 @@
 {
-  "_source": "Antonia SJ et al. NEJM 2017;377:1919 (PACIFIC); SmPC Imfinzi",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "durvalumab",
-      "Dosage": 1500,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "Antonia SJ et al. NEJM 2017;377:1919 (PACIFIC); SmPC Imfinzi",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "durvalumab",
+            "Dosage": 1500,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "28",
+    "Evidence": "Indikácia: lokálne pokročilý neskvamózny/skvamózny NSCLC (štádium III), bez progresie po konkomitantnej chemorádioterapii. Začať do 42 dní po RT. Maximálne 12 mesiacov.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez rutinnej premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "durvalumab",
+                "Inst": "v 250 ml FR i.v. počas 60 min. (Alternatíva: 10 mg/kg q2w)"
+            }
+        ]
     }
-  ],
-  "NC": "28",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez rutinnej premedikácie. Indikácia: lokálne pokročilý neskvamózny/skvamózny NSCLC (štádium III), bez progresie po konkomitantnej chemorádioterapii. Začať do 42 dní po RT. Maximálne 12 mesiacov."
-    },
-    "Instructions": [
-      {
-        "Name": "durvalumab",
-        "Inst": "v 250 ml FR i.v. počas 60 min. (Alternatíva: 10 mg/kg q2w)"
-      }
-    ]
-  }
 }

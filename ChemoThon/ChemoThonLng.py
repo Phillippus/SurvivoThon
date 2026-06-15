@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP
+from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP, show_evidence
 
 def lung(rbodysurf):
     """Tato funkcia ponuka chemoterapie pouzivane v liecbe karcinomu pluc"""
@@ -59,6 +59,7 @@ def lung(rbodysurf):
                     st.write(f"cisplatina {round(c, 2)} mg v 500ml RR i.v.")
                 st.write("Manitol 10% 250ml i.v.")
                 st.write(f"vinorelbin {vin_dose} mg v 125ml FR i.v./10 min D1, D8")
+                show_evidence(vn)
             elif pt_adj == "Karboplatina AUC 5-6 D1 (alternatíva)":
                 CrCl_a = st.number_input("Clearance (ml/min):", min_value=1, max_value=250, value=None, key="crcl_adj")
                 AUC_a = st.number_input("AUC (5 alebo 6):", min_value=4, max_value=6, value=5, key="auc_adj")
@@ -74,6 +75,7 @@ def lung(rbodysurf):
                     st.write(vn["Day1"]["Premed"]["Note"])
                     st.write(f"karboplatina {cbdca_dose} mg v 500ml FR i.v./60 min")
                     st.write(f"vinorelbin {vin_dose} mg v 125ml FR i.v./10 min D1, D8")
+                    show_evidence(vn)
         elif lng == "Atezolizumab + Etoposid + CBDCA (SCLC 1. línia, IMpower133)":
             ChemoCBDCA(rbodysurf, "atezolizumab_ep.json")
 

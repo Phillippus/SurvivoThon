@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP
+from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP, show_evidence
 
 # ChemoDDP v urogenitálnej onkológii používa 70 mg/m2 → volaj ChemoDDP(..., ddp_dose=70)
 
@@ -43,6 +43,10 @@ def Flatdoser(rbodysurf, chemoType, chemoFlat=None):
         CF = chemoJson2["Chemo"]
         for y in range(len(chemoJson2["Chemo"])):
             st.write(f"{DayF1[y]['Name']} {round(CF[y]['Dosage'], 2)} mg {DayF1[y]['Inst']}")
+
+    show_evidence(chemoJson)
+    if chemoJson2:
+        show_evidence(chemoJson2)
 
 # Main function for urogenital tumors
 def urogenital(rbodysurf):
@@ -127,6 +131,7 @@ def urogenital(rbodysurf):
             st.write(f"enfortumab vedotín {ev_dose} mg {ev['Day1']['Instructions'][0]['Inst']}")
             st.write(f"pembrolizumab {pembro_dose} mg {ev['Day1']['Instructions'][1]['Inst']}")
             st.write("D8: enfortumab vedotín bez pembrolizumabu (pembro len D1)")
+            show_evidence(ev)
         else:
             st.error("Najprv zadajte hmotnosť.")
     elif chemo_choice == "Olaparib 300 mg BID (HRR+ mCRPC, PROfound)":

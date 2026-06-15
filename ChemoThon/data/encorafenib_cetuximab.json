@@ -1,36 +1,37 @@
 {
-  "_source": "Kopetz S et al. NEJM 2019;381:1632 (BEACON CRC); Tabernero J et al. NEJM Evid 2024 (BEACON CRC2); SmPC Braftovi",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "cetuximab",
-      "Dosage": 400,
-      "DosageMetric": "mg/m2",
-      "Day": "1 (1. podanie), potom 250 mg/m2 weekly"
+    "_source": "Kopetz S et al. NEJM 2019;381:1632 (BEACON CRC); Tabernero J et al. NEJM Evid 2024 (BEACON CRC2); SmPC Braftovi",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "cetuximab",
+            "Dosage": 400,
+            "DosageMetric": "mg/m2",
+            "Day": "1 (1. podanie), potom 250 mg/m2 weekly"
+        }
+    ],
+    "FlatChemo": [
+        {
+            "Name": "encorafenib",
+            "Dosage": 300,
+            "DosageMetric": "mg flat dose (p.o. denne)",
+            "Day": "1-28"
+        }
+    ],
+    "NC": "14",
+    "Evidence": "Indikácia: mCRC BRAF V600E, po ≥1 línii liečby.",
+    "Day1": {
+        "Premed": {
+            "Note": "Pre cetuximab: Dexametazón 20 mg i.v., Bisulepin 1 mg i.v. (1. podanie)."
+        },
+        "Instructions": [
+            {
+                "Name": "cetuximab",
+                "Inst": "1. podanie 400 mg/m2 v 500 ml FR i.v./2 h; ďalej 250 mg/m2 weekly v 500 ml FR i.v./60 min (alebo 500 mg/m2 biweekly)"
+            },
+            {
+                "Name": "encorafenib",
+                "Inst": "300 mg p.o. 1× denne kontinuálne s jedlom alebo bez"
+            }
+        ]
     }
-  ],
-  "FlatChemo": [
-    {
-      "Name": "encorafenib",
-      "Dosage": 300,
-      "DosageMetric": "mg flat dose (p.o. denne)",
-      "Day": "1-28"
-    }
-  ],
-  "NC": "14",
-  "Day1": {
-    "Premed": {
-      "Note": "Pre cetuximab: Dexametazón 20 mg i.v., Bisulepin 1 mg i.v. (1. podanie). Indikácia: mCRC BRAF V600E, po ≥1 línii liečby."
-    },
-    "Instructions": [
-      {
-        "Name": "cetuximab",
-        "Inst": "1. podanie 400 mg/m2 v 500 ml FR i.v./2 h; ďalej 250 mg/m2 weekly v 500 ml FR i.v./60 min (alebo 500 mg/m2 biweekly)"
-      },
-      {
-        "Name": "encorafenib",
-        "Inst": "300 mg p.o. 1× denne kontinuálne s jedlom alebo bez"
-      }
-    ]
-  }
 }

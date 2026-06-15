@@ -1,34 +1,35 @@
 {
-  "_source": "Gandhi L et al. NEJM 2018;378:2078 (KEYNOTE-189); SmPC Keytruda",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "pemetrexed",
-      "Dosage": 500,
-      "DosageMetric": "mg/m2",
-      "Day": "1"
-    },
-    {
-      "Name": "pembrolizumab",
-      "Dosage": 200,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "Gandhi L et al. NEJM 2018;378:2078 (KEYNOTE-189); SmPC Keytruda",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "pemetrexed",
+            "Dosage": 500,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "pembrolizumab",
+            "Dosage": 200,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Evidence": "Indikácia: neskvamózny NSCLC, 1. línia (bez EGFR/ALK). Pridať CBDCA AUC5 D1 (v app).",
+    "Day1": {
+        "Premed": {
+            "Note": "POVINNÁ B12/FOLÁT suplementácia (viď pemetrexed.json). Palonosetron/Netupitant p.o., Dexametazón 4 mg i.v., Pantoprazol 40 mg p.o. Bez premedikácie pre pembrolizumab."
+        },
+        "Instructions": [
+            {
+                "Name": "pemetrexed",
+                "Inst": "v 100 ml FR i.v./10 min"
+            },
+            {
+                "Name": "pembrolizumab",
+                "Inst": "v 100 ml FR i.v./30 min. Udržiavacia liečba: pembro 200 mg + pemetrexed 500 mg/m2 každé 3 týždne do 2 rokov"
+            }
+        ]
     }
-  ],
-  "NC": "21",
-  "Day1": {
-    "Premed": {
-      "Note": "POVINNÁ B12/FOLÁT suplementácia (viď pemetrexed.json). Palonosetron/Netupitant p.o., Dexametazón 4 mg i.v., Pantoprazol 40 mg p.o. Bez premedikácie pre pembrolizumab. Indikácia: neskvamózny NSCLC, 1. línia (bez EGFR/ALK). Pridať CBDCA AUC5 D1 (v app)."
-    },
-    "Instructions": [
-      {
-        "Name": "pemetrexed",
-        "Inst": "v 100 ml FR i.v./10 min"
-      },
-      {
-        "Name": "pembrolizumab",
-        "Inst": "v 100 ml FR i.v./30 min. Udržiavacia liečba: pembro 200 mg + pemetrexed 500 mg/m2 každé 3 týždne do 2 rokov"
-      }
-    ]
-  }
 }

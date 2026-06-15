@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: SCLC 1. línia. Pridať CBDCA AUC5 alebo DDP 75 mg/m2 D1 (v app). Udržiavanie: atezolizumab 1200 mg q3w.",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazón 8 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. / Ondansetron 8 mg i.v. Bez premedikácie pre atezolizumab. Indikácia: SCLC 1. línia. Pridať CBDCA AUC5 alebo DDP 75 mg/m2 D1 (v app). Udržiavanie: atezolizumab 1200 mg q3w."
+            "Note": "Dexametazón 8 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. / Ondansetron 8 mg i.v. Bez premedikácie pre atezolizumab."
         },
         "Instructions": [
             {

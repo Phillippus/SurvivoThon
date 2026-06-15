@@ -1,24 +1,25 @@
 {
-  "_source": "Shitara K et al. NEJM 2020;382:2419 (DESTINY-Gastric01); Van Cutsem E et al. Nat Med 2023 (DESTINY-Gastric02); SmPC Enhertu",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "trastuzumab-deruxtecan (gastric)",
-      "Dosage": 6.4,
-      "DosageMetric": "mg/kg",
-      "Day": "1"
+    "_source": "Shitara K et al. NEJM 2020;382:2419 (DESTINY-Gastric01); Van Cutsem E et al. Nat Med 2023 (DESTINY-Gastric02); SmPC Enhertu",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "trastuzumab-deruxtecan (gastric)",
+            "Dosage": 6.4,
+            "DosageMetric": "mg/kg",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Evidence": "Indikácia: HER2+ (IHC3+ alebo IHC2+/ISH+) gastric/GEJ, ≥2 predch. línie vrátane trastuzumabu.",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron/Netupitant 300/0.5 mg p.o., Dexametazón 12 mg i.v., Pantoprazol 40 mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "trastuzumab-deruxtecan (gastric)",
+                "Inst": "v 500 ml FR i.v. počas 90 min (1. infúzia); 30 min (ďalšie ak tolerované). Pozor: intersticiálna choroba pľúc — monitorovať."
+            }
+        ]
     }
-  ],
-  "NC": "21",
-  "Day1": {
-    "Premed": {
-      "Note": "Palonosetron/Netupitant 300/0.5 mg p.o., Dexametazón 12 mg i.v., Pantoprazol 40 mg p.o. Indikácia: HER2+ (IHC3+ alebo IHC2+/ISH+) gastric/GEJ, ≥2 predch. línie vrátane trastuzumabu."
-    },
-    "Instructions": [
-      {
-        "Name": "trastuzumab-deruxtecan (gastric)",
-        "Inst": "v 500 ml FR i.v. počas 90 min (1. infúzia); 30 min (ďalšie ak tolerované). Pozor: intersticiálna choroba pľúc — monitorovať."
-      }
-    ]
-  }
 }

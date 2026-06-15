@@ -1,24 +1,25 @@
 {
-  "_source": "Makker V et al. NEJM 2022;386:437 (KEYNOTE-775/Study 309); SmPC Kisplyx; SmPC Keytruda",
-  "_revision": "2026-06",
-  "Chemo": [
-    {
-      "Name": "lenvatinib",
-      "Dosage": 20,
-      "DosageMetric": "mg flat dose",
-      "Day": "1-28 (denne, kontinuálne)"
+    "_source": "Makker V et al. NEJM 2022;386:437 (KEYNOTE-775/Study 309); SmPC Kisplyx; SmPC Keytruda",
+    "_revision": "2026-06",
+    "Chemo": [
+        {
+            "Name": "lenvatinib",
+            "Dosage": 20,
+            "DosageMetric": "mg flat dose",
+            "Day": "1-28 (denne, kontinuálne)"
+        }
+    ],
+    "NC": "21",
+    "Evidence": "Indikácia: pokročilý endometriálny karcinóm (bez MSI-H/dMMR), po predchádzajúcej chemoterapii (KEYNOTE-775).",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez premedikácie. V kombinácii s pembrolizumabom 200 mg q3w iv (SmPC)."
+        },
+        "Instructions": [
+            {
+                "Name": "lenvatinib",
+                "Inst": "p.o. 1× denne kontinuálne D1-28. Redukcia pri toxicite: 14 mg → 10 mg → 8 mg (SmPC)."
+            }
+        ]
     }
-  ],
-  "NC": "21",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez premedikácie. V kombinácii s pembrolizumabom 200 mg q3w iv (SmPC). Indikácia: pokročilý endometriálny karcinóm (bez MSI-H/dMMR), po predchádzajúcej chemoterapii (KEYNOTE-775)."
-    },
-    "Instructions": [
-      {
-        "Name": "lenvatinib",
-        "Inst": "p.o. 1× denne kontinuálne D1-28. Redukcia pri toxicite: 14 mg → 10 mg → 8 mg (SmPC)."
-      }
-    ]
-  }
 }

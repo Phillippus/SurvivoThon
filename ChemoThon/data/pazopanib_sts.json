@@ -1,24 +1,25 @@
 {
-  "_source": "Van der Graaf WT et al. Lancet 2012;379:1879 (PALETTE); SmPC Votrient",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "pazopanib",
-      "Dosage": 800,
-      "DosageMetric": "mg flat dose",
-      "Day": "1 (denne kontinuálne)"
+    "_source": "Van der Graaf WT et al. Lancet 2012;379:1879 (PALETTE); SmPC Votrient",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "pazopanib",
+            "Dosage": 800,
+            "DosageMetric": "mg flat dose",
+            "Day": "1 (denne kontinuálne)"
+        }
+    ],
+    "NC": "28",
+    "Evidence": "Indikácia: pokročilé STS (okrem GIST, liposarkómu, rhabdomyosarkómu), po ≥1 línii chemoterapie. Monitoring: LFT pred liečbou a pravidelne, TK, tyreoidy, EKG.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "pazopanib",
+                "Inst": "p.o. 1× denne NALAČNO (aspoň 1h pred alebo 2h po jedle). Redukcia pri toxicite: 600 mg → 400 mg."
+            }
+        ]
     }
-  ],
-  "NC": "28",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez premedikácie. Indikácia: pokročilé STS (okrem GIST, liposarkómu, rhabdomyosarkómu), po ≥1 línii chemoterapie. Monitoring: LFT pred liečbou a pravidelne, TK, tyreoidy, EKG."
-    },
-    "Instructions": [
-      {
-        "Name": "pazopanib",
-        "Inst": "p.o. 1× denne NALAČNO (aspoň 1h pred alebo 2h po jedle). Redukcia pri toxicite: 600 mg → 400 mg."
-      }
-    ]
-  }
 }

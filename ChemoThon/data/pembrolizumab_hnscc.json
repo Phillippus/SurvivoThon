@@ -1,24 +1,25 @@
 {
-  "_source": "Burtness B et al. Lancet 2019;394:1915 (KEYNOTE-048); SmPC Keytruda",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "pembrolizumab",
-      "Dosage": 200,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "Burtness B et al. Lancet 2019;394:1915 (KEYNOTE-048); SmPC Keytruda",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "pembrolizumab",
+            "Dosage": 200,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Evidence": "Indikácia: R/M HNSCC, 1. línia (CPS≥1 monoterapia; CPS≥20 preferovaná monoterapia; všetky CPS pembro+plat+5-FU).",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez rutinnej premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "pembrolizumab",
+                "Inst": "v 100 ml FR i.v./30 min"
+            }
+        ]
     }
-  ],
-  "NC": "21",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez rutinnej premedikácie. Indikácia: R/M HNSCC, 1. línia (CPS≥1 monoterapia; CPS≥20 preferovaná monoterapia; všetky CPS pembro+plat+5-FU)."
-    },
-    "Instructions": [
-      {
-        "Name": "pembrolizumab",
-        "Inst": "v 100 ml FR i.v./30 min"
-      }
-    ]
-  }
 }

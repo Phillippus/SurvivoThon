@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa as calculate_bsa, load_json, Chemo, ChemoMass, Chemo5FU
+from chemo_utils import bsa as calculate_bsa, load_json, Chemo, ChemoMass, Chemo5FU, show_evidence
 
 
 def main():
@@ -75,14 +75,17 @@ def main():
             st.write("D1 - chemoterapia:")
             st.write(f"encorafenib 300 mg p.o. 1× denne kontinuálne")
             st.write(f"cetuximab {ctx_dose} mg – prvých 100 mg v 500ml FR iv/60 min, zvyšok v 500ml FR iv/90 min")
+            show_evidence(enc)
         elif option == "Fruquitinib 5 mg/deň (FRESCO-2, ≥3. línia mCRC)":
             import json as _j
             fr = _j.load(open("data/fruquitinib.json", encoding="utf-8"))
             st.write("### Fruquitinib (FRESCO-2)")
             st.write("fruquitinib 5 mg flat dose D1-21 (pauza D22-28, NC=28)")
+            st.write("D1 - premedikácia:")
             st.write(fr["Day1"]["Premed"]["Note"])
             for inst in fr["Day1"]["Instructions"]:
                 st.write(f"{inst['Name']} {inst['Inst']}")
+            show_evidence(fr)
         elif option == "Trifluridine/Tipiracil + Bevacizumab (SUNLIGHT)":
             import json as _j
             sl = _j.load(open("data/tritipi_bev.json", encoding="utf-8"))
@@ -97,6 +100,7 @@ def main():
             st.write("D1 - chemoterapia:")
             st.write(f"trifluridín/tipiracil {ttd_dose} mg {sl['Day1']['Instructions'][0]['Inst']}")
             st.write(f"bevacizumab {beva_dose} mg {sl['Day1']['Instructions'][1]['Inst']}")
+            show_evidence(sl)
         elif "Bevacizumab" in option:
             ChemoMass(weight, chemo_options[option])
         else:

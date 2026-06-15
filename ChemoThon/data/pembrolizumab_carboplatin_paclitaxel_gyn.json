@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: pokročilý alebo rekurentný endometriálny karcinóm (NRG-GY018). Pridať CBDCA AUC5 D1 (v app). Udržiavanie: pembrolizumab 200 mg q3w až do 2 rokov.",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazón 20 mg i.v., Bisulepin 1 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. Bez premedikácie pre pembrolizumab. Indikácia: pokročilý alebo rekurentný endometriálny karcinóm (NRG-GY018). Pridať CBDCA AUC5 D1 (v app). Udržiavanie: pembrolizumab 200 mg q3w až do 2 rokov."
+            "Note": "Dexametazón 20 mg i.v., Bisulepin 1 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. Bez premedikácie pre pembrolizumab."
         },
         "Instructions": [
             {

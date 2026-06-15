@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Dávkovanie: neratinib 240 mg/deň p.o. D1-21, kapecitabín 750 mg/m2 2×denne D1-14. Adjuvant (ExteNET): neratinib 240 mg/deň monoterapia, 1 rok. Indikácia: HER2+ mBC po ≥2 líniách anti-HER2 (NALA); adjuvant po trastuzumabe.",
     "Day1": {
         "Premed": {
-            "Note": "Povinná profylaxia hnačky loperamidom (D1-14 C1, potom podľa potreby). Bez inej premedikácie. Dávkovanie: neratinib 240 mg/deň p.o. D1-21, kapecitabín 750 mg/m2 2×denne D1-14. Adjuvant (ExteNET): neratinib 240 mg/deň monoterapia, 1 rok. Indikácia: HER2+ mBC po ≥2 líniách anti-HER2 (NALA); adjuvant po trastuzumabe."
+            "Note": "Povinná profylaxia hnačky loperamidom (D1-14 C1, potom podľa potreby). Bez inej premedikácie."
         },
         "Instructions": [
             {

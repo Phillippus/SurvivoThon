@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa as calculate_bsa, load_json
+from chemo_utils import bsa as calculate_bsa, load_json, show_evidence
 
 def display_chemotherapy_details(rbodysurf, chemoType, weight):
     """Displays detailed information about the chemotherapy regimen using body surface area or weight."""
@@ -11,7 +11,7 @@ def display_chemotherapy_details(rbodysurf, chemoType, weight):
         for chemo in chemoJson["Chemo"]:
             # Fixed dose for X7/7, trastuzumabsc, and pertuzumab combo fixed-dose
             if chemoType in ["capecitabineX77.json", "trastuzumabsc.json", "firstpertuzumab.json", "elsepertuzumab.json",
-                              "olaparib.json", "abemaciclib.json", "palbociclib.json", "ribociclib.json", "capivasertib.json"]:
+                              "olaparib.json", "abemaciclib.json", "palbociclib.json", "ribociclib.json", "ribociclib400.json", "capivasertib.json"]:
                 st.write(f"{chemo['Name']} {chemo['Dosage']} mg D {chemo['Day']}")
                 day1_dose = f"{chemo['Name']} {chemo['Dosage']} mg"
             elif chemoType in ["TDM1.json", "TDx.json", "Sacgov.json", "firsttrastuzumabiv.json", "elsetrastuzumabiv.json"]:
@@ -50,7 +50,7 @@ def display_chemotherapy_details(rbodysurf, chemoType, weight):
                     elif chemoType in ["firsttrastupertu.json", "elsetrastupertu.json"]:
                         st.write(f"{instruction['Name']} {instruction['Inst']}")
                     elif chemoType in ["capecitabineX77.json", "trastuzumabsc.json", "firstpertuzumab.json", "elsepertuzumab.json",
-                                        "olaparib.json", "abemaciclib.json", "palbociclib.json", "ribociclib.json", "capivasertib.json"]:
+                                        "olaparib.json", "abemaciclib.json", "palbociclib.json", "ribociclib.json", "ribociclib400.json", "capivasertib.json"]:
                         st.write(f"{instruction['Name']} {instruction['Inst']}")
                     else:
                         metric = chemo_entry.get("DosageMetric", "mg/m2")
@@ -64,6 +64,8 @@ def display_chemotherapy_details(rbodysurf, chemoType, weight):
                             st.write(f"{instruction['Name']} {dosage} mg {instruction['Inst']}")
             else:
                 st.write(instruction["Inst"])
+
+        show_evidence(chemoJson)
 
 def main():
     st.title("ChemoThon - BreastSK v. 2.4")

@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa, Chemo, ChemoCBDCA
+from chemo_utils import bsa, Chemo, ChemoCBDCA, show_evidence
 
 # Function for chemotherapy with Cisplatin
 def ChemoCISplatin(rbodysurf, chemoType):
@@ -52,6 +52,8 @@ def ChemoWeightBased(weight, chemoType):
     for x in range(len(chemoJson["Chemo"])):
         dose = round(chemoJson["Chemo"][x]["Dosage"] * weight, 2)
         st.write(f"{chemoJson['Day1']['Instructions'][x]['Name']} {dose} mg {chemoJson['Day1']['Instructions'][x]['Inst']}")
+
+    show_evidence(chemoJson)
 
 # Main function for gynecology chemotherapy
 def gynecology(rbodysurf):
@@ -130,6 +132,7 @@ def gynecology(rbodysurf):
                 st.write(f"paklitaxel {taxol_dose} mg {_bpj['Day1']['Instructions'][1]['Inst']}")
                 st.write(f"karboplatina {cbdca_dose} mg v 500ml FR i.v./60 min")
                 st.write(f"bevacizumab {beva_dose} mg {_bpj['Day1']['Instructions'][2]['Inst']}")
+                show_evidence(_bpj)
         elif pt_choice == "Cisplatina 50 mg/m2 D1":
             ddp_dose = round(50 * rbodysurf, 2)
             ddp_vials = int(ddp_dose // 50); ddp_rem = round(ddp_dose % 50, 2)
@@ -150,6 +153,7 @@ def gynecology(rbodysurf):
                 st.write(f"cisplatina {ddp_rem} mg v 500ml RR i.v./60 min")
             st.write("Manitol 10% 250ml i.v. po cisplatine")
             st.write(f"bevacizumab {beva_dose} mg {_bpj['Day1']['Instructions'][2]['Inst']}")
+            show_evidence(_bpj)
 
 # Main input function for weight and height
 def main():

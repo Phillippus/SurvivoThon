@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa as calculate_bsa, load_json
+from chemo_utils import bsa as calculate_bsa, load_json, show_evidence
 
 def display_chemotherapy_details(rbodysurf, filename):
     """ Zobrazuje podrobné informácie o chemoterapeutickom režime s využitím telesného povrchu. """
@@ -43,6 +43,8 @@ def display_chemotherapy_details(rbodysurf, filename):
                 else:
                     adjusted_dosage = round(item['Dosage'] * rbodysurf, 2)
                     st.write(f"{drug_name} {adjusted_dosage} mg {instruction['Inst']}")
+
+        show_evidence(chemo_json)
 
 
 def Flatdoser(rbodysurf, chemoType, chemoFlat):
@@ -91,6 +93,8 @@ def Flatdoser(rbodysurf, chemoType, chemoFlat):
                     st.write(f"{instruction['Name']} {capped} mg {instruction['Inst']}")
                 else:
                     st.write(f"{instruction['Name']} {item2['Dosage']} mg {instruction['Inst']}")
+
+        show_evidence(chemo_json)
 
 def DHAP(rbodysurf):
     """ DHAP: cisplatina + cytarabín + dexametazón """

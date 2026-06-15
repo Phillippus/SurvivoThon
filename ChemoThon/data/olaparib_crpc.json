@@ -1,24 +1,25 @@
 {
-  "_source": "De Bono J et al. NEJM 2020;382:2091 (PROfound); Clarke NW et al. NEJM 2022;387:121 (PROpel +abiraterone); SmPC Lynparza",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "olaparib",
-      "Dosage": 300,
-      "DosageMetric": "mg flat dose",
-      "Day": "1 (denne kontinuálne)"
+    "_source": "De Bono J et al. NEJM 2020;382:2091 (PROfound); Clarke NW et al. NEJM 2022;387:121 (PROpel +abiraterone); SmPC Lynparza",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "olaparib",
+            "Dosage": 300,
+            "DosageMetric": "mg flat dose",
+            "Day": "1 (denne kontinuálne)"
+        }
+    ],
+    "NC": "28",
+    "Evidence": "Indikácia: mCRPC s HRR mutáciou (BRCA1/2, ATM a ďalšie per SmPC), po AR inhibítore. Kombinácia s abirateronom v PROpel – mimo EMA indikácie pre HRR non-BRCA.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "olaparib",
+                "Inst": "(2×150 mg) p.o. 2× denne. S jedlom alebo bez. Neopúšťať ≥2h po jedle."
+            }
+        ]
     }
-  ],
-  "NC": "28",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez premedikácie. Indikácia: mCRPC s HRR mutáciou (BRCA1/2, ATM a ďalšie per SmPC), po AR inhibítore. Kombinácia s abirateronom v PROpel – mimo EMA indikácie pre HRR non-BRCA."
-    },
-    "Instructions": [
-      {
-        "Name": "olaparib",
-        "Inst": "(2×150 mg) p.o. 2× denne. S jedlom alebo bez. Neopúšťať ≥2h po jedle."
-      }
-    ]
-  }
 }

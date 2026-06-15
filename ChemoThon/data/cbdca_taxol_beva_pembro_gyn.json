@@ -22,9 +22,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: pokročilý/rekurentný endometriálny karcinóm (RUBY/NRG-GY018) alebo cervikálny karcinóm (GOG-240 +beva). Platina (CBDCA AUC5 alebo DDP 50mg/m2) sa pridáva v app. Pembrolizumab: udržiavanie až 2 roky. Bevacizumab: až do progresie alebo toxicity.",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazón 20mg i.v., Bisulepin 1mg i.v., Pantoprazol 40mg p.o., Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo. Bez premedikácie pre pembrolizumab a bevacizumab. Indikácia: pokročilý/rekurentný endometriálny karcinóm (RUBY/NRG-GY018) alebo cervikálny karcinóm (GOG-240 +beva). Platina (CBDCA AUC5 alebo DDP 50mg/m2) sa pridáva v app. Pembrolizumab: udržiavanie až 2 roky. Bevacizumab: až do progresie alebo toxicity."
+            "Note": "Dexametazón 20mg i.v., Bisulepin 1mg i.v., Pantoprazol 40mg p.o., Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo. Bez premedikácie pre pembrolizumab a bevacizumab."
         },
         "Instructions": [
             {

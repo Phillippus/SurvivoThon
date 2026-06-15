@@ -1,24 +1,25 @@
 {
-  "_source": "Bajorin DF et al. NEJM 2021;384:2102 (CheckMate-274); SmPC Opdivo",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "nivolumab",
-      "Dosage": 240,
-      "DosageMetric": "mg flat dose",
-      "Day": "1"
+    "_source": "Bajorin DF et al. NEJM 2021;384:2102 (CheckMate-274); SmPC Opdivo",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "nivolumab",
+            "Dosage": 240,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Evidence": "Indikácia: adjuvantná liečba urotelového karcinómu po radikálnej cystektómii/nefroureterektómii, vysoké riziko recidívy, nevhodní pre adjuvantnú cisplatinu alebo PD-L1≥1%. Maximálne 12 mesiacov.",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez rutinnej premedikácie."
+        },
+        "Instructions": [
+            {
+                "Name": "nivolumab",
+                "Inst": "v 250 ml FR i.v./30 min q2w. Alternatíva: 480 mg q4w."
+            }
+        ]
     }
-  ],
-  "NC": "14",
-  "Day1": {
-    "Premed": {
-      "Note": "Bez rutinnej premedikácie. Indikácia: adjuvantná liečba urotelového karcinómu po radikálnej cystektómii/nefroureterektómii, vysoké riziko recidívy, nevhodní pre adjuvantnú cisplatinu alebo PD-L1≥1%. Maximálne 12 mesiacov."
-    },
-    "Instructions": [
-      {
-        "Name": "nivolumab",
-        "Inst": "v 250 ml FR i.v./30 min q2w. Alternatíva: 480 mg q4w."
-      }
-    ]
-  }
 }

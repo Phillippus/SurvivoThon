@@ -1,24 +1,25 @@
 {
-  "_source": "Fuchs CS et al. Lancet 2014;383:31 (REGARD); SmPC Cyramza",
-  "_revision": "2026-06-new",
-  "Chemo": [
-    {
-      "Name": "ramucirumab",
-      "Dosage": 8,
-      "DosageMetric": "mg/kg",
-      "Day": "1"
+    "_source": "Fuchs CS et al. Lancet 2014;383:31 (REGARD); SmPC Cyramza",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "ramucirumab",
+            "Dosage": 8,
+            "DosageMetric": "mg/kg",
+            "Day": "1"
+        }
+    ],
+    "NC": "14",
+    "Evidence": "Indikácia: gastric/GEJ alebo hepatocelulárny karcinóm, 2. línia.",
+    "Day1": {
+        "Premed": {
+            "Note": "Premedikácia antihistaminikum (Bisulepin 1 mg i.v.) pred 1. a 2. infúziou."
+        },
+        "Instructions": [
+            {
+                "Name": "ramucirumab",
+                "Inst": "v 250 ml FR i.v. počas 60 min. Monitorovať krvný tlak."
+            }
+        ]
     }
-  ],
-  "NC": "14",
-  "Day1": {
-    "Premed": {
-      "Note": "Premedikácia antihistaminikum (Bisulepin 1 mg i.v.) pred 1. a 2. infúziou. Indikácia: gastric/GEJ alebo hepatocelulárny karcinóm, 2. línia."
-    },
-    "Instructions": [
-      {
-        "Name": "ramucirumab",
-        "Inst": "v 250 ml FR i.v. počas 60 min. Monitorovať krvný tlak."
-      }
-    ]
-  }
 }

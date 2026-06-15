@@ -34,9 +34,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: DLBCL 1. línia (IPI≥2). 6 cyklov.",
     "Day1": {
         "Premed": {
-            "Note": "Hydrocortison 100mg i.v., Dithiaden 1amp i.v., Pantoprazol 40mg p.o., Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v. Vincristín VYNECHANÝ (Pola-R-CHP, nie R-CHOP). Indikácia: DLBCL 1. línia (IPI≥2). 6 cyklov."
+            "Note": "Hydrocortison 100mg i.v., Dithiaden 1amp i.v., Pantoprazol 40mg p.o., Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v. Vincristín VYNECHANÝ (Pola-R-CHP, nie R-CHOP)."
         },
         "Instructions": [
             {

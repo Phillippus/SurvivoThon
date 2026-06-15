@@ -16,9 +16,10 @@
         }
     ],
     "NC": "28",
+    "Evidence": "Indikácia: HR+/HER2− metastatický karcinóm prsníka po non-steroidnom aromatázovom inhibítore (BOLERO-2). Monitorovanie: glykémia, triglyceridy, cholesterol, funkcia pľúc (neinfekčná pneumonitída).",
     "Day1": {
         "Premed": {
-            "Note": "PROFYLAXIA STOMATITÍDY (SWISH protokol — POVINNÁ): Dexametazón 0,5 mg/5 ml perorálny roztok — 10 ml 4× denne vyplachujte ústa 2 minúty a vypľujte (NIE prehltnúť). Začať D1 everolim, pokračovať 8 týždňov. Zdroj: Rugo HS et al., Ann Oncol 2017 (SWISH). Znižuje výskyt stomatitídy G2+ zo 33 % na 2 %! | Everolimus: 10 mg/deň p.o. kontinuálne. Exemestan: 25 mg/deň p.o. s jedlom. Indikácia: HR+/HER2− metastatický karcinóm prsníka po non-steroidnom aromatázovom inhibítore (BOLERO-2). Monitorovanie: glykémia, triglyceridy, cholesterol, funkcia pľúc (neinfekčná pneumonitída)."
+            "Note": "PROFYLAXIA STOMATITÍDY (SWISH protokol — POVINNÁ): Dexametazón 0,5 mg/5 ml perorálny roztok — 10 ml 4× denne vyplachujte ústa 2 minúty a vypľujte (NIE prehltnúť). Začať D1 everolim, pokračovať 8 týždňov. Zdroj: Rugo HS et al., Ann Oncol 2017 (SWISH). Znižuje výskyt stomatitídy G2+ zo 33 % na 2 %! | Everolimus: 10 mg/deň p.o. kontinuálne. Exemestan: 25 mg/deň p.o. s jedlom."
         },
         "Instructions": [
             {
