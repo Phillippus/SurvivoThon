@@ -155,26 +155,33 @@ def RDHAP(rbodysurf):
         st.write(f"{ordo + 1}. manitol 10% 250ml iv")
         st.write(f"{ordo + 2}. dexametazon 40mg tbl p.o. (+ pantoprazol 40mg p.o.)")
 
-def DA_EPOCH(rbodysurf, with_rituximab=False):
+def DA_EPOCH(rbodysurf, with_rituximab=False, dose_level=1):
     """ (DA-)EPOCH(-R): dose-adjusted EPOCH ± rituximab.
-    Etoposid, doxorubicin a vinkristín idú ako 96h kontinuálna infúzia D1-4. """
+    Etoposid, doxorubicin a vinkristín idú ako 96h kontinuálna infúzia D1-4.
+    dose_level upravuje etopozid/doxorubicin/cyklofosfamid faktorom 1.2^(level-1)
+    (Wilson protokol; eviQ: 750→900→1080…). Vinkristín a prednizón sú fixné. """
     name = "DA-EPOCH-R" if with_rituximab else "DA-EPOCH"
-    st.write(f"### Protokol {name}")
+    factor = round(1.2 ** (dose_level - 1), 4)
+    st.write(f"### Protokol {name} — dose level {dose_level} ({int(round(factor*100))} % baseline)")
 
-    # Dávky dose-level 1 (baseline; ďalej dose-adjusted podľa nadiru)
-    etop_d = round(50 * rbodysurf, 2);  etop_tot = round(200 * rbodysurf, 2)
-    doxo_d = round(10 * rbodysurf, 2);  doxo_tot = round(40 * rbodysurf, 2)
+    # Etopozid/doxorubicin/cyklofosfamid škálované podľa dose level
+    etop_pm = round(50 * factor, 2)
+    doxo_pm = round(10 * factor, 2)
+    cfa_pm = round(750 * factor, 2)
+    etop_d = round(etop_pm * rbodysurf, 2);  etop_tot = round(etop_pm * 4 * rbodysurf, 2)
+    doxo_d = round(doxo_pm * rbodysurf, 2);  doxo_tot = round(doxo_pm * 4 * rbodysurf, 2)
+    cfa = round(cfa_pm * rbodysurf, 2)
+    # Fixné dávky (nezávislé od dose level)
     vinc_d = round(0.4 * rbodysurf, 2); vinc_tot = round(1.6 * rbodysurf, 2)
-    cfa = round(750 * rbodysurf, 2)
     pred = round(60 * rbodysurf, 2)
     ritux = round(375 * rbodysurf, 2)
 
     if with_rituximab:
         st.write(f"rituximab 375 mg/m2 ......... {ritux} mg D1")
-    st.write(f"etopozid 50 mg/m2/deň (CIV D1-4) ......... {etop_d} mg/deň (spolu {etop_tot} mg za 96h)")
-    st.write(f"doxorubicin 10 mg/m2/deň (CIV D1-4) ......... {doxo_d} mg/deň (spolu {doxo_tot} mg za 96h)")
+    st.write(f"etopozid {etop_pm} mg/m2/deň (CIV D1-4) ......... {etop_d} mg/deň (spolu {etop_tot} mg za 96h)")
+    st.write(f"doxorubicin {doxo_pm} mg/m2/deň (CIV D1-4) ......... {doxo_d} mg/deň (spolu {doxo_tot} mg za 96h)")
     st.write(f"vinkristín 0.4 mg/m2/deň (CIV D1-4, BEZ stropu) ......... {vinc_d} mg/deň (spolu {vinc_tot} mg za 96h)")
-    st.write(f"cyklofosfamid 750 mg/m2 ......... {cfa} mg D5")
+    st.write(f"cyklofosfamid {cfa_pm} mg/m2 ......... {cfa} mg D5")
     st.write(f"prednizón 60 mg/m2 2× denne ......... {pred} mg 2× denne p.o. D1-5")
     st.write("NC 21. deň")
     st.write(" ")
@@ -189,9 +196,13 @@ def DA_EPOCH(rbodysurf, with_rituximab=False):
     st.write(f"D1-D5: prednizón {pred} mg p.o. 2× denne")
     st.write("D6+: G-CSF (filgrastim) s.c. denne do obnovy počtu neutrofilov")
     st.write(" ")
-    st.info("⚠️ Dose-adjustment: dávky etopozidu, doxorubicínu a cyklofosfamidu sa upravujú medzi cyklami "
-            "podľa nadiru neutrofilov/trombocytov (Wilson protokol). Toto je dose-level 1 (baseline). "
-            "Vinkristín a prednizón sa neupravujú.")
+    st.info("⚠️ **Dose-adjustment (Wilson protokol)** — podľa nadiru z PREDCHÁDZAJÚCEHO cyklu "
+            "(monitorovať počty 2× týždenne):\n"
+            "- ANC nadir ≥ 0.5 ×10⁹/L (nikdy nižšie) → **zvýš o 1 level**\n"
+            "- ANC nadir < 0.5 pri 1-2 meraniach → **rovnaký level**\n"
+            "- ANC nadir < 0.5 pri ≥3 meraniach ALEBO trombocyty < 25 ×10⁹/L → **zníž o 1 level**\n\n"
+            "Cyklus 1 = vždy level 1. Upravujú sa len etopozid, doxorubicin a cyklofosfamid "
+            "(o 20 % na level); vinkristín a prednizón ostávajú fixné.")
 
 def main():
     """Main function to run the Streamlit app."""
@@ -244,6 +255,14 @@ def main():
 
         chemo_file = st.selectbox("Vyberte chemoterapeutický režim:", list(chemo_options.keys()))
 
+        # Dose level výber pre DA-EPOCH (mimo tlačidla, aby pretrval pri prepočte)
+        da_level = 1
+        if chemo_file in ("DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)", "DA-EPOCH (bez R, CIV D1-4)"):
+            da_level = st.number_input(
+                "Dose level (1 = baseline; ↑ ak ANC nadir ≥0.5, ↓ ak ANC<0.5 pri ≥3 meraniach alebo trombo <25). "
+                "Redukciu pod level 1 rieš podľa inštitučného protokolu.",
+                min_value=1, max_value=5, value=1, step=1)
+
         if st.button('Zobraziť protokol chemoterapie'):
             selected_option = chemo_options[chemo_file]
             if chemo_file == "DHAP":
@@ -251,9 +270,9 @@ def main():
             elif chemo_file == "R-DHAP":
                 RDHAP(st.session_state['rbodysurf'])
             elif chemo_file == "DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)":
-                DA_EPOCH(st.session_state['rbodysurf'], with_rituximab=True)
+                DA_EPOCH(st.session_state['rbodysurf'], with_rituximab=True, dose_level=da_level)
             elif chemo_file == "DA-EPOCH (bez R, CIV D1-4)":
-                DA_EPOCH(st.session_state['rbodysurf'], with_rituximab=False)
+                DA_EPOCH(st.session_state['rbodysurf'], with_rituximab=False, dose_level=da_level)
             elif selected_option[1]:  # Flatdoser ak existuje druhý JSON
                 Flatdoser(st.session_state['rbodysurf'], *selected_option)
             else:
