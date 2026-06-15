@@ -155,6 +155,44 @@ def RDHAP(rbodysurf):
         st.write(f"{ordo + 1}. manitol 10% 250ml iv")
         st.write(f"{ordo + 2}. dexametazon 40mg tbl p.o. (+ pantoprazol 40mg p.o.)")
 
+def DA_EPOCH(rbodysurf, with_rituximab=False):
+    """ (DA-)EPOCH(-R): dose-adjusted EPOCH ± rituximab.
+    Etoposid, doxorubicin a vinkristín idú ako 96h kontinuálna infúzia D1-4. """
+    name = "DA-EPOCH-R" if with_rituximab else "DA-EPOCH"
+    st.write(f"### Protokol {name}")
+
+    # Dávky dose-level 1 (baseline; ďalej dose-adjusted podľa nadiru)
+    etop_d = round(50 * rbodysurf, 2);  etop_tot = round(200 * rbodysurf, 2)
+    doxo_d = round(10 * rbodysurf, 2);  doxo_tot = round(40 * rbodysurf, 2)
+    vinc_d = round(0.4 * rbodysurf, 2); vinc_tot = round(1.6 * rbodysurf, 2)
+    cfa = round(750 * rbodysurf, 2)
+    pred = round(60 * rbodysurf, 2)
+    ritux = round(375 * rbodysurf, 2)
+
+    if with_rituximab:
+        st.write(f"rituximab 375 mg/m2 ......... {ritux} mg D1")
+    st.write(f"etopozid 50 mg/m2/deň (CIV D1-4) ......... {etop_d} mg/deň (spolu {etop_tot} mg za 96h)")
+    st.write(f"doxorubicin 10 mg/m2/deň (CIV D1-4) ......... {doxo_d} mg/deň (spolu {doxo_tot} mg za 96h)")
+    st.write(f"vinkristín 0.4 mg/m2/deň (CIV D1-4, BEZ stropu) ......... {vinc_d} mg/deň (spolu {vinc_tot} mg za 96h)")
+    st.write(f"cyklofosfamid 750 mg/m2 ......... {cfa} mg D5")
+    st.write(f"prednizón 60 mg/m2 2× denne ......... {pred} mg 2× denne p.o. D1-5")
+    st.write("NC 21. deň")
+    st.write(" ")
+    st.write("D1")
+    st.write("Premedikácia: Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o." +
+             (" Pred rituximabom: Hydrocortison 100mg i.v., Dithiaden 1amp i.v., Paracetamol 1g p.o. (1. infúzia: 50ml/h, postupne zvyšovať; ďalšie cykly 100ml/h)." if with_rituximab else ""))
+    if with_rituximab:
+        st.write(f"rituximab {ritux} mg v 500ml FR i.v. D1")
+    st.write("D1-D4 — spoločná 96-hodinová kontinuálna infúzia (jedna pumpa/kivi):")
+    st.write(f"  etopozid {etop_tot} mg + doxorubicin {doxo_tot} mg + vinkristín {vinc_tot} mg v 1000ml FR i.v. kontinuálne počas 96 hodín (D1-4)")
+    st.write(f"D5: cyklofosfamid {cfa} mg v 500ml FR i.v./30-60 min")
+    st.write(f"D1-D5: prednizón {pred} mg p.o. 2× denne")
+    st.write("D6+: G-CSF (filgrastim) s.c. denne do obnovy počtu neutrofilov")
+    st.write(" ")
+    st.info("⚠️ Dose-adjustment: dávky etopozidu, doxorubicínu a cyklofosfamidu sa upravujú medzi cyklami "
+            "podľa nadiru neutrofilov/trombocytov (Wilson protokol). Toto je dose-level 1 (baseline). "
+            "Vinkristín a prednizón sa neupravujú.")
+
 def main():
     """Main function to run the Streamlit app."""
     st.title("ChemoThon - HematologySK v. 2.3")
@@ -192,6 +230,8 @@ def main():
             # --- Záchranné režimy ---
             "R-DHAP": ("RDHAP", None),
             "DHAP": ("DHAP", None),
+            "DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)": ("DAEPOCHR", None),
+            "DA-EPOCH (bez R, CIV D1-4)": ("DAEPOCH", None),
             "R-Gemox": ("RGemox.json", None),
             "Gemox": ("Gemox.json", None),
             "GDP (Gemcitabin + Cisplatina + Dex)": ("GDP.json", "flatdexametazon.json"),
@@ -210,6 +250,10 @@ def main():
                 DHAP(st.session_state['rbodysurf'])
             elif chemo_file == "R-DHAP":
                 RDHAP(st.session_state['rbodysurf'])
+            elif chemo_file == "DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)":
+                DA_EPOCH(st.session_state['rbodysurf'], with_rituximab=True)
+            elif chemo_file == "DA-EPOCH (bez R, CIV D1-4)":
+                DA_EPOCH(st.session_state['rbodysurf'], with_rituximab=False)
             elif selected_option[1]:  # Flatdoser ak existuje druhý JSON
                 Flatdoser(st.session_state['rbodysurf'], *selected_option)
             else:
@@ -234,6 +278,7 @@ Guidelines: [ESMO](https://www.esmo.org/guidelines/esmo-clinical-practice-guidel
 - **R-Bendamustín (BR)** — StiL NHL1 – Rummel et al., Lancet 2013; BRIGHT – Flinn et al., Blood 2014.
 - **Bendamustín (monoterapia)** — CLL/relaps – Knauf et al., J Clin Oncol 2009.
 - **R-DHAP / DHAP (salvage)** — Velasquez et al., Blood 1988; CORAL – Gisselbrecht et al., J Clin Oncol 2010.
+- **DA-EPOCH-R (DLBCL / HG-BCL / primárny mediastinálny)** — Wilson et al., Blood 2002; Dunleavy et al., NEJM 2013 (PMBCL); CALGB 50303 – Bartlett et al., J Clin Oncol 2019.
 - **R-Gemox / Gemox** — El Gnaoui et al., Ann Oncol 2007.
 - **GDP (gemcitabín/cisplatina/dex)** — NCIC-CTG LY.12 – Crump et al., J Clin Oncol 2014.
 - **Rituximab (monoterapia)** — McLaughlin et al., J Clin Oncol 1998.
