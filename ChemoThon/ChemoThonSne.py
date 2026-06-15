@@ -1,4 +1,6 @@
 import streamlit as st
+import chemo_utils as _cu, importlib as _il
+_il.reload(_cu)  # deploy-safe: vynúti čerstvý chemo_utils (Streamlit cachuje moduly)
 from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP
 
 # Function for chemotherapy with Ifosfamid (Ifo)
