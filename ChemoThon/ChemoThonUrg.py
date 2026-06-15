@@ -53,7 +53,7 @@ def Flatdoser(rbodysurf, chemoType, chemoFlat=None):
 # Main function for urogenital tumors
 def urogenital(rbodysurf):
     """Táto funkcia rozpisuje chemoterapie urogenitálnych tumorov"""
-    chemo_choice = st.selectbox("Vyberte chemoterapiu:", [" ", "Docetaxel + Prednison", "Mitoxantron + Prednison","Docetaxel + Darolutamid", "Cabazitaxel + Prednison", "Abirateron (CRPC) + Prednison","Abirateron (HSPC) + Prednison","Enzalutamid","Darolutamid","Apalutamid","Pt/ Gemcitabin", "Split-dose Cisplatina D1+D8", "Vinflunin", "BEP",
+    chemo_choice = st.selectbox("Vyberte chemoterapiu:", [" ", "Docetaxel + Prednison", "Mitoxantron + Prednison","Docetaxel + Darolutamid", "Cabazitaxel + Prednison", "Abirateron (CRPC) + Prednison","Abirateron (HSPC) + Prednison","Enzalutamid","Darolutamid","Apalutamid","Pt/ Gemcitabin", "Gemcitabín + Split-dose Cisplatina D1+D8 (urotel)", "Vinflunin", "BEP",
         "Paclitaxel weekly (urotel / iné)",
         # --- Nové (2026-06) ---
         "Enfortumab vedotín + Pembrolizumab (EV-302, 1. línia urotel)",
@@ -93,11 +93,13 @@ def urogenital(rbodysurf):
             Chemo(rbodysurf, "vinflunine280.json")
     elif chemo_choice == "BEP":
         Flatdoser(rbodysurf, "BEP.json", "flatbleomycin.json")
-    elif chemo_choice == "Split-dose Cisplatina D1+D8":
+    elif chemo_choice == "Gemcitabín + Split-dose Cisplatina D1+D8 (urotel)":
         total_ddp_dose = round(70 * rbodysurf, 2)
         half_dose = round(total_ddp_dose / 2, 2)
-        st.write("### Split-dose Cisplatina D1+D8 (urotelový karcinóm)")
-        st.write(f"cisplatina 70 mg/m2 celková dávka ......... {total_ddp_dose} mg")
+        gem_dose = round(1000 * rbodysurf, 2)
+        st.write("### Gemcitabín + Split-dose Cisplatina D1+D8 (urotelový karcinóm)")
+        st.write(f"gemcitabín 1000 mg/m2 ......... {gem_dose} mg D1, D8")
+        st.write(f"cisplatina 70 mg/m2 celková dávka ......... {total_ddp_dose} mg (delená D1+D8)")
         st.write(f"D1: cisplatina {half_dose} mg (polovica celkovej dávky)")
         st.write(f"D8: cisplatina {half_dose} mg (zvyšná polovica)")
         st.write("NC 21. deň")
@@ -105,13 +107,16 @@ def urogenital(rbodysurf):
         st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o.")
         st.write("Hydratácia: FR 500ml pred cisplatinou, Manitol 10% 250ml po cisplatine")
         b = int(half_dose // 50); c = half_dose % 50
-        st.write(f"D1:")
+        st.write("D1:")
+        st.write(f"  gemcitabín {gem_dose} mg v 500ml FR i.v./30 min")
         for i in range(b):
             st.write(f"  cisplatina 50mg v 500ml RR i.v.")
         if c > 0:
             st.write(f"  cisplatina {round(c,1)} mg v 500ml RR i.v.")
         st.write("  Manitol 10% 250ml i.v.")
-        st.write(f"D8: opakovať rovnaký postup (cisplatina {half_dose} mg)")
+        st.write("D8:")
+        st.write(f"  gemcitabín {gem_dose} mg v 500ml FR i.v./30 min")
+        st.write(f"  cisplatina {half_dose} mg (rozdelená po 50mg v 500ml RR i.v.), Manitol 10% 250ml i.v.")
     elif chemo_choice == "Paclitaxel weekly (urotel / iné)":
         Chemo(rbodysurf, "paclitaxelweekly.json")
     # --- Nové (2026-06) ---
