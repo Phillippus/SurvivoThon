@@ -23,11 +23,11 @@
         "Instructions": [
             {
                 "Name": "everolimus",
-                "Inst": "10 mg p.o. 1× denne kontinuálne. Užiť vždy v rovnakom čase, s jedlom alebo bez."
+                "Inst": "p.o. 1× denne kontinuálne. Užiť vždy v rovnakom čase, s jedlom alebo bez."
             },
             {
                 "Name": "exemestane",
-                "Inst": "25 mg p.o. 1× denne kontinuálne po jedle."
+                "Inst": "p.o. 1× denne kontinuálne po jedle."
             }
         ]
     }
