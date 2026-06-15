@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from chemo_utils import bsa, Chemo, ChemoCBDCA, Chemo5FU
+from chemo_utils import bsa, Chemo, ChemoCBDCA, Chemo5FU, show_evidence
 
 # Function for platinum + 5FU chemotherapy
 def platinum5FU(rbodysurf):
@@ -130,6 +130,26 @@ def gastrointestinal(rbodysurf, weight=None):
                     st.write(f"gemcitabin {gem_dose} mg v 500ml FR i.v./30 min D1, D8")
         elif chemo_choice == "Platina + Kapecitabín + Trastuzumab (HER2+ gastric, ToGA)":
             pt_her2 = st.selectbox("Ktorá platina?", ["Vyberte", "Cisplatina 80 mg/m2 D1", "Karboplatina AUC 5-6 D1", "Oxaliplatina 130 mg/m2 D1 (switch z DDP)"], key="pt_her2")
+            # Výpočet dávky trastuzumabu z hmotnosti (8 mg/kg 1. dávka, 6 mg/kg ďalšie)
+            trastu_first = round(8 * weight, 2) if weight else None
+            trastu_maint = round(6 * weight, 2) if weight else None
+
+            def trastu_line_listing():
+                if weight:
+                    st.write(f"trastuzumab 8 mg/kg (1. dávka) ......... {trastu_first} mg / "
+                             f"ďalšie 6 mg/kg ......... {trastu_maint} mg D1 q3w")
+                else:
+                    st.warning("Zadajte hmotnosť pre výpočet dávky trastuzumabu.")
+                    st.write("trastuzumab 8 mg/kg (1. dávka) / 6 mg/kg (ďalšie) q3w")
+
+            def trastu_line_admin():
+                if weight:
+                    st.write(f"trastuzumab {trastu_first} mg (1. dávka) alebo {trastu_maint} mg (ďalšie) "
+                             f"v 250ml FR i.v./90 min (1. infúzia), 30 min (ďalšie)")
+                else:
+                    st.write("trastuzumab 8 mg/kg (1. dávka) alebo 6 mg/kg (ďalšie) "
+                             "v 250ml FR i.v./90 min (1. infúzia), 30 min (ďalšie)")
+
             if pt_her2 == "Cisplatina 80 mg/m2 D1":
                 ddp_dose = round(80 * rbodysurf, 2)
                 cape_dose = round(1000 * rbodysurf, 2)
@@ -137,18 +157,21 @@ def gastrointestinal(rbodysurf, weight=None):
                 st.write(f"### Cisplatina + Kapecitabín + Trastuzumab (HER2+ gastric)")
                 st.write(f"cisplatina 80 mg/m2 ......... {ddp_dose} mg D1")
                 st.write(f"kapecitabín 1000 mg/m2 ......... {cape_dose} mg D1-14 (2× denne)")
-                st.write("trastuzumab: 1. dávka 8 mg/kg iv, ďalšie 6 mg/kg q3w")
+                trastu_line_listing()
                 st.write("NC 21. deň")
                 import json as _j
                 trastu = _j.load(open("data/ddp_capecitabine_trastu.json", encoding="utf-8"))
+                st.write("D1 - premedikácia:")
                 st.write(trastu["Day1"]["Premed"]["Note"])
+                st.write("D1 - chemoterapia:")
                 for ordo in range(1, rng + 1):
                     st.write(f"cisplatina 50mg v 500ml RR i.v.")
                 if c > 0:
                     st.write(f"cisplatina {round(c, 2)} mg v 500ml RR i.v.")
                 st.write("Manitol 10% 250ml i.v.")
                 st.write(f"kapecitabín {cape_dose} mg p.o. 2× denne D1-14")
-                st.write("trastuzumab 8 mg/kg (1. dávka) alebo 6 mg/kg (ďalšie) v 250ml FR i.v./90 min (1. infúzia), 30 min (ďalšie)")
+                trastu_line_admin()
+                show_evidence(trastu)
             elif pt_her2 == "Karboplatina AUC 5-6 D1":
                 CrCl_h = st.number_input("Clearance (ml/min):", min_value=1, max_value=250, value=None, key="crcl_her2")
                 AUC_h = st.number_input("AUC (5 alebo 6):", min_value=4, max_value=6, value=5, key="auc_her2")
@@ -158,27 +181,41 @@ def gastrointestinal(rbodysurf, weight=None):
                     st.write(f"### Karboplatina + Kapecitabín + Trastuzumab (HER2+ gastric)")
                     st.write(f"karboplatina AUC {AUC_h} ......... {cbdca_dose} mg D1")
                     st.write(f"kapecitabín 1000 mg/m2 ......... {cape_dose} mg D1-14 (2× denne)")
-                    st.write("trastuzumab: 1. dávka 8 mg/kg iv, ďalšie 6 mg/kg q3w")
+                    trastu_line_listing()
                     st.write("NC 21. deň")
                     import json as _j
                     trastu = _j.load(open("data/cbdca_capecitabine_trastu.json", encoding="utf-8"))
+                    st.write("D1 - premedikácia:")
                     st.write(trastu["Day1"]["Premed"]["Note"])
+                    st.write("D1 - chemoterapia:")
                     st.write(f"karboplatina {cbdca_dose} mg v 500ml FR i.v./60 min D1")
                     st.write(f"kapecitabín {cape_dose} mg p.o. 2× denne D1-14")
-                    st.write("trastuzumab 8 mg/kg (1. dávka) alebo 6 mg/kg (ďalšie) v 250ml FR i.v./90 min (1. infúzia), 30 min (ďalšie)")
+                    trastu_line_admin()
+                    show_evidence(trastu)
             elif pt_her2 == "Oxaliplatina 130 mg/m2 D1 (switch z DDP)":
                 oxa_dose = round(130 * rbodysurf, 2)
                 cape_dose = round(1000 * rbodysurf, 2)
                 st.write(f"### Oxaliplatina + Kapecitabín + Trastuzumab (SWITCH z cisplatiny)")
                 st.write(f"oxaliplatina 130 mg/m2 ......... {oxa_dose} mg D1")
                 st.write(f"kapecitabín 1000 mg/m2 ......... {cape_dose} mg D1-14 (2× denne)")
-                st.write("trastuzumab: pokračuje 6 mg/kg q3w")
+                if weight:
+                    st.write(f"trastuzumab pokračuje 6 mg/kg ......... {trastu_maint} mg D1 q3w")
+                else:
+                    st.warning("Zadajte hmotnosť pre výpočet dávky trastuzumabu.")
+                    st.write("trastuzumab pokračuje 6 mg/kg q3w")
                 st.write("NC 21. deň")
                 import json as _j
                 trastu = _j.load(open("data/oxa_capecitabine_trastu.json", encoding="utf-8"))
+                st.write("D1 - premedikácia:")
                 st.write(trastu["Day1"]["Premed"]["Note"])
+                st.write("D1 - chemoterapia:")
                 st.write(f"oxaliplatina {oxa_dose} mg v 250ml 5%GLC i.v./120 min D1")
                 st.write(f"kapecitabín {cape_dose} mg p.o. 2× denne D1-14")
+                if weight:
+                    st.write(f"trastuzumab {trastu_maint} mg v 250ml FR i.v./30 min (udržiavacia dávka)")
+                else:
+                    st.write("trastuzumab 6 mg/kg v 250ml FR i.v./30 min (udržiavacia dávka)")
+                show_evidence(trastu)
                 st.write("trastuzumab 6 mg/kg v 250ml FR i.v./30 min (switch z DDP)")
         else:
             chemo_file = chemo_options[chemo_choice]

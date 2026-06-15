@@ -10,9 +10,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "Indikácia: HER2+ gastrický karcinóm, alternatíva pri kontraindikácii cisplatiny (renálna insuficiencia, neuropatia). Karboplatina dávkovaná podľa Calverta (AUC 5-6). Štúdia ToGA (Bang et al. Lancet 2010).",
     "Day1": {
         "Premed": {
-            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. Karboplatina AUC 5-6 D1 (Calvert). Trastuzumab: 1. dávka 8 mg/kg iv, ďalšie 6 mg/kg q3w. Indikácia: HER2+ gastric, alternatíva pri kontraindikácii cisplatiny (renálna insuficiencia, neuropatia)."
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o."
         },
         "Instructions": [
             {

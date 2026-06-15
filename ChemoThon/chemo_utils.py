@@ -18,6 +18,16 @@ def load_json(filename):
         return None
 
 
+def show_evidence(data):
+    """Ak JSON obsahuje pole 'Evidence', zobrazí ho v samostatnej sekcii
+    oddelenej od premedikácie (klinická štúdia + terapeutická indikácia)."""
+    ev = data.get("Evidence") if isinstance(data, dict) else None
+    if ev:
+        st.markdown("---")
+        st.markdown("**🔬 Evidence a terapeutické indikácie:**")
+        st.write(ev)
+
+
 def Chemo(rbodysurf, chemoType, weight=None):
     """Jednoduché chemoterapie – BSA, flat dose aj mg/kg."""
     chemoJson = load_json(chemoType)
@@ -52,6 +62,8 @@ def Chemo(rbodysurf, chemoType, weight=None):
         dose = calc_dose(C1[x])
         st.write(f"{Day1[x]['Name']} {dose} mg {Day1[x]['Inst']}")
 
+    show_evidence(chemoJson)
+
 
 def ChemoCBDCA(rbodysurf, chemoType):
     """Chemoterapia s karboplatinou (Calvertov vzorec)."""
@@ -80,6 +92,8 @@ def ChemoCBDCA(rbodysurf, chemoType):
                     else round(chemoJson['Chemo'][x]['Dosage'] * rbodysurf, 2))
             st.write(f"{chemoJson['Day1']['Instructions'][x]['Name']} {dose} mg "
                      f"{chemoJson['Day1']['Instructions'][x]['Inst']}")
+
+        show_evidence(chemoJson)
 
 
 def split_cisplatin(total_dose, start_n=2):
@@ -121,6 +135,8 @@ def ChemoDDP(rbodysurf, chemoType, ddp_dose=80):
         st.write(f"{next_n}. {Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
         next_n += 1
 
+    show_evidence(chemoJson)
+
 
 def Chemo5FU(rbodysurf, chemoType):
     """Chemoterapie s kontinuálnym 5-fluorouracilom (FOLFOX, FOLFIRI, FOLFIRINOX, FLOT, mtc5FU)."""
@@ -155,6 +171,8 @@ def Chemo5FU(rbodysurf, chemoType):
 
     st.write(f"5-fluoruracil {rbodysurf * dos15FU} mg/kivi {day15FU}")
 
+    show_evidence(chemoJson)
+
 
 def ChemoMass(weight, chemoType):
     """Chemoterapia/biologika dávkovaná podľa hmotnosti (mg/kg)."""
@@ -174,3 +192,5 @@ def ChemoMass(weight, chemoType):
         dosage_per_kg = next((item['Dosage'] for item in chemoJson['Chemo'] if item['Name'] == drug_name), None)
         if dosage_per_kg:
             st.write(f"{drug_name} {round(dosage_per_kg * weight, 2)} mg {instruction['Inst']}")
+
+    show_evidence(chemoJson)

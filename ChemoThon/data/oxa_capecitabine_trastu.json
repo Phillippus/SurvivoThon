@@ -16,9 +16,10 @@
         }
     ],
     "NC": "21",
+    "Evidence": "SWITCH z cisplatiny: pri dlhodobom podávaní DDP (≥6 cyklov) alebo pri nefrotoxicite sa nahrádza oxaliplatinou (XELOX + trastuzumab) ako nefroprotektívna stratégia. Trastuzumab pokračuje v rovnakom dávkovaní (6 mg/kg q3w).",
     "Day1": {
         "Premed": {
-            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. SWITCH z cisplatiny: pri dlhodobom podávaní DDP (≥6 cyklov) alebo pri nefrotoxicite — nahradzuje sa oxaliplatinou (XELOX + trastuzumab). Trastuzumab: pokračuje v rovnakom dávkovaní (6 mg/kg q3w)."
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o."
         },
         "Instructions": [
             {
