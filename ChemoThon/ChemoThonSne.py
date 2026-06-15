@@ -15,19 +15,23 @@ def Chemo(rbodysurf, chemoType):
     
     st.write("Rozpis chemoterapie:")
     for i in chemoJson["Chemo"]:
-        st.write(f"{i['Name']}  {round(i['Dosage'], 2)} {i['DosageMetric']}......... {round(i['Dosage'] * rbodysurf, 2)} mg D{i['Day']}")
-    
+        metric = i.get('DosageMetric', 'mg/m2')
+        dose = i['Dosage'] if 'flat' in metric.lower() else round(i['Dosage'] * rbodysurf, 2)
+        st.write(f"{i['Name']}  {round(i['Dosage'], 2)} {metric}......... {dose} mg D{i['Day']}")
+
     st.write(f"NC {chemoJson['NC']} . deň")
-    
+
     Day1 = chemoJson["Day1"]["Instructions"]
     C1 = chemoJson["Chemo"]
-    
+
     st.write("D1 - premedikácia:")
     st.write(chemoJson["Day1"]["Premed"]["Note"])
-    
+
     st.write("D1 - chemoterapia:")
     for x in range(len(chemoJson["Chemo"])):
-        st.write(f"{Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
+        metric = C1[x].get('DosageMetric', 'mg/m2')
+        dose = C1[x]['Dosage'] if 'flat' in metric.lower() else round(C1[x]['Dosage'] * rbodysurf, 2)
+        st.write(f"{Day1[x]['Name']} {dose} mg {Day1[x]['Inst']}")
 
 # Function for chemotherapy with DDP
 def ChemoDDP(rbodysurf, chemoType):
@@ -49,17 +53,22 @@ def ChemoDDP(rbodysurf, chemoType):
     c = a % 50
     rng = int(b)
     
-    for ordo in range(2, rng + 2):
-        st.write(f"{ordo}. Cisplatina 50mg v 500ml RR iv")
-        ordo += 1
-    st.write(f"{ordo}. Cisplatina {int(c)} mg v 500ml RR iv")
-    st.write(f"{ordo + 1}. Manitol 10% 250ml iv")
-    
+    next_n = 2
+    for _ in range(rng):
+        st.write(f"{next_n}. Cisplatina 50mg v 500ml RR iv")
+        next_n += 1
+    if c > 0:
+        st.write(f"{next_n}. Cisplatina {round(c, 2)} mg v 500ml RR iv")
+        next_n += 1
+    st.write(f"{next_n}. Manitol 10% 250ml iv")
+    next_n += 1
+
     Day1 = chemoJson["Day1"]["Instructions"]
     C1 = chemoJson["Chemo"]
-    
+
     for x in range(len(chemoJson["Chemo"])):
-        st.write(f"{ordo + 2}. {Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
+        st.write(f"{next_n}. {Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
+        next_n += 1
 
 # Function for chemotherapy with Carboplatin (CBDCA)
 def ChemoCBDCA(rbodysurf, chemoType):
@@ -138,7 +147,11 @@ def ChemoIfo(rbodysurf, dose, otherCHT):
 # Main function for sarcomas, CNS, and neuroendocrine tumors
 def sarcnet(rbodysurf):
     """Táto funkcia rozpisuje chemoterapie a biologickú liečbu sarkómov a CNS a neuroendokrinnych tumorov"""
-    chemo_choice = st.selectbox("Vyberte chemoterapiu:", ["Vyberte chemoterapiu", "Ifosfamid/ Epirubicin", "Ifosfamid", "Trabectedin", "Doxorubicin", "Paclitaxel weekly", "CBDCA/ Paclitaxel", "DDP/ Etoposid", "CBDCA/ Etoposid", "Dakarbazin 5 dňový", "Temozolomid", "Lomustine (CCNU)"])
+    chemo_choice = st.selectbox("Vyberte chemoterapiu:", ["Vyberte chemoterapiu", "Ifosfamid/ Epirubicin", "Ifosfamid", "Trabectedin", "Doxorubicin", "Paclitaxel weekly", "CBDCA/ Paclitaxel", "DDP/ Etoposid", "CBDCA/ Etoposid", "Dakarbazin 5 dňový", "Temozolomid", "Lomustine (CCNU)",
+        # --- Nové (2026-06) ---
+        "CAPTEM (Kapecitabín + Temozolomid, pNET, E2211)",
+        "Pazopanib 800 mg/deň (STS, PALETTE)",
+    ])
 
     if chemo_choice == "Ifosfamid/ Epirubicin":
         ChemoIfo(rbodysurf, 3000, True)
@@ -168,10 +181,16 @@ def sarcnet(rbodysurf):
             Chemo(rbodysurf, "temozolomide200.json")
     elif chemo_choice == "Lomustine (CCNU)":
         Chemo(rbodysurf, "CCNU.json")
+    elif chemo_choice == "CAPTEM (Kapecitabín + Temozolomid, pNET, E2211)":
+        Chemo(rbodysurf, "captem.json")
+    elif chemo_choice == "Pazopanib 800 mg/deň (STS, PALETTE)":
+        Chemo(rbodysurf, "pazopanib_sts.json")
+    elif chemo_choice == "Ifosfamid high-dose 2000 mg/m² D1-5":
+        Chemo(rbodysurf, "ifosfamid_high.json")
 
 # Main input function for weight and height
 def main():
-    st.title("ChemoThon Sarcoma, CNS and NET SK v2.0")
+    st.title("ChemoThon Sarcoma, CNS and NET SK v2.2")
     st.write("""
     Program rozpisuje najbežnejšie chemoterapie podľa povrchu alebo hmotnosti.
     Dávky je nutné upraviť podľa aktuálne dostupných balení liečiv.
@@ -184,7 +203,7 @@ def main():
     weight = st.number_input("Zadajte hmotnosť (kg):", min_value=1, max_value=250, value=None)
     height = st.number_input("Zadajte výšku (cm):", min_value=1, max_value=250, value=None)
 
-    if st.button("Vypočítať telesný povrch"):
+    if st.button("Vypočítať telesný povrch") and weight is not None and height is not None:
         rbodysurf = bsa(weight, height)
         st.session_state.rbodysurf = rbodysurf
 
@@ -199,3 +218,25 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+# ===== Zdroje / Sources (pridané 2026-06, aditívne) =====
+with st.expander("📚 Zdroje k režimom / Sources"):
+    st.markdown("""**Kľúčové referencie – sarkómy, CNS a NET**
+
+Guidelines: [ESMO](https://www.esmo.org/guidelines/esmo-clinical-practice-guidelines-sarcoma-and-gist) · [NCCN](https://www.nccn.org/guidelines/category_1). Vždy overte podľa aktuálnej verzie guidelines a dostupných balení liečiv. Stav: jún 2026.
+
+- **Doxorubicín (1. línia STS)** — Judson et al., Lancet Oncol 2014 (EORTC 62012).
+- **Ifosfamid / doxorubicín (epirubicín)** — EORTC 62012 – Judson et al., Lancet Oncol 2014.
+- **Ifosfamid (high-dose)** — Záchranná liečba STS – ESMO sarcoma guideline.
+- **Trabektedín** — Demetri et al., J Clin Oncol 2016 (liposarkóm/leiomyosarkóm).
+- **Paklitaxel weekly (angiosarkóm)** — Penel et al., J Clin Oncol 2008 (ANGIOTAX).
+- **CBDCA / paklitaxel** — ESMO – vybrané indikácie.
+- **DDP / etopozid; CBDCA / etopozid (NET G3 / SCLC-like)** — Moertel et al.; NORDIC NEC – Sorbye et al., Ann Oncol 2013.
+- **Dakarbazín (5-dňový)** — DTIC pri leiomyosarkóme/melanóme – ESMO.
+- **Temozolomid** — Stupp et al., NEJM 2005 (gliblastóm, +RT); CAPTEM pri NET.
+- **Lomustín (CCNU)** — Rekurentný gliblastóm – Wick et al., NEJM 2017 (kontrolné rameno).
+
+**Aktuálne štandardy na zváženie (zatiaľ mimo nástroja):**
+- Capecitabín + temozolomid (CAPTEM) pri pankreatických NET – Kunz et al., J Clin Oncol 2023 (ECOG-ACRIN E2211).""")
