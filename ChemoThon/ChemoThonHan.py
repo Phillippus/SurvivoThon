@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+from chemo_utils import bsa, Chemo
 
 # Function for platinum + 5FU chemotherapy
 def platinum5FU(rbodysurf):
@@ -69,31 +70,6 @@ def cetuximabBiweekly(rbodysurf):
         dose = round(chemoJson["Chemo"][x]["Dosage"] * rbodysurf, 2)
         st.write(f"{chemoJson['Day1']['Instructions'][x]['Name']} {dose} mg {chemoJson['Day1']['Instructions'][x]['Inst']}")# Function for basic chemotherapy
 
-def Chemo(rbodysurf, chemoType):
-    """Táto funkcia rozpisuje jednoduché chemoterapie s priamou úmerou"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-    
-    st.write("Rozpis chemoterapie:")
-    for i in chemoJson["Chemo"]:
-        metric = i.get('DosageMetric', 'mg/m2')
-        dose = i['Dosage'] if 'flat' in metric.lower() else round(i['Dosage'] * rbodysurf, 2)
-        st.write(f"{i['Name']}  {round(i['Dosage'], 2)} {metric}......... {dose} mg D{i['Day']}")
-
-    st.write(f"NC {chemoJson['NC']} . deň")
-
-    Day1 = chemoJson["Day1"]["Instructions"]
-    C1 = chemoJson["Chemo"]
-
-    st.write("D1 - premedikácia:")
-    st.write(chemoJson["Day1"]["Premed"]["Note"])
-
-    st.write("D1 - chemoterapia:")
-    for x in range(len(chemoJson["Chemo"])):
-        metric = C1[x].get('DosageMetric', 'mg/m2')
-        dose = C1[x]['Dosage'] if 'flat' in metric.lower() else round(C1[x]['Dosage'] * rbodysurf, 2)
-        st.write(f"{Day1[x]['Name']} {dose} mg {Day1[x]['Inst']}")
-
 # Function for head and neck cancer chemotherapy
 def headandneck(rbodysurf): 
     """Táto funkcia rozpisuje chemoterapie používané v liečbe nádorov hlavy a krku"""
@@ -127,12 +103,6 @@ def headandneck(rbodysurf):
         Chemo(rbodysurf, "pembrolizumab_hnscc.json")
     elif chemo_choice == "Nivolumab 240 mg q2w (R/M HNSCC platina-refr., CheckMate-141)":
         Chemo(rbodysurf, "nivolumab_hnscc.json")
-
-# Function to calculate Body Surface Area (BSA)
-def bsa(weight, height):
-    bodysurf = (weight**0.425) * (height**0.725) * 0.007184
-    rbodysurf = round(bodysurf, 2)
-    return rbodysurf
 
 # Main input function for weight and height
 def main():

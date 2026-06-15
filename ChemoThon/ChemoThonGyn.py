@@ -1,37 +1,6 @@
 import streamlit as st
 import json
-
-# Function for calculating BSA (Body Surface Area)
-def bsa(weight, height):
-    bodysurf = (weight**0.425) * (height**0.725) * 0.007184
-    rbodysurf = round(bodysurf, 2)
-    return rbodysurf
-
-# Function for chemotherapy with Carboplatin (CBDCA)
-def ChemoCBDCA(rbodysurf, chemoType):
-    """Táto funkcia slúži pre rozpis chemoterapie obsahujúcu karboplatinu"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-
-    CrCl = st.number_input("Zadajte hodnotu clearance v ml/min", min_value=1, max_value=250, value=None)
-    AUC = st.number_input("Zadajte hodnotu AUC 2-6 (INTERLACE: AUC=2)", min_value=2, max_value=6, value=None)
-
-    if CrCl is not None and AUC is not None:
-        st.write(f"CBDCA AUC {AUC}............ {(CrCl + 25) * AUC} mg  D1")
-        for i in chemoJson["Chemo"]:
-            metric = i.get('DosageMetric', 'mg/m2')
-            dose = i['Dosage'] if 'flat' in metric.lower() else round(i['Dosage'] * rbodysurf, 2)
-            st.write(f"{i['Name']} {i['Dosage']} {metric} ..... {dose} mg D{i['Day']}")
-
-        st.write(f"NC {chemoJson['NC']} . deň")
-
-        st.write("D1")
-        st.write(chemoJson["Day1"]["Premed"]["Note"])
-        st.write(f"CBDCA {(CrCl + 25) * AUC} mg v 500ml FR iv")
-        for x in range(len(chemoJson["Chemo"])):
-            metric = chemoJson['Chemo'][x].get('DosageMetric', 'mg/m2')
-            dose = chemoJson['Chemo'][x]['Dosage'] if 'flat' in metric.lower() else round(chemoJson['Chemo'][x]['Dosage'] * rbodysurf, 2)
-            st.write(f"{chemoJson['Day1']['Instructions'][x]['Name']} {dose} mg {chemoJson['Day1']['Instructions'][x]['Inst']}")
+from chemo_utils import bsa, Chemo, ChemoCBDCA
 
 # Function for chemotherapy with Cisplatin
 def ChemoCISplatin(rbodysurf, chemoType):
@@ -62,32 +31,6 @@ def ChemoCISplatin(rbodysurf, chemoType):
         st.write(f"cisplatina {part} mg v 500 ml Ringerovho roztoku (RR)")
         remaining -= part
     st.write("po dotečení cisplatiny Manitol 10% 250ml iv")
-
-# Function for basic chemotherapy
-def Chemo(rbodysurf, chemoType):
-    """Táto funkcia rozpisuje jednoduché chemoterapie s priamou úmerou"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-
-    st.write("Rozpis chemoterapie:")
-    for i in chemoJson["Chemo"]:
-        metric = i.get('DosageMetric', 'mg/m2')
-        dose = i['Dosage'] if 'flat' in metric.lower() else round(i['Dosage'] * rbodysurf, 2)
-        st.write(f"{i['Name']} {round(i['Dosage'], 2)} {metric}......... {dose} mg D{i['Day']}")
-
-    st.write(f"NC {chemoJson['NC']} . deň")
-
-    Day1 = chemoJson["Day1"]["Instructions"]
-    C1 = chemoJson["Chemo"]
-
-    st.write("D1 - premedikácia:")
-    st.write(chemoJson["Day1"]["Premed"]["Note"])
-
-    st.write("D1 - chemoterapia:")
-    for x in range(len(chemoJson["Chemo"])):
-        metric = C1[x].get('DosageMetric', 'mg/m2')
-        dose = C1[x]['Dosage'] if 'flat' in metric.lower() else round(C1[x]['Dosage'] * rbodysurf, 2)
-        st.write(f"{Day1[x]['Name']} {dose} mg {Day1[x]['Inst']}")
 
 # Function for chemotherapy based on weight (e.g. bevacizumab)
 def ChemoWeightBased(weight, chemoType):

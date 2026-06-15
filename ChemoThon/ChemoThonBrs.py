@@ -1,17 +1,6 @@
 import streamlit as st
 import json
-
-def load_json(filename):
-    """Loads JSON data from a specified file with error handling."""
-    try:
-        with open(f'data/{filename}', 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        st.error(f"Súbor nenájdený: {filename}. Uistite sa, že je v adresári 'data'.")
-        return None
-    except json.JSONDecodeError:
-        st.error("Chyba pri dekódovaní JSON. Skontrolujte formát súboru.")
-        return None
+from chemo_utils import bsa as calculate_bsa, load_json
 
 def display_chemotherapy_details(rbodysurf, chemoType, weight):
     """Displays detailed information about the chemotherapy regimen using body surface area or weight."""
@@ -75,11 +64,6 @@ def display_chemotherapy_details(rbodysurf, chemoType, weight):
                             st.write(f"{instruction['Name']} {dosage} mg {instruction['Inst']}")
             else:
                 st.write(instruction["Inst"])
-
-def calculate_bsa(weight, height):
-    """Calculates body surface area using the DuBois formula."""
-    bodysurf = (weight**0.425) * (height**0.725) * 0.007184
-    return round(bodysurf, 2)
 
 def main():
     st.title("ChemoThon - BreastSK v. 2.4")

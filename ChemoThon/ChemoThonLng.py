@@ -1,96 +1,6 @@
 import streamlit as st
 import json
-
-def Chemo(rbodysurf, chemoType):
-    """Táto funkcia rozpisuje jednoduché chemoterapie s priamou úmerou (BSA aj flat dose)"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-
-    st.write(f"### Protokol: {chemoType.replace('.json', '')}")
-    for i in chemoJson["Chemo"]:
-        metric = i.get('DosageMetric', 'mg/m2')
-        if 'flat' in metric.lower():
-            st.write(f"{i['Name']}  {i['Dosage']} {metric} D {i['Day']}")
-        else:
-            st.write(f"{i['Name']}  {round(i['Dosage'], 2)} {metric} .......... {round(i['Dosage'] * rbodysurf, 2)} mg D {i['Day']}")
-
-    st.write(f"NC {chemoJson['NC']} . deň")
-
-    Day1 = chemoJson["Day1"]["Instructions"]
-    C1 = chemoJson["Chemo"]
-
-    st.write("D1")
-    st.write(chemoJson["Day1"]["Premed"]["Note"])
-
-    for x in range(len(chemoJson["Chemo"])):
-        metric = C1[x].get('DosageMetric', 'mg/m2')
-        if 'flat' in metric.lower():
-            st.write(f"{Day1[x]['Name']} {C1[x]['Dosage']} mg {Day1[x]['Inst']}")
-        else:
-            st.write(f"{Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
-
-def ChemoDDP(rbodysurf, chemoType):
-    """Táto funkcia slúži pre chemoterapie s DDP"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-
-    st.write(f"DDP 80mg/m2 ................ {80 * rbodysurf} mg  D1")
-    for i in chemoJson["Chemo"]:
-        st.write(f"{i['Name']}  {i['Dosage']} {i['DosageMetric']} ..... {round(i['Dosage'] * rbodysurf, 2)} mg D {i['Day']}")
-
-    st.write(f"NC {chemoJson['NC']} . deň")
-
-    st.write("D1")
-    st.write(f"1. {chemoJson['Day1']['Premed']['Note']}")
-
-    a = round(80 * rbodysurf, 2)
-    b = a // 50
-    c = a % 50
-    rng = int(b)
-
-    next_n = 2
-    for _ in range(rng):
-        st.write(f"{next_n}. Cisplatina 50mg v 500ml RR iv")
-        next_n += 1
-    if c > 0:
-        st.write(f"{next_n}. Cisplatina {round(c, 2)} mg v 500ml RR iv")
-        next_n += 1
-    st.write(f"{next_n}. Manitol 10% 250ml iv")
-    next_n += 1
-
-    Day1 = chemoJson["Day1"]["Instructions"]
-    C1 = chemoJson["Chemo"]
-
-    for x in range(len(chemoJson["Chemo"])):
-        st.write(f"{next_n}. {Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
-        next_n += 1
-
-def ChemoCBDCA(rbodysurf, chemoType):
-    """Táto funkcia slúži pre rozpis chemoterapie obsahujúcu karboplatinu"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-
-    CrCl = st.number_input("Zadajte hodnotu clearance v ml/min", min_value=1, max_value=250, value=None, step=1)
-    AUC = st.number_input("Zadajte hodnotu AUC 2-6", min_value=2, max_value=6, value=None, step=1)
-
-    if CrCl is not None and AUC is not None:
-        st.write(f"CBDCA AUC {AUC} ............ {(CrCl + 25) * AUC} mg  D1")
-        for i in chemoJson["Chemo"]:
-            metric = i.get('DosageMetric', 'mg/m2')
-            dose = i['Dosage'] if 'flat' in metric.lower() else round(i['Dosage'] * rbodysurf, 2)
-            st.write(f"{i['Name']}  {i['Dosage']} {metric} ..... {dose} mg D {i['Day']}")
-
-        st.write(f"NC {chemoJson['NC']} . deň")
-
-        st.write("D1")
-        st.write(chemoJson["Day1"]["Premed"]["Note"])
-        st.write(f"CBDCA {(CrCl + 25) * AUC} mg v 500ml FR iv")
-        for x in range(len(chemoJson["Chemo"])):
-            metric = chemoJson['Chemo'][x].get('DosageMetric', 'mg/m2')
-            dose = chemoJson['Chemo'][x]['Dosage'] if 'flat' in metric.lower() else round(chemoJson['Chemo'][x]['Dosage'] * rbodysurf, 2)
-            st.write(f"{chemoJson['Day1']['Instructions'][x]['Name']} {dose} mg {chemoJson['Day1']['Instructions'][x]['Inst']}")
-    else:
-        st.write("Please enter valid values for both creatinine clearance (CrCl) and AUC.")
+from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP
 
 def lung(rbodysurf):
     """Tato funkcia ponuka chemoterapie pouzivane v liecbe karcinomu pluc"""
@@ -166,11 +76,6 @@ def lung(rbodysurf):
                     st.write(f"vinorelbin {vin_dose} mg v 125ml FR i.v./10 min D1, D8")
         elif lng == "Atezolizumab + Etoposid + CBDCA (SCLC 1. línia, IMpower133)":
             ChemoCBDCA(rbodysurf, "atezolizumab_ep.json")
-
-def bsa(weight, height):
-    bodysurf = (weight**0.425) * (height**0.725) * 0.007184
-    rbodysurf = round(bodysurf, 2)
-    return rbodysurf
 
 def main():
     st.title("          ChemoThon- LungSK v 2.3")

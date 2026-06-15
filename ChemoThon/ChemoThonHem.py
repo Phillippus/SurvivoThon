@@ -1,17 +1,6 @@
 import streamlit as st
 import json
-
-def load_json(filename):
-    """ Načíta údaje JSON zo špecifikovaného súboru s ošetrením chýb. """
-    try:
-        with open(f'data/{filename}', 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        st.error(f"Súbor nenájdený: {filename}. Uistite sa, že je v adresári 'data'.")
-        return None
-    except json.JSONDecodeError:
-        st.error("Chyba pri dekódovaní JSON. Skontrolujte formát súboru.")
-        return None
+from chemo_utils import bsa as calculate_bsa, load_json
 
 def display_chemotherapy_details(rbodysurf, filename):
     """ Zobrazuje podrobné informácie o chemoterapeutickom režime s využitím telesného povrchu. """
@@ -159,11 +148,6 @@ def RDHAP(rbodysurf):
     else:
         st.write(f"{ordo + 1}. manitol 10% 250ml iv")
         st.write(f"{ordo + 2}. dexametazon 40mg tbl p.o. (+ pantoprazol 40mg p.o.)")
-
-def calculate_bsa(weight, height):
-    """ Vypočíta telesný povrch pomocou vzorca DuBois. """
-    return round((weight**0.425) * (height**0.725) * 0.007184, 2)
-
 
 def main():
     """Main function to run the Streamlit app."""

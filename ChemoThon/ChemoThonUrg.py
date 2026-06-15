@@ -1,86 +1,8 @@
 import streamlit as st
 import json
+from chemo_utils import bsa, Chemo, ChemoCBDCA, ChemoDDP
 
-# Function for calculating BSA (Body Surface Area)
-def bsa(weight, height):
-    bodysurf = (weight**0.425) * (height**0.725) * 0.007184
-    rbodysurf = round(bodysurf, 2)
-    return rbodysurf
-
-# Function for displaying basic chemotherapy
-def Chemo(rbodysurf, chemoType):
-    """Táto funkcia rozpisuje jednoduché chemoterapie s priamou úmerou"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-    
-    st.write("Rozpis chemoterapie:")
-    for i in chemoJson["Chemo"]:
-        st.write(f"{i['Name']}  {round(i['Dosage'], 2)} {i['DosageMetric']}......... {round(i['Dosage'] * rbodysurf, 2)} mg D{i['Day']}")
-    
-    st.write(f"NC {chemoJson['NC']} . deň")
-    
-    Day1 = chemoJson["Day1"]["Instructions"]
-    C1 = chemoJson["Chemo"]
-    
-    st.write("D1 - premedikácia:")
-    st.write(chemoJson["Day1"]["Premed"]["Note"])
-    
-    st.write("D1 - chemoterapia:")
-    for x in range(len(chemoJson["Chemo"])):
-        st.write(f"{Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
-
-# Function for chemotherapy with DDP
-def ChemoDDP(rbodysurf, chemoType):
-    """Táto funkcia slúži pre chemoterapie s DDP"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-    
-    st.write(f"DDP 70mg/m2................ {70 * rbodysurf} mg  D1")
-    for i in chemoJson["Chemo"]:
-        st.write(f"{i['Name']} {i['Dosage']} {i['DosageMetric']} ..... {round(i['Dosage'] * rbodysurf, 2)} mg D{i['Day']}")
-
-    st.write(f"NC {chemoJson['NC']} . deň")
-
-    st.write("D1")
-    st.write(f"1. {chemoJson['Day1']['Premed']['Note']}")
-
-    a = round(70 * rbodysurf, 2)
-    b = a // 50
-    c = a % 50
-    rng = int(b)
-
-    for ordo in range(2, rng + 2):
-        st.write(f"{ordo}. Cisplatina 50mg v 500ml RR iv")
-    st.write(f"{ordo + 1}. Cisplatina {round(c, 2)} mg v 500ml RR iv")
-    st.write(f"{ordo + 2}. Manitol 10% 250ml iv")
-
-    Day1 = chemoJson["Day1"]["Instructions"]
-    C1 = chemoJson["Chemo"]
-
-    for x in range(len(chemoJson["Chemo"])):
-        st.write(f"{ordo + 3}. {Day1[x]['Name']} {round(C1[x]['Dosage'] * rbodysurf, 2)} mg {Day1[x]['Inst']}")
-
-# Function for chemotherapy with Carboplatin (CBDCA)
-def ChemoCBDCA(rbodysurf, chemoType):
-    """Táto funkcia slúži pre rozpis chemoterapie obsahujúcu karboplatinu"""
-    with open('data/' + chemoType, "r") as chemoFile:
-        chemoJson = json.loads(chemoFile.read())
-    
-    CrCl = st.number_input("Zadajte hodnotu clearance v ml/min", min_value=1, max_value=250, value=None)
-    AUC = st.number_input("Zadajte hodnotu AUC 2-6", min_value=2, max_value=6, value=None)
-    
-    if CrCl is not None and AUC is not None:
-        st.write(f"CBDCA AUC {AUC}............ {(CrCl + 25) * AUC} mg  D1")
-        for i in chemoJson["Chemo"]:
-            st.write(f"{i['Name']} {i['Dosage']} {i['DosageMetric']} ..... {round(i['Dosage'] * rbodysurf, 2)} mg D{i['Day']}")
-        
-        st.write(f"NC {chemoJson['NC']} . deň")
-        
-        st.write("D1")
-        st.write(chemoJson["Day1"]["Premed"]["Note"])
-        st.write(f"CBDCA {(CrCl + 25) * AUC} mg v 500ml FR iv")
-        for x in range(len(chemoJson["Chemo"])):
-            st.write(f"{chemoJson['Day1']['Instructions'][x]['Name']} {round(chemoJson['Chemo'][x]['Dosage'] * rbodysurf, 2)} mg {chemoJson['Day1']['Instructions'][x]['Inst']}")
+# ChemoDDP v urogenitálnej onkológii používa 70 mg/m2 → volaj ChemoDDP(..., ddp_dose=70)
 
 # Function for chemotherapy with flat dosages
 def Flatdoser(rbodysurf, chemoType, chemoFlat=None):
@@ -154,7 +76,7 @@ def urogenital(rbodysurf):
     elif chemo_choice == "Pt/ Gemcitabin":
         Ptdecis = st.selectbox("Ktorá platina?", ["Vyberte platinu", "Cisplatina", "Karboplatina"])
         if Ptdecis == "Cisplatina":
-            ChemoDDP(rbodysurf, "gemcitabin4w.json")
+            ChemoDDP(rbodysurf, "gemcitabin4w.json", ddp_dose=70)
         elif Ptdecis == "Karboplatina":
             ChemoCBDCA(rbodysurf, "gemcitabin4w.json")
     elif chemo_choice == "Vinflunin":
