@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "paclitaxel",
+            "Dosage": 50,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "8",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazon 20mg iv prve podanie, Dithiaden 1 amp iv, pantoprazol 40mg p.o., Granisetron 2mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "paclitaxel",
+                "Inst": "prvych 30mg /500ml FR/ 45 min, zvysok v 500ml FR/ 60 minut"
+            }
+        ]
+    }
+}

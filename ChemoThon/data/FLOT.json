@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "oxaliplatina",
+            "Name": "oxaliplatin",
             "Dosage": 85,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -13,7 +13,7 @@
             "Day": "1"
         },
         {
-            "Name": "leukovor\u00edn",
+            "Name": "leukovorín",
             "Dosage": 400,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -26,7 +26,7 @@
         },
         "Instructions": [
             {
-                "Name": "oxaliplatina",
+                "Name": "oxaliplatin",
                 "Inst": "v 500ml 5%GLC iv"
             },
             {
@@ -34,9 +34,11 @@
                 "Inst": "prvych 30mg v 500ml FR iv na 45minut, zvysok na 60min v 500mlFR iv"
             },
             {
-                "Name": "leukovor\u00edn",
+                "Name": "leukovorín",
                 "Inst": "v 500ml FR iv"
             }
         ]
-    }
+    },
+    "_source": "Al-Batran SE et al. Lancet 2019;393:1948 (FLOT4); 5-FU 2600 mg/m2 24h kivi dopočítané v app",
+    "_revision": "2026-06"
 }

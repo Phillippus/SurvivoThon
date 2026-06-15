@@ -1,0 +1,24 @@
+{
+    "_source": "Middleton MR et al. J Clin Oncol 2000;18:158; ESMO Melanoma guideline 2023; NCCN",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "dacarbazine",
+            "Dosage": 1000,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. Dakarbazín 1000 mg/m2 D1 q21d (jednodňový). Chrániť pred svetlom! Dakarbazín 250 mg/m2 D1-5 q21d je alternatíva (viď SNE app)."
+        },
+        "Instructions": [
+            {
+                "Name": "dacarbazine",
+                "Inst": "v 500ml FR i.v. počas 30-60 min (chrániť pred svetlom)"
+            }
+        ]
+    }
+}

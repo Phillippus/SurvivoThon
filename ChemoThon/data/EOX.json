@@ -7,7 +7,7 @@
             "Day": "1"
         },
         {
-            "Name": "oxaliplatina",
+            "Name": "oxaliplatin",
             "Dosage": 130,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -30,7 +30,7 @@
                 "Inst": "v 500ml FR iv"
             },
             {
-                "Name": "oxaliplatina",
+                "Name": "oxaliplatin",
                 "Inst": "v 500ml 5% GLC iv"
             },
             {
@@ -38,5 +38,7 @@
                 "Inst": "p.o. rozdelit na 2 denne davky"
             }
         ]
-    }
+    },
+    "_source": "Cunningham D et al. NEJM 2008;358:36 (REAL-2); BCCA GIOCEOXX",
+    "_revision": "2026-06"
 }

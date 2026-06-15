@@ -1,1 +1,24 @@
-{"Chemo": [{"Name": "bevacizumab", "Dosage": 7.5, "DosageMetric": "mg/kg", "Day": "1"}], "NC": "21", "Day1": {"Premed": {"Note": ""}, "Instructions": [{"Name": "bevacizumab", "Inst": "v 500ml FR iv"}]}}
+{
+  "Chemo": [
+    {
+      "Name": "bevacizumab",
+      "Dosage": 7.5,
+      "DosageMetric": "mg/kg",
+      "Day": "1"
+    }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie. Prvá infúzia 90 min; 2. podanie 60 min; ďalšie 30 min ak bez reakcie."
+    },
+    "Instructions": [
+      {
+        "Name": "bevacizumab",
+        "Inst": "v 100 ml FR i.v. (pozri premed pre čas infúzie)"
+      }
+    ]
+  },
+  "_source": "SmPC Avastin; Hurwitz H et al. NEJM 2004;350:2335",
+  "_revision": "2026-06 | Prvá infúzia 90 min, 2. 60 min, ďalšie 30 min ak tolerované (SmPC)"
+}

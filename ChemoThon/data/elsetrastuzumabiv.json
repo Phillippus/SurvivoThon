@@ -15,8 +15,10 @@
     "Instructions": [
       {
         "Name": "trastuzumab i.v.",
-        "Inst": "v 250ml FR/ 30 min"
+        "Inst": "v 250 ml FR i.v. počas 30 min (ak bez reakcie pri 1. podaní). Monitorovať 30 min po dotečení."
       }
     ]
-  }
+  },
+  "_source": "SmPC Herceptin; BCCA BRAJHERIV",
+  "_revision": "2026-06"
 }

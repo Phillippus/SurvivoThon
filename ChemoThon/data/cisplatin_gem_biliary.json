@@ -1,0 +1,24 @@
+{
+    "_source": "Valle JW et al. NEJM 2010;362:1273 (ABC-02); SmPC; NCCN Biliary 2025",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "gemcitabine",
+            "Dosage": 1000,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 8"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. Hydratácia: FR 500ml pred cisplatinou, Manitol 10% 250ml po cisplatine. Indikácia: pokročilý/metastatický karcinóm žlčových ciest, 1. línia."
+        },
+        "Instructions": [
+            {
+                "Name": "gemcitabine",
+                "Inst": "v 500ml FR i.v. počas 30 min D1, D8"
+            }
+        ]
+    }
+}

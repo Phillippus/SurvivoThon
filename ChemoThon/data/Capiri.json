@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "irinotekan",
+            "Name": "irinotecan",
             "Dosage": 175,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -20,7 +20,7 @@
         },
         "Instructions": [
             {
-                "Name": "irinotekan",
+                "Name": "irinotecan",
                 "Inst": "v 500ml FR iv"
             },
             {

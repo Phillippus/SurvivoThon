@@ -4,18 +4,18 @@
             "Name": "mitomycine",
             "Dosage": 10.0,
             "DosageMetric": "mg/m2",
-            "Day": "1"
+            "Day": "1 (a D29 — ak NIE JE súbežná RT)"
         }
     ],
     "NC": "29",
     "Day1": {
         "Premed": {
-            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250 ml FR iv"
+            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondansetron 8mg v 250ml FR iv. POZOR: pri súbežnej rádioterapii (konkomitantná CRT) sa mitomycín v D29 VYNECHÁVA — podáva sa len v D1!"
         },
         "Instructions": [
             {
                 "Name": "mitomycine",
-                "Inst": "v 500ml FR iv"
+                "Inst": "v 500ml FR iv. POZNÁMKA: D29 vynechať ak prebieha konkomitantná RT."
             }
         ]
     }

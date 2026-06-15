@@ -1,0 +1,24 @@
+{
+  "_source": "Turner NC et al. NEJM 2023;388:2058 (CAPItello-291); SmPC Truqap",
+  "_revision": "2026-06-new",
+  "Chemo": [
+    {
+      "Name": "capivasertib",
+      "Dosage": 400,
+      "DosageMetric": "mg flat dose",
+      "Day": "D4-7, D11-14, D18-21 (4 dní ON / 3 dní OFF každý týždeň)"
+    }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie. V kombinácii s fulvestrantom 500 mg i.m. D1, D15 cyklus 1, potom D1 každého cyklu. Indikácia: HR+/HER2-, PIK3CA/AKT1/PTEN mutácia, po AI + CDK4/6i."
+    },
+    "Instructions": [
+      {
+        "Name": "capivasertib",
+        "Inst": "400 mg p.o. 2× denne počas 4 dní (D4-7, D11-14, D18-21) — 4 ON / 3 OFF. S jedlom alebo bez."
+      }
+    ]
+  }
+}

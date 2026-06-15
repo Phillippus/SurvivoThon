@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "eribulin",
-            "Dosage": 1,
-            "DosageMetric": "mg/m2",
-            "Day": "1,8"
-        }
-    ],
-    "NC": "22",
-    "Day1": {
-        "Premed": {
-            "Note": "Granisetron 2 mg p.o., Dexametazon 8mg i.v., Pantoprazol 40mg p.o."
-        },
-        "Instructions": [
-            {
-                "Name": "eribulin",
-                "Inst": "v 250ml FR iv"
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "eribulin",
+      "Dosage": 1.23,
+      "DosageMetric": "mg/m2",
+      "Day": "1,8"
     }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "Granisetron 2 mg p.o., Dexametazon 8mg i.v., Pantoprazol 40mg p.o. | Redukcia pri GFR <50 ml/min alebo Child-Pugh B: 0.97 mg/m2 (viď SmPC)"
+    },
+    "Instructions": [
+      {
+        "Name": "eribulin",
+        "Inst": "v 250 ml FR i.v. bolus 2–5 min. D8: opakovať rovnako."
+      }
+    ]
+  },
+  "_source": "SmPC Halaven; eviQ BCERIB; BCCA BCERIB; Cortes J et al. Lancet 2011;377:914",
+  "_revision": "2026-06 | dávka zmenená 1.0→1.23 mg/m2 (schválená dávka SmPC)"
 }

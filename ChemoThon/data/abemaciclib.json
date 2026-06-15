@@ -1,0 +1,24 @@
+{
+  "_source": "Johnston SRD et al. NEJM 2020;383:1341 (monarchE adjuvant); Sledge GW et al. J Clin Oncol 2019;37:2875 (MONARCH-3); SmPC Verzenios",
+  "_revision": "2026-06",
+  "Chemo": [
+    {
+      "Name": "abemaciclib",
+      "Dosage": 150,
+      "DosageMetric": "mg flat dose",
+      "Day": "1-28 (D1-28 denne, kontinuálne)"
+    }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie. Pridáva sa k hormonálnej liečbe (aromatázový inhibítor alebo fulvestrant). Podávanie: D1-28 denne bez prerušenia. Profylaxia hnačky: loperamid."
+    },
+    "Instructions": [
+      {
+        "Name": "abemaciclib",
+        "Inst": "150 mg p.o. 2× denne D1-28 kontinuálne (s ET). Adjuvant: 2 roky."
+      }
+    ]
+  }
+}

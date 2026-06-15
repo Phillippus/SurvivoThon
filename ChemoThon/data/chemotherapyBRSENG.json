@@ -341,8 +341,7 @@
             },
             "name": "Trastuzumab-deruxtecan",
             "nc": 21
-        }
-        ,
+        },
         {
             "Chemo": [
                 {
@@ -517,4 +516,3 @@
         }
     ]
 }
-                   

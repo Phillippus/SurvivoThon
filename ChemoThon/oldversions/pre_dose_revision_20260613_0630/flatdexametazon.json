@@ -1,0 +1,12 @@
+{
+    "Chemo": [
+        {"Name": "dexametazon", "Dosage": 40, "DosageMetric": "mg flat dose", "Day": "1-4"}
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {"Note": ""},
+        "Instructions": [
+            {"Name": "dexametazon", "Inst": "p.o. rozdelit na 2 davky (rano a vecer)"}
+        ]
+    }
+}

@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "panitumumab",
-            "Dosage": 6.0,
-            "DosageMetric": "mg/kg",
-            "Day": "1"
-        }
-    ],
-    "NC": "14",
-    "Day1": {
-        "Premed": {
-            "Note": ""
-        },
-        "Instructions": [
-            {
-                "Name": "panitumumab",
-                "Inst": "v 500ml FR iv /60- 90 minut"
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "panitumumab",
+      "Dosage": 6.0,
+      "DosageMetric": "mg/kg",
+      "Day": "1"
     }
+  ],
+  "NC": "14",
+  "Day1": {
+    "Premed": {
+      "Note": "Antihistaminikum nie je povinné ale odporúčané pri 1. podaní (Bisulepin 1 mg i.v.). Dexametazon sa rutinne NEPODÁVA (skresľuje kožnú toxicitu ako biomarker odpovede)."
+    },
+    "Instructions": [
+      {
+        "Name": "panitumumab",
+        "Inst": "≤1000 mg: v 100 ml FR i.v. počas 60 min; >1000 mg: i.v. počas 90 min. Rýchlosť max 10 mg/min."
+      }
+    ]
+  },
+  "_source": "SmPC Vectibix; Douillard JY et al. J Clin Oncol 2010;28:4697 (PRIME)",
+  "_revision": "2026-06 | doplnená premedikácia a čas infúzie"
 }

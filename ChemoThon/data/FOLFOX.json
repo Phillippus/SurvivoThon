@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "oxaliplatina",
+            "Name": "oxaliplatin",
             "Dosage": 100,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -18,7 +18,6 @@
             "DosageMetric": "mg/m2",
             "Day": "1"
         }
-       
     ],
     "NC": "14",
     "Day1": {
@@ -27,7 +26,7 @@
         },
         "Instructions": [
             {
-                "Name": "oxaliplatina",
+                "Name": "oxaliplatin",
                 "Inst": "v 500ml 5%GLC iv"
             },
             {
@@ -39,5 +38,7 @@
                 "Inst": "bolus"
             }
         ]
-    }
+    },
+    "_source": "BCCA GICFOLFOX; eviQ mFOLFOX6; André T et al. NEJM 2004;350:2343 (MOSAIC); ESMO mCRC 2026",
+    "_revision": "2026-06 | Tento súbor zodpovedá FOLFOX6 (OXA 100 mg/m2). mFOLFOX6 (OXA 85 mg/m2) je preferovaný pri dlhodobej liečbe – zvážiť lokálnu prax. 5-FU 2400 mg/m2 48h kivi sa dopočítava v app."
 }

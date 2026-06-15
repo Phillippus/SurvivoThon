@@ -1,0 +1,34 @@
+{
+    "_source": "Murthy RK et al. NEJM 2020;382:597 (HER2CLIMB); SmPC Tukysa",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "tucatinib",
+            "Dosage": 300,
+            "DosageMetric": "mg flat dose",
+            "Day": "1-21 (2× denne)"
+        },
+        {
+            "Name": "capecitabine",
+            "Dosage": 1000,
+            "DosageMetric": "mg/m2",
+            "Day": "1-14 (2× denne)"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Bez premedikácie. V kombinácii s trastuzumabom iv/sc (podať podľa zvoleného schémy q3w). Indikácia: HER2+ mBC po ≥1 línii anti-HER2 (HER2CLIMB). Kapecitabín: 1000 mg/m2 2×denne D1-14, tucatinib: 300 mg 2×denne kontinuálne D1-21."
+        },
+        "Instructions": [
+            {
+                "Name": "tucatinib",
+                "Inst": "300 mg p.o. 2× denne D1-21 kontinuálne (s jedlom alebo bez)"
+            },
+            {
+                "Name": "capecitabine",
+                "Inst": "p.o. 2× denne D1-14 (s jedlom, zapíjať vodou). Dávka: viď výpočet mg/m2 vyššie."
+            }
+        ]
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "_source": "Kunz PL et al. J Clin Oncol 2023;41:1316 (ECOG-ACRIN E2211); Strosberg JR et al. Pancreas 2011;40:185",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "temozolomide",
+            "Dosage": 200,
+            "DosageMetric": "mg/m2",
+            "Day": "10-14"
+        },
+        {
+            "Name": "capecitabine",
+            "Dosage": 750,
+            "DosageMetric": "mg/m2",
+            "Day": "1-14"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2 mg p.o. Indikácia: pankreatické NET (pNET), funkčné aj nefunkčné, pokročilé. ECOG E2211: CAPTEM vs. temozolomid monoterapia — CAPTEM superiórne v PFS."
+        },
+        "Instructions": [
+            {
+                "Name": "temozolomide",
+                "Inst": "p.o. nalačno D10-D14 (každý cyklus)"
+            },
+            {
+                "Name": "capecitabine",
+                "Inst": "750 mg/m2 p.o. 2× denne D1-14 do 30 min po jedle (rozdeliť na 2 dávky)"
+            }
+        ]
+    }
+}

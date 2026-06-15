@@ -1,1 +1,34 @@
-{"Chemo": [{"Name": "Cisplatina", "Dosage": 20, "DosageMetric": "mg/m2", "Day": "1-5"}, {"Name": "etoposid", "Dosage": 100, "DosageMetric": "mg/m2", "Day": "1-5"}], "NC": "21", "Day1": {"Premed": {"Note": "Granisetron 2mg p.o./ Ondasetron 8mg v 100ml FR iv, Dexametazon 12mg iv, Pantoprazol 40mg p.o."}, "Instructions": [{"Name": "Cisplatina", "Inst": "(kazdych 50mg) v 500ml RR iv, po podan\u00ed Manitol 10% 250ml iv"}, {"Name": "etoposid", "Inst": "v 500ml FR iv"}]}}
+{
+    "Chemo": [
+        {
+            "Name": "Cisplatin",
+            "Dosage": 20,
+            "DosageMetric": "mg/m2",
+            "Day": "1-5"
+        },
+        {
+            "Name": "etoposide",
+            "Dosage": 100,
+            "DosageMetric": "mg/m2",
+            "Day": "1-5"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2 mg p.o. / Ondansetron 8 mg v 100 ml FR i.v. Dexametazón 12 mg i.v. Pantoprazol 40 mg p.o. HYDRATÁCIA: FR 1000 ml + KCl 20 mEq i.v. pred cisplatinou."
+        },
+        "Instructions": [
+            {
+                "Name": "Cisplatin",
+                "Inst": "(každých 50 mg) v 500 ml NaCl 0,9% i.v., po každom vaku Manitol 10% 250 ml i.v."
+            },
+            {
+                "Name": "etoposide",
+                "Inst": "v 500ml FR iv"
+            }
+        ]
+    },
+    "_source": "Williams SD et al. NEJM 1987;316:1435; Einhorn LH et al. NEJM 2007;357:340; eviQ BEP",
+    "_revision": "2026-06 | doplnená hydratácia a manitol pre cisplatinu"
+}

@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "pemetrexed",
-            "Dosage": 500,
-            "DosageMetric": "mg/m2",
-            "Day": "1"
-        }
-    ],
-    "NC": "21",
-    "Day1": {
-        "Premed": {
-            "Note": "Granisetron 2mg p.o./ Ondasetron 8mg v 250ml FR iv, Dexametazon 8mg iv, Pantoprazol 40mg p.o."
-        },
-        "Instructions": [
-            {
-                "Name": "pemetrexed",
-                "Inst": "v 500 ml FR iv"
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "pemetrexed",
+      "Dosage": 500,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
     }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "POVINNÁ SUPLEMENTÁCIA (SmPC): Kyselina listová 400 mcg p.o. denne počínajúc 7 dní pred 1. dávkou až do 21 dní po poslednej dávke. Vitamín B12 1000 mcg i.m. 1 týždeň pred 1. dávkou, potom každé 3 cykly. Dexametazón 4 mg p.o. 2× denne D-1, D1, D+1 (prevencia kožnej vyrážky). Granisetron 2 mg p.o. / Ondansetron 8 mg v 250 ml FR i.v. Pantoprazol 40 mg p.o."
+    },
+    "Instructions": [
+      {
+        "Name": "pemetrexed",
+        "Inst": "v 500 ml FR iv"
+      }
+    ]
+  },
+  "_source": "SmPC Alimta; Scagliotti GV et al. J Clin Oncol 2008;26:3543; BCCA LUAVPEM",
+  "_revision": "2026-06 | KRITICKÁ OPRAVA: doplnená povinná B12 a folát suplementácia (SmPC)"
 }

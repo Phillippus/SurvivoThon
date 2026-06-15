@@ -1,0 +1,32 @@
+{
+    "Chemo": [
+        {
+            "Name": "adriamycin",
+            "Dosage": 60,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "cyklofosfamid",
+            "Dosage": 600,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron/Netupitant 300mg/0.5mg p.o., Dexametazon 4mg iv, Pantoprazol 40mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "adriamycin",
+                "Inst": "v 250ml FR iv"
+            },
+            {
+                "Name": "cyklofosfamid",
+                "Inst": "v 250ml FR iv"
+            }
+        ]
+    }
+}

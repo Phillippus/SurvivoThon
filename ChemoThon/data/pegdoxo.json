@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "pegylovany doxorubicin",
-            "Dosage": 40,
-            "DosageMetric": "mg/m2",
-            "Day": "1"
-        }
-    ],
-    "NC": "29",
-    "Day1": {
-        "Premed": {
-            "Note": "Granisetron 2 mg p.o., Dexametazon 8mg iv, Pantoprazol 40mg p.o."
-        },
-        "Instructions": [
-            {
-                "Name": "pegylovany doxorubicin",
-                "Inst": "v 500ml 5%GLC iv"
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "pegylovany doxorubicin",
+      "Dosage": 40,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
     }
+  ],
+  "NC": "29",
+  "Day1": {
+    "Premed": {
+      "Note": "Granisetron 2 mg p.o., Dexametazon 8mg iv, Pantoprazol 40mg p.o."
+    },
+    "Instructions": [
+      {
+        "Name": "pegylovany doxorubicin",
+        "Inst": "v 250 ml 5% GLC i.v. — prvých 15 min rýchlosť 1 mg/min, potom titrovať; ak >90 mg: 500 ml GLC; NC 28 dní pri monoterapii, 21 dní v kombinácii"
+      }
+    ]
+  },
+  "_source": "SmPC Caelyx; O'Brien ME et al. Ann Oncol 2004;15:440",
+  "_revision": "2026-06 | doplnená rýchlosť infúzie podľa SmPC"
 }

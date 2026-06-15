@@ -1,0 +1,24 @@
+{
+  "_source": "Tutt ANJ et al. NEJM 2021;384:2394 (OlympiA adjuvant); Robson M et al. NEJM 2017;377:523 (OlympiAD metastatic); SmPC Lynparza",
+  "_revision": "2026-06-new",
+  "Chemo": [
+    {
+      "Name": "olaparib",
+      "Dosage": 300,
+      "DosageMetric": "mg flat dose",
+      "Day": "1 (denne kontinuálne)"
+    }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie."
+    },
+    "Instructions": [
+      {
+        "Name": "olaparib",
+        "Inst": "300 mg (2×150 mg) p.o. 2× denne — ráno a večer (12h rozostupy). Indikácia: gBRCA1/2+ HER2-. Adjuvant: 12 mesiacov. Redukcia pri GFR 31-50: 250 mg 2×/deň."
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "vinorelbin",
+            "Name": "vinorelbine",
             "Dosage": 60,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -10,13 +10,15 @@
     "NC": "8",
     "Day1": {
         "Premed": {
-            "Note": "Granisetron 2mg p.o., Degan 1 tbl p.p."
+            "Note": "Degan 1 tbl p.p. | Eskalácia: 60 mg/m2 1. a 2. týždeň; 80 mg/m2 od 3. týždňa ak bez G≥3 toxicity"
         },
         "Instructions": [
             {
-                "Name": "vinorelbin",
-                "Inst": "tablety zjest spolu"
+                "Name": "vinorelbine",
+                "Inst": "Kapsuly užiť celé (nerozhrýzať) počas jedenia s vodou."
             }
         ]
-    }
+    },
+    "_source": "SmPC Navelbine perorálny; BCCA BCABVIN; eviQ Breast Vinorelbine",
+    "_revision": "2026-06 | doplnená eskalácia: 60 mg/m2 T1, potom 80 mg/m2 od T3 ak tolerovaná"
 }

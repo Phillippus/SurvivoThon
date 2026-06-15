@@ -1,0 +1,34 @@
+{
+    "_source": "SmPC Herceptin; NCCN Gastric 2025; inštitucionálny switch-protokol (nefroprotektívna stratégia)",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "oxaliplatin",
+            "Dosage": 130,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "capecitabine",
+            "Dosage": 1000,
+            "DosageMetric": "mg/m2",
+            "Day": "1-14 (2× denne)"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. SWITCH z cisplatiny: pri dlhodobom podávaní DDP (≥6 cyklov) alebo pri nefrotoxicite — nahradzuje sa oxaliplatinou (XELOX + trastuzumab). Trastuzumab: pokračuje v rovnakom dávkovaní (6 mg/kg q3w)."
+        },
+        "Instructions": [
+            {
+                "Name": "oxaliplatin",
+                "Inst": "v 250ml 5% GLC i.v. počas 120 min D1"
+            },
+            {
+                "Name": "capecitabine",
+                "Inst": "p.o. 2× denne D1-14 s jedlom"
+            }
+        ]
+    }
+}

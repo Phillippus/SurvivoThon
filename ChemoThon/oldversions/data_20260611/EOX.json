@@ -1,0 +1,42 @@
+{
+    "Chemo": [
+        {
+            "Name": "epirubicin",
+            "Dosage": 50,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "oxaliplatina",
+            "Dosage": 130,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "capecitabine",
+            "Dosage": 1250,
+            "DosageMetric": "mg/m2",
+            "Day": "1-21"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv/ Granegis 2 tbl p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "epirubicin",
+                "Inst": "v 500ml FR iv"
+            },
+            {
+                "Name": "oxaliplatina",
+                "Inst": "v 500ml 5% GLC iv"
+            },
+            {
+                "Name": "capecitabine",
+                "Inst": "p.o. rozdelit na 2 denne davky"
+            }
+        ]
+    }
+}

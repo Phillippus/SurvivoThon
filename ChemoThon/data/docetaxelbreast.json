@@ -22,5 +22,7 @@
         "Inst": "pegfilgrastim alebo lipegfilgrastim 6mg s.c. 24–48 hodín po dotečení chemoterapie"
       }
     ]
-  }
+  },
+  "_source": "BCCA BCABDOC; eviQ Breast Docetaxel 3-weekly; NCCN Breast v.1.2026",
+  "_revision": "2026-06 | dávka 100 mg/m2 overená (adjuvant monotherapy); 75 mg/m2 v kombinácii – viď docetaxel.json"
 }

@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+from sk_to_eng import sk_to_eng
 
 # --- Platinum + 5FU detailed regimen function ---
 def platinum_5fu_detailed(rbodysurf):
@@ -43,27 +44,24 @@ def pt_5fu_cisplatin(bsa, weight):
     fu_dose = round(1000 * bsa, 2)
     st.write("### Protocol: Pt/5-FU cisplatin-based")
     st.write("#### Chemotherapy Drugs")
-    st.write(f"cisplatin 80 mg/m2 ......... {ddp_dose} mg D 1")
-    st.write(f"fluorouracil 1000 mg/m2 ......... {fu_dose} mg D 1-4")
+    st.write(f"cisplatin 80 mg/m2 ......... {ddp_dose} mg D1")
+    st.write(f"fluorouracil 1000 mg/m2 ......... {fu_dose} mg D1-4")
     st.write("**Next Cycle:** 21 days")
     st.write("#### D1 - Premedication")
-    st.write("Dexamethasone 8mg iv, Pantoprazole 40mg p.o., Ondansetron 8mg in 250ml NS iv")
-    # Updated D1 - Chemotherapy Instructions
+    st.write("1. Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12mg i.v., Pantoprazole 40mg p.o.")
     st.write("#### D1 - Chemotherapy Instructions")
-    item_no = 1
-    st.write(f"{item_no}. Dexametazón 8mg iv, Pantoprazol 40 mg p.o., Ondansetron 8mg v 250ml FR iv")
-    item_no += 1
+    item_no = 2
     full_units = int(ddp_dose // 50)
     remainder = round(ddp_dose % 50, 2)
     for _ in range(full_units):
-        st.write(f"{item_no}. Cisplatina 50mg v 500ml RR iv")
+        st.write(f"{item_no}. Cisplatin 50 mg in 500 ml normal saline iv")
         item_no += 1
     if remainder > 0:
-        st.write(f"{item_no}. Cisplatina {remainder} mg v 500ml RR iv")
+        st.write(f"{item_no}. Cisplatin {remainder} mg in 500 ml normal saline iv")
         item_no += 1
-    st.write(f"{item_no}. Manitol 10% 250ml iv")
+    st.write(f"{item_no}. Mannitol 10% 250 ml iv")
     item_no += 1
-    st.write(f"{item_no}. 5-fluoruracil {fu_dose} mg na 24 hodín/kivi")
+    st.write(f"{item_no}. 5-fluorouracil {fu_dose} mg continuous infusion over 24 hours")
 
 def pt_5fu_carboplatin(bsa, weight):
     CrCl = st.number_input("Enter creatinine clearance (ml/min):", min_value=1, max_value=250, value=60, step=1)
@@ -77,10 +75,10 @@ def pt_5fu_carboplatin(bsa, weight):
     st.write(f"fluorouracil 1000 mg/m2 ......... {fu_dose} mg D 1-4")
     st.write("**Next Cycle:** 21 days")
     st.write("#### D1 - Premedication")
-    st.write("Dexamethasone 8mg iv, Pantoprazole 40mg p.o., Ondansetron 8mg in 250ml NS iv")
+    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12mg i.v., Pantoprazole 40mg p.o.")
     st.write("#### D1 - Chemotherapy Instructions")
-    st.write(f"carboplatin - {cbdca_dose}mg")
-    st.write(f"fluorouracil - {fu_dose}mg, administered continuously over 24 hours via elastomeric pump")
+    st.write(f"carboplatin {cbdca_dose} mg in 500 ml glucose 5% iv/60 min")
+    st.write(f"fluorouracil {fu_dose} mg continuous infusion over 24 hours")
 
 def load_chemotherapy_data():
     """Loads all chemotherapy data from the consolidated JSON file."""
@@ -215,8 +213,55 @@ def display_chemotherapy_details(protocol, bsa, weight):
     else:
         st.warning("No details found for Day 1.")
 
+
+def display_simple_json(filename, bsa, weight=None):
+    """Display regimen from individual JSON file (flat-dose / BSA / weight-based)."""
+    try:
+        with open(f'data/{filename}', 'r') as f:
+            reg = json.load(f)
+    except Exception as e:
+        st.error(f"Error loading {filename}: {e}")
+        return
+    st.write("#### Chemotherapy Drugs")
+    for drug in reg.get("Chemo", []):
+        metric = drug.get("DosageMetric", "")
+        dosage = drug.get("Dosage", 0)
+        if "mg/kg" in metric and weight:
+            calculated = round(dosage * weight, 2)
+            st.write(f"{drug['Name']} {dosage} {metric} ......... {calculated} mg D{drug['Day']}")
+        elif "mg/m2" in metric:
+            calculated = round(dosage * bsa, 2)
+            st.write(f"{drug['Name']} {dosage} {metric} ......... {calculated} mg D{drug['Day']}")
+        else:
+            st.write(f"{drug['Name']} {dosage} {metric} D{drug['Day']}")
+    st.write(f"**Next Cycle:** {reg.get('NC', '?' )} days")
+    premed = reg.get("Day1", {}).get("Premed", {}).get("Note", "")
+    if premed:
+        st.write("#### D1 - Premedication")
+        st.write(sk_to_eng(premed))
+    instructions = reg.get("Day1", {}).get("Instructions", [])
+    if instructions:
+        st.write("#### D1 - Chemotherapy Instructions")
+        chemo_list = reg.get("Chemo", [])
+        for inst in instructions:
+            drug_name = inst.get("Name", "")
+            inst_text = sk_to_eng(inst.get("Inst", ""))
+            drug = next((d for d in chemo_list if d["Name"] == drug_name), None)
+            if drug:
+                metric = drug.get("DosageMetric", "")
+                dosage = drug.get("Dosage", 0)
+                if "mg/kg" in metric and weight:
+                    calc_dose = round(dosage * weight, 2)
+                elif "mg/m2" in metric:
+                    calc_dose = round(dosage * bsa, 2)
+                else:
+                    calc_dose = dosage
+                st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
+            else:
+                st.write(f"{drug_name} - {inst_text}")
+
 def main():
-    st.title("ChemoThon Head and Neck v. 3.0 ENG")
+    st.title("ChemoThon Head and Neck v. 3.2 ENG")
     st.write("""Welcome to ChemoThon!
 This application provides assistance in prescribing chemotherapy regimens based on body surface area (BSA) or weight.
 Please ensure that doses are adjusted to align with the packaging and protocols available in your country. Users bear full responsibility for applying this tool in clinical practice.
@@ -235,27 +280,23 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
 
     # Calculate BSA
     if st.button("Calculate BSA") and weight and height:
-        bsa = calculate_bsa(weight, height)
-        st.session_state['bsa'] = bsa
-        st.write(f"Body Surface Area: {bsa} m²")
-
-    if not weight or not height:
-        st.warning("Please enter both weight and height to calculate BSA.")
-        return
+        bsa_val = calculate_bsa(weight, height)
+        st.session_state['bsa'] = bsa_val
+        st.session_state['weight'] = weight
 
     # Select chemotherapy regimen
     if 'bsa' in st.session_state:
+        st.write(f"Body Surface Area (BSA): {st.session_state['bsa']} m²")
         bsa = st.session_state['bsa']
+        weight_val = st.session_state.get('weight', weight) or weight
+
         chemo_list = data if isinstance(data, list) else data.get("chemotherapies", [])
         chemo_names = [protocol["name"] for protocol in chemo_list]
 
-        # Remove "Pt/5-FU cisplatin-based" and "Pt/5-FU carboplatin-based" from chemo_names if present
-        chemo_names = [name for name in chemo_names if name not in ["Pt/5-FU cisplatin-based", "Pt/5-FU carboplatin-based"]]
+        # Remove individual Cetuximab weekly options
+        chemo_names = [name for name in chemo_names if name not in ["Pt/5-FU cisplatin-based", "Pt/5-FU carboplatin-based", "Cetuximab weekly (first)", "Cetuximab weekly (subsequent)"]]
 
-        # Remove individual Cetuximab weekly options if present
-        chemo_names = [name for name in chemo_names if name not in ["Cetuximab weekly (first)", "Cetuximab weekly (subsequent)"]]
-
-        # Add manual placeholder names for platinum + 5FU regimens and Cetuximab if not present in data
+        # Add manual placeholder names
         if "Pt/5-FU" not in chemo_names:
             chemo_names.append("Pt/5-FU")
         if "Cetuximab weekly" not in chemo_names:
@@ -263,7 +304,14 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
         if "Cetuximab biweekly" not in chemo_names:
             chemo_names.append("Cetuximab biweekly")
 
-        # Sorting logic: non-biological first, then biological
+        # New regimens (added 2026-06)
+        extra_new = [
+            "Pembrolizumab 200 mg flat q3w (R/M HNSCC CPS≥1, KEYNOTE-048)",
+            "Nivolumab 240 mg q2w (R/M HNSCC platinum-refractory, CheckMate-141)",
+        ]
+        chemo_names = chemo_names + extra_new
+
+        # Sorting logic
         def is_biological(name):
             name_lower = name.lower()
             return any(keyword in name_lower for keyword in ["trastuzumab", "pertuzumab", "govitecan", "deruxtecan", "td-m1"])
@@ -274,29 +322,29 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
 
         selected_protocol_name = st.selectbox("Select a chemotherapy regimen:", sorted_names)
 
-        # Add sub-options for specific regimens
+        # Sub-options for specific regimens
         sub_option = None
         if selected_protocol_name == "Cetuximab weekly":
             sub_option = st.radio("Select Cetuximab administration type:", ["First administration (400mg/m²)", "Subsequent administration (250mg/m²)"])
         elif selected_protocol_name == "Pt/5-FU":
             sub_option = st.radio("Select platinum type:", ["Cisplatin", "Carboplatin"])
 
-        if st.button("Display Protocol") and weight:
-            if selected_protocol_name == "Pt/5-FU":
+        if st.button("Display Protocol"):
+            if selected_protocol_name == "Pembrolizumab 200 mg flat q3w (R/M HNSCC CPS≥1, KEYNOTE-048)":
+                display_simple_json("pembrolizumab_hnscc.json", bsa, weight_val)
+            elif selected_protocol_name == "Nivolumab 240 mg q2w (R/M HNSCC platinum-refractory, CheckMate-141)":
+                display_simple_json("nivolumab_hnscc.json", bsa, weight_val)
+            elif selected_protocol_name == "Pt/5-FU":
                 if sub_option == "Cisplatin":
-                    pt_5fu_cisplatin(bsa, weight)
+                    pt_5fu_cisplatin(bsa, weight_val)
                 elif sub_option == "Carboplatin":
-                    pt_5fu_carboplatin(bsa, weight)
+                    pt_5fu_carboplatin(bsa, weight_val)
                 else:
                     st.error("Please select a platinum type.")
-                    return
             else:
                 if selected_protocol_name == "Cetuximab weekly":
                     if sub_option:
-                        if "First" in sub_option:
-                            protocol_name_to_lookup = "Cetuximab weekly (first)"
-                        else:
-                            protocol_name_to_lookup = "Cetuximab weekly (subsequent)"
+                        protocol_name_to_lookup = "Cetuximab weekly (first)" if "First" in sub_option else "Cetuximab weekly (subsequent)"
                     else:
                         st.error("Please select Cetuximab administration type.")
                         return
@@ -305,11 +353,26 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
 
                 protocol = next((p for p in chemo_list if p["name"] == protocol_name_to_lookup), None)
                 if protocol:
-                    display_chemotherapy_details(protocol, bsa, weight)
+                    display_chemotherapy_details(protocol, bsa, weight_val)
                 else:
                     st.error("Selected protocol not found in the data.")
-        elif not weight:
-            st.error("Please enter a weight to calculate the chemotherapy protocol.")
 
 if __name__ == "__main__":
     main()
+
+
+
+# ===== Zdroje / Sources (pridané 2026-06, aditívne) =====
+with st.expander("📚 Zdroje k režimom / Sources"):
+    st.markdown("""**Key references – head & neck cancers**
+
+Guidelines: [ESMO](https://www.esmo.org/guidelines/esmo-clinical-practice-guidelines-head-and-neck-cancers) · [NCCN](https://www.nccn.org/guidelines/category_1). Always verify against the current guideline version and available drug vial sizes. As of: June 2026.
+
+- **Pt / 5-FU + cetuximab** — EXTREME – Vermorken et al., NEJM 2008.
+- **Cetuximab (weekly / biweekly)** — Bonner et al., NEJM 2006 (+RT); EXTREME pre weekly.
+- **Paklitaxel weekly** — Paliatívna monoterapia – NCCN Head & Neck.
+- **Metotrexát** — Štandardná paliatívna 2. línia – Forastiere et al., J Clin Oncol 1992.
+
+**Current standards to consider (not yet in tool):**
+- **Pembrolizumab ± chemo 1. línia R/M HNSCC (CPS≥1)** — KEYNOTE-048, Lancet 2019 → teraz v nástroji.
+- **Nivolumab (platina-refr. R/M HNSCC)** — CheckMate-141, NEJM 2016 → teraz v nástroji.""")

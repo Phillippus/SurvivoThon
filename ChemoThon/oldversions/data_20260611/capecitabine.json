@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "capecitabine",
+            "Dosage": 2500,
+            "DosageMetric": "mg/m2",
+            "Day": "1-14"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "bez premedikácie"
+        },
+        "Instructions": [
+            {
+                "Name": "capecitabine",
+                "Inst": "do 30 min po jedle, rozdelené do dvoch dávok 14 dní, potom 7 dní pauza"
+            }
+        ]
+    }
+}

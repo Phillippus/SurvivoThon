@@ -1,0 +1,24 @@
+{
+  "_source": "Dasari NA et al. Lancet 2023;402:41 (FRESCO-2); SmPC Fruzaqla",
+  "_revision": "2026-06-new",
+  "Chemo": [
+    {
+      "Name": "fruquitinib",
+      "Dosage": 5,
+      "DosageMetric": "mg flat dose",
+      "Day": "1-21 (denne, kontinuálne)"
+    }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie. Indikácia: mCRC po ≥2 líniách liečby (vrátane fluoropyrimidínu, oxaliplatiny, irinotekan). Monoterapia. Dávka: 5 mg/deň p.o. D1-21, pauza D22-28. Monitorovať TK, proteinúriu, krvácanie. VEGFR1-3 inhibítor."
+    },
+    "Instructions": [
+      {
+        "Name": "fruquitinib",
+        "Inst": "5 mg p.o. 1× denne D1-21 (pauza D22-28). S jedlom alebo bez."
+      }
+    ]
+  }
+}

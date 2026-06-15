@@ -1,0 +1,1 @@
+{"Chemo": [{"Name": "rituximab", "Dosage": 375, "DosageMetric": "mg/m2", "Day": "1"}], "NC": "22", "Day1": {"Premed": {"Note": "Hydrocortison 100mg, Dithiaden 1amp iv, Nolpaza 40mg p.o."}, "Instructions": [{"Name": "rituximab", "Inst": "v 500ml FR iv/ pomaly"}]}}

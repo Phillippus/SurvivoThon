@@ -1,0 +1,22 @@
+{
+  "Chemo": [
+    {
+      "Name": "trastuzumab i.v",
+      "Dosage": 8,
+      "DosageMetric": "mg/kg",
+      "Day": "1"
+    }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie"
+    },
+    "Instructions": [
+      {
+        "Name": "trastuzumab i.v",
+        "Inst": "v 500ml FR/ 90 min"
+      }
+    ]
+  }
+}

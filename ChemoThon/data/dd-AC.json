@@ -7,7 +7,7 @@
             "Day": "1"
         },
         {
-            "Name": "cyklofosfamid",
+            "Name": "cyclophosphamide",
             "Dosage": 600,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -24,7 +24,7 @@
                 "Inst": "v 250ml FR iv"
             },
             {
-                "Name": "cyklofosfamid",
+                "Name": "cyclophosphamide",
                 "Inst": "v 250ml FR iv"
             }
         ]

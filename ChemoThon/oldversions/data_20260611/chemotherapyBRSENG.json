@@ -1,0 +1,520 @@
+{
+    "chemotherapies": [
+        {
+            "Chemo": [
+                {
+                    "Name": "epirubicin",
+                    "Dosage": 90,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                },
+                {
+                    "Name": "cyclophosphamide",
+                    "Dosage": 600,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Palonosetrone/Netupitant 300mg/0.5mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "epirubicin",
+                        "Instruction": "in 250ml NS iv"
+                    },
+                    {
+                        "Name": "cyclophosphamide",
+                        "Instruction": "in 250ml NS iv"
+                    }
+                ]
+            },
+            "name": "EC",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "doxorubicin",
+                    "Dosage": 60,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                },
+                {
+                    "Name": "cyclophosphamide",
+                    "Dosage": 600,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Palonosetrone/Netupitant 300mg/0.5mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "doxorubicin",
+                        "Instruction": "in 250ml NS iv"
+                    },
+                    {
+                        "Name": "cyclophosphamide",
+                        "Instruction": "in 250ml NS iv"
+                    }
+                ]
+            },
+            "name": "AC",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "doxorubicin",
+                    "Dosage": 60,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                },
+                {
+                    "Name": "cyclophosphamide",
+                    "Dosage": 600,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "14",
+            "Day1": {
+                "Premed": {
+                    "Note": "Palonosetrone/Netupitant 300mg/0.5mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "doxorubicin",
+                        "Instruction": "in 250ml NS iv"
+                    },
+                    {
+                        "Name": "cyclophosphamide",
+                        "Instruction": "in 250ml NS iv"
+                    }
+                ]
+            },
+            "name": "dd-AC + G-CSF",
+            "nc": 14
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "docetaxel",
+                    "Dosage": 100,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Dexamethasone 20mg iv, Diphenhydramine 50mg iv/ Bisulepine 1mg iv, Pantoprazole 40mg p.o., Granisetron 2mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "docetaxel",
+                        "Instruction": "infuse in 500ml NS: first portion over 45 min, then the rest over 60 min"
+                    }
+                ]
+            },
+            "name": "docetaxel + G-CSF",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "paclitaxel",
+                    "Dosage": 80,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "7",
+            "Day1": {
+                "Premed": {
+                    "Note": "Dexamethasone 20mg iv, Diphenhydramine 10mg iv/ Bisulepine 1mg iv, Pantoprazole 40mg p.o., Granisetron 2mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "paclitaxel",
+                        "Instruction": "infuse in 500ml NS: initial portion over 45 min, remainder over 60 min"
+                    }
+                ]
+            },
+            "name": "paclitaxel",
+            "nc": 7
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "capecitabine",
+                    "Dosage": 2500,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1-14"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "no standard premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "capecitabine",
+                        "Instruction": "divide into 2 daily doses"
+                    }
+                ]
+            },
+            "name": "capecitabine",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "capecitabine",
+                    "Dosage": 3000,
+                    "DosageMetric": "mg",
+                    "Day": "1-7"
+                }
+            ],
+            "NextCycle": "14",
+            "Day1": {
+                "Premed": {
+                    "Note": "No premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "capecitabine",
+                        "Instruction": "divided into two doses, taken within 30 minutes after meals, 7 days on, 7 days off"
+                    }
+                ]
+            },
+            "name": "capecitabine X7/7 regimen",
+            "nc": 14
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "gemcitabine",
+                    "Dosage": 1200,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1,8"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "no standard premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "gemcitabine",
+                        "Instruction": "in 500ml NS iv"
+                    }
+                ]
+            },
+            "name": "gemcitabine",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "vinorelbine",
+                    "Dosage": 60,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "8",
+            "Day1": {
+                "Premed": {
+                    "Note": "no standard premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "vinorelbine",
+                        "Instruction": "take pills together"
+                    }
+                ]
+            },
+            "name": "vinorelbin p.o. weekly",
+            "nc": 8
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "eribulin",
+                    "Dosage": 1.4,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1,8"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Granisetron 2 mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "eribulin",
+                        "Instruction": "in 250ml NS iv"
+                    }
+                ]
+            },
+            "name": "eribulin",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "pegylated doxorubicin",
+                    "Dosage": 40,
+                    "DosageMetric": "mg/m2",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "29",
+            "Day1": {
+                "Premed": {
+                    "Note": "Granisetron 2 mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "pegylated doxorubicin",
+                        "Instruction": "in 500ml 5% GLC iv"
+                    }
+                ]
+            },
+            "name": "peg- doxorubicin",
+            "nc": 29
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "TD-M1",
+                    "Dosage": 3.6,
+                    "DosageMetric": "mg/kg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Granisetron 2 mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "TD-M1",
+                        "Instruction": "in 500ml NS /90 min iv"
+                    }
+                ]
+            },
+            "name": "TD-M1",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "Trastuzumab-deruxtecan",
+                    "Dosage": 5.4,
+                    "DosageMetric": "mg/kg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Palonosetrone/Netupitant 300mg/0.5mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "Trastuzumab-deruxtecan",
+                        "Instruction": "in 500ml NS /90 min iv"
+                    }
+                ]
+            },
+            "name": "Trastuzumab-deruxtecan",
+            "nc": 21
+        }
+        ,
+        {
+            "Chemo": [
+                {
+                    "Name": "trastuzumab",
+                    "Dosage": 8,
+                    "DosageMetric": "mg/kg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "No premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "trastuzumab",
+                        "Instruction": "in 250ml NS over 90 min iv"
+                    }
+                ]
+            },
+            "name": "Trastuzumab iv (first adm.)",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "trastuzumab",
+                    "Dosage": 6,
+                    "DosageMetric": "mg/kg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "No premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "trastuzumab",
+                        "Instruction": "in 250ml NS over 30 min iv"
+                    }
+                ]
+            },
+            "name": "Trastuzumab iv (subseq. adm.)",
+            "nc": 21
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "pertuzumab",
+                    "Dosage": 840,
+                    "DosageMetric": "mg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "No premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "pertuzumab",
+                        "Instruction": "in 250ml NS over 60 min iv"
+                    }
+                ]
+            },
+            "name": "Pertuzumab (first adm.)",
+            "nc": 21,
+            "FixedDose": true
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "pertuzumab",
+                    "Dosage": 420,
+                    "DosageMetric": "mg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "No premedication"
+                },
+                "Instructions": [
+                    {
+                        "Name": "pertuzumab",
+                        "Instruction": "in 250ml NS over 30–60 min iv"
+                    }
+                ]
+            },
+            "name": "Pertuzumab (subseq. adm.)",
+            "nc": 21,
+            "FixedDose": true
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "pertuzumab/trastuzumab",
+                    "Dosage": "1200/600",
+                    "DosageMetric": "mg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Granisetron 2mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "pertuzumab/trastuzumab",
+                        "Instruction": "inject SC over 5–8 min (first adm.)"
+                    }
+                ]
+            },
+            "name": "Trastuzumab/pertuzumab SC (first adm.)",
+            "nc": 21,
+            "FixedDose": true
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "pertuzumab/trastuzumab",
+                    "Dosage": "600/600",
+                    "DosageMetric": "mg",
+                    "Day": "1"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Granisetron 2mg p.o., Dexamethasone 8mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "pertuzumab/trastuzumab",
+                        "Instruction": "inject SC over 5 min (subseq. adm.)"
+                    }
+                ]
+            },
+            "name": "Trastuzumab/pertuzumab SC (subseq. adm.)",
+            "nc": 21,
+            "FixedDose": true
+        },
+        {
+            "Chemo": [
+                {
+                    "Name": "sacituzumab govitecan",
+                    "Dosage": 10,
+                    "DosageMetric": "mg/kg",
+                    "Day": "1,8"
+                }
+            ],
+            "NextCycle": "21",
+            "Day1": {
+                "Premed": {
+                    "Note": "Palonosetrone/Netupitant 300mg/0.5mg p.o., Dexamethasone 4mg iv, Pantoprazole 40mg p.o."
+                },
+                "Instructions": [
+                    {
+                        "Name": "sacituzumab govitecan",
+                        "Instruction": "in 500ml NS iv /3 hours- first administration, 1-2 hrs subsequent"
+                    }
+                ]
+            },
+            "name": "Sacituzumab govitecan",
+            "nc": 21
+        }
+    ]
+}
+                   

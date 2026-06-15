@@ -1,0 +1,54 @@
+{
+    "_source": "Connors JM et al. NEJM 2018;378:331 (ECHELON-1); Ansell SM et al. NEJM 2022;387:310 (ECHELON-1 6r update); SmPC Adcetris",
+    "_revision": "2026-06",
+    "Chemo": [
+        {
+            "Name": "brentuximab vedotin",
+            "Dosage": 1.2,
+            "DosageMetric": "mg/kg",
+            "Day": "1, 15"
+        },
+        {
+            "Name": "adriamycin",
+            "Dosage": 25,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 15"
+        },
+        {
+            "Name": "vinblastine",
+            "Dosage": 6,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 15"
+        },
+        {
+            "Name": "dacarbazine",
+            "Dosage": 375,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 15"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. G-CSF profylaxia povinná (ECHELON-1). Indikácia: Hodgkinov lymfóm štádium III/IV, 1. línia."
+        },
+        "Instructions": [
+            {
+                "Name": "brentuximab vedotin",
+                "Inst": "v 250ml FR i.v./30 min (max dávka 120 mg ak >100 kg)"
+            },
+            {
+                "Name": "adriamycin",
+                "Inst": "v 250ml FR i.v./60 min"
+            },
+            {
+                "Name": "vinblastine",
+                "Inst": "v 100ml FR i.v."
+            },
+            {
+                "Name": "dacarbazine",
+                "Inst": "v 500ml FR i.v./30 min"
+            }
+        ]
+    }
+}

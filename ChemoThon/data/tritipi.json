@@ -1,1 +1,24 @@
-{"Chemo": [{"Name": "trifluridine/tipiracil", "Dosage": 70.0, "DosageMetric": "mg/m2", "Day": "1-5, 8-12"}], "NC": "29", "Day1": {"Premed": {"Note": "Granisetron 2mg/ Degan 1 tbl p.o"}, "Instructions": [{"Name": "trifluridine/tipiracil", "Inst": "rozdelit na 2 davky rano a vecer"}]}}
+{
+  "Chemo": [
+    {
+      "Name": "trifluridine/tipiracil",
+      "Dosage": 70.0,
+      "DosageMetric": "mg/m2",
+      "Day": "1-5, 8-12"
+    }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Granisetron 2 mg / Degan 1 tbl p.o. | Max jednorázová dávka: 80 mg. Brať do 1 hod po jedle."
+    },
+    "Instructions": [
+      {
+        "Name": "trifluridine/tipiracil",
+        "Inst": "rozdelit na 2 davky rano a vecer"
+      }
+    ]
+  },
+  "_source": "SmPC Lonsurf; Mayer RJ et al. NEJM 2015;372:1909 (RECOURSE)",
+  "_revision": "2026-06 | NC 28 dní (D1-5 a D8-12 každých 28 dní per RECOURSE)"
+}

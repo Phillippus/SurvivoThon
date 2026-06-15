@@ -1,16 +1,44 @@
 {
     "Chemo": [
-        {"Name": "rituximab", "Dosage": 375, "DosageMetric": "mg/m2", "Day": "1"},
-        {"Name": "cyklofosfamid", "Dosage": 750, "DosageMetric": "mg/m2", "Day": "1"},
-        {"Name": "prednison", "Dosage": 40, "DosageMetric": "mg/m2", "Day": "1-5"}
+        {
+            "Name": "rituximab",
+            "Dosage": 375,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "cyclophosphamide",
+            "Dosage": 750,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "prednisone",
+            "Dosage": 100,
+            "DosageMetric": "mg flat dose",
+            "Day": "1-5"
+        }
     ],
     "NC": "21",
     "Day1": {
-        "Premed": {"Note": "Hydrocortison 100mg iv, Dithiaden 1amp iv, Pantoprazol 40mg p.o., Granisetron 2mg p.o."},
+        "Premed": {
+            "Note": "Hydrocortison 100mg i.v., Dithiaden 1amp i.v., Pantoprazol 40mg p.o., Granisetron 2mg p.o."
+        },
         "Instructions": [
-            {"Name": "rituximab", "Inst": "v 500ml FR iv/ 1.infuzia: zacat 50ml/h, stupnovite zvysovat; dalsie cykly: 100ml/h"},
-            {"Name": "cyklofosfamid", "Inst": "v 500ml FR iv/ 60min"},
-            {"Name": "prednison", "Inst": "p.o. rozdelit na 2-3 davky"}
+            {
+                "Name": "rituximab",
+                "Inst": "v 500ml FR iv/ 1.infuzia: zacat 50ml/h, stupnovite zvysovat; dalsie cykly: 100ml/h"
+            },
+            {
+                "Name": "cyclophosphamide",
+                "Inst": "v 500ml FR iv/ 60min"
+            },
+            {
+                "Name": "prednisone",
+                "Inst": "100 mg p.o. rozdeliť na 2-3 dávky denne"
+            }
         ]
-    }
+    },
+    "_source": "Marcus R et al. Blood 2005;105:1417; BCCA LYRCVP",
+    "_revision": "2026-06"
 }

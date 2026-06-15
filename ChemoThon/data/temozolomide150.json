@@ -1,1 +1,24 @@
-{"Chemo": [{"Name": "temozolomid", "Dosage": 150.0, "DosageMetric": "mg/m2", "Day": "1-5"}], "NC": "29", "Day1": {"Premed": {"Note": "Granisetron 2mg p.o."}, "Instructions": [{"Name": "temozolomid", "Inst": "tbl p.o."}]}}
+{
+    "Chemo": [
+        {
+            "Name": "temozolomide",
+            "Dosage": 150.0,
+            "DosageMetric": "mg/m2",
+            "Day": "1-5"
+        }
+    ],
+    "NC": "29",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "temozolomide",
+                "Inst": "tbl p.o."
+            }
+        ]
+    },
+    "_source": "Stupp R et al. NEJM 2005;352:987 (adjuvantná fáza); BCCA CNSTEMOC",
+    "_revision": "2026-06 | 150 mg/m2 = 1. cyklus (bezpečnostná dávka). Ak neutrofily ≥1.5 a Plt ≥100, zvýšiť na 200 mg/m2."
+}

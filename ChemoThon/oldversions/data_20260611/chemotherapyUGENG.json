@@ -1,0 +1,376 @@
+{
+  "chemotherapies": [
+    {
+      "name": "Docetaxel + prednisone",
+      "Chemo": [
+        {
+          "Name": "Docetaxel",
+          "Dosage": 75.0,
+          "DosageMetric": "mg/m2",
+          "Day": "1"
+        },
+        {
+          "Name": "prednisone",
+          "Dosage": 10,
+          "DosageMetric": "mg",
+          "Day": "1-21"
+        }
+      ],
+      "NextCycle": "21",
+      "Day1": {
+        "Premed": {
+          "Note": "Dexamethasone 20mg iv,  Pantoprazole 40 mg orally,  bisulepine 1  iv"
+        },
+        "Instructions": [
+          {
+            "Name": "Docetaxel",
+            "Inst": "prvych 30mg v 500ml FR iv /45 min, zvysok v 500ml FR / 60 min",
+            "Instruction": "first 30 mg in 500 ml normal saline iv over 45 min,  remaining in 500 ml normal saline over 60 min"
+          },
+          {
+            "Name": "prednisone",
+            "Inst": "rozdelit na 2x 5mg tbl ",
+            "Instruction": "split into 2x 5 mg pills orally"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mitoxantrone + prednisone",
+      "Chemo": [
+        {
+          "Name": "mitoxantrone",
+          "Dosage": 12,
+          "DosageMetric": "mg/m2",
+          "Day": "1"
+        },
+        {
+          "Name": "prednisone",
+          "Dosage": 10,
+          "DosageMetric": "mg",
+          "Day": "1-21"
+        }
+      ],
+      "NextCycle": "21",
+      "Day1": {
+        "Premed": {
+          "Note": "Dexamethasone 12mg iv,  pantoprazol 40mg orally,  granisetron 2mg orally"
+        },
+        "Instructions": [
+          {
+            "Name": "mitoxantrone",
+            "Inst": "v 250ml FR / 30min",
+            "Instruction": "in 250 ml normal saline iv over 30 min"
+          },
+          {
+            "Name": "prednisone",
+            "Inst": "rozdelit na 2x 5mg tbl ",
+            "Instruction": "split into 2x 5 mg pills orally"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Docetaxel + Darolutamide",
+      "Chemo": [
+        {
+          "Name": "Docetaxel",
+          "Dosage": 75.0,
+          "DosageMetric": "mg/m2",
+          "Day": "1"
+        },
+        {
+          "Name": "darolutamide",
+          "Dosage": 1200,
+          "DosageMetric": "mg",
+          "Day": "1-21"
+        }
+      ],
+      "NextCycle": "21",
+      "Day1": {
+        "Premed": {
+          "Note": "Dexamethasone 20mg iv,  Pantoprazole 40 mg orally,  bisulepine 1  iv"
+        },
+        "Instructions": [
+          {
+            "Name": "Docetaxel",
+            "Inst": "prvych 30mg v 500ml FR iv /45 min, zvysok v 500ml FR / 60 min",
+            "Instruction": "first 30 mg in 500 ml normal saline iv over 45 min,  remaining in 500 ml normal saline over 60 min"
+          },
+          {
+            "Name": "darolutamide",
+            "Inst": "-- 300mg tablety 2-0-2 p.o.",
+            "Instruction": "300mg x 2 pills in morning and 2 pills in evening"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cabazitaxel + prednisone",
+      "Chemo": [
+        {
+          "Name": "Cabazitaxel",
+          "Dosage": 25.0,
+          "DosageMetric": "mg/m2",
+          "Day": "1"
+        },
+        {
+          "Name": "prednisone",
+          "Dosage": 10,
+          "DosageMetric": "mg",
+          "Day": "1-21"
+        }
+      ],
+      "NextCycle": "21",
+      "Day1": {
+        "Premed": {
+          "Note": "Dexamethasone 20mg,  Pantoprazole 40 mg p.o,  bisulepine 1  iv"
+        },
+        "Instructions": [
+          {
+            "Name": "Cabazitaxel",
+            "Inst": "prv\u00fdch 10mg v 500ml FR/ 30 min, zvysok v 500ml FR iv/ 45min",
+            "Instruction": "first 10 mg in 500 ml normal saline over 30 min,  remaining in 500 ml normal saline over 45 min"
+          },
+          {
+            "Name": "prednisone",
+            "Inst": "rozdelit na 2x 5mg tbl ",
+            "Instruction": "split into 2x 5 mg pills orally"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Abiraterone + prednisone (CRPC)",
+      "Chemo": [
+        {
+          "Name": "abiraterone",
+          "Dosage": 1000.0,
+          "DosageMetric": "mg",
+          "Day": "1-28"
+        },
+        {
+          "Name": "prednisone",
+          "Dosage": 10,
+          "DosageMetric": "mg",
+          "Day": "1-28"
+        }
+      ],
+      "NextCycle": "28",
+      "Day1": {
+        "Premed": {
+          "Note": ""
+        },
+        "Instructions": [
+          {
+            "Name": "abiraterone",
+            "Inst": "rozdeli\u0165 na 2x 500mg tbl p.o.",
+            "Instruction": "split into 2x 500 mg pills orally"
+          },
+          {
+            "Name": "prednisone",
+            "Inst": "rozdelit na 2x 5mg tbl ",
+            "Instruction": "split into 2x 5 mg pills orally"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Abiraterone + prednisone (HSPC)",
+      "Chemo": [
+        {
+          "Name": "abiraterone",
+          "Dosage": 1000.0,
+          "DosageMetric": "mg",
+          "Day": "1-28"
+        },
+        {
+          "Name": "prednisone",
+          "Dosage": 5,
+          "DosageMetric": "mg",
+          "Day": "1-28"
+        }
+      ],
+      "NextCycle": "28",
+      "Day1": {
+        "Premed": {
+          "Note": ""
+        },
+        "Instructions": [
+          {
+            "Name": "abiraterone",
+            "Instruction": "split into 2x 500 mg pills orally"
+          },
+          {
+            "Name": "prednisone",
+            "Instruction": "5 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Enzalutamide",
+      "Chemo": [
+        {
+          "Name": "enzalutamide",
+          "Dosage": 160,
+          "DosageMetric": "mg flat dose",
+          "Day": "1"
+        }
+      ],
+      "NextCycle": "28",
+      "Day1": {
+        "Premed": {
+          "Note": ""
+        },
+        "Instructions": [
+          {
+            "Name": "enzalutamide",
+            "Inst": "---40mg 4tbl 1x denne",
+            "Instruction": "4x 40 mg pills once daily orally"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Apalutamide",
+      "Chemo": [
+        {
+          "Name": "apalutamide",
+          "Dosage": 240,
+          "DosageMetric": "mg flat dose",
+          "Day": "1"
+        }
+      ],
+      "NextCycle": "28",
+      "Day1": {
+        "Premed": {
+          "Note": ""
+        },
+        "Instructions": [
+          {
+            "Name": "apalutamide",
+            "Inst": "---60mg 4tbl 1x denne",
+            "Instruction": "4x 60 mg pills once daily orally"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Darolutamide",
+      "Chemo": [
+        {
+          "Name": "darolutamide",
+          "Dosage": 1200,
+          "DosageMetric": "mg",
+          "Day": "1-28"
+        }
+      ],
+      "NextCycle": "28",
+      "Day1": {
+        "Premed": {
+          "Note": ""
+        },
+        "Instructions": [
+          {
+            "Name": "darolutamide",
+            "Inst": "-- 300mg tablety 2-0-2 p.o.",
+            "Instruction": "300mg x 2 pills in morning and 2 in evening"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Vinflunine",
+      "Chemo": [
+        {
+          "Name": "vinflunine",
+          "Dosage": 320.0,
+          "DosageMetric": "mg/m2",
+          "Day": "1"
+        }
+      ],
+      "NextCycle": "21",
+      "Day1": {
+        "Premed": {
+          "Note": "Granisetron 2mg orally,  Dexamethasone 8mg iv,  Pantoprazole 40mg orally"
+        },
+        "Instructions": [
+          {
+            "Name": "vinflunine",
+            "Inst": "v 100ml FR iv/ 30 min + 250ml FR preplach",
+            "Instruction": "in 100 ml normal saline iv over 30 min + flush with 250 ml normal saline"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Cisplatin + gemcitabine",
+      "Chemo": [
+        {
+          "Name": "cisplatin",
+          "Dosage": 80,
+          "DosageMetric": "mg/m2",
+          "Day": "1"
+        },
+        {
+          "Name": "gemcitabine",
+          "Dosage": 1000.0,
+          "DosageMetric": "mg/m2",
+          "Day": "1,8,15"
+        }
+      ],
+      "NextCycle": "29",
+      "Day1": {
+        "Premed": {
+          "Note": "Dexamethasone 8mg,  Pantoprazole 40mg orally,  Granisetron 2mg orally"
+        },
+        "Instructions": [
+          {
+            "Name": "cisplatin",
+            "Instruction": "each 50 mg in 500 ml Ringer's solution iv,  followed by Mannitol 10% 250 ml iv"
+          },
+          {
+            "Name": "gemcitabine",
+            "Inst": "v 500ml FR iv",
+            "Instruction": "in 500 ml normal saline iv"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Carboplatin + gemcitabine",
+      "Chemo": [
+        {
+          "Name": "carboplatin (CBDCA)",
+          "Dosage": 5,
+          "DosageMetric": "AUC",
+          "Day": "1"
+        },
+        {
+          "Name": "gemcitabine",
+          "Dosage": 1000.0,
+          "DosageMetric": "mg/m2",
+          "Day": "1,8,15"
+        }
+      ],
+      "NextCycle": "29",
+      "Day1": {
+        "Premed": {
+          "Note": "Dexamethasone 8mg,  Pantoprazole 40mg orally,  Granisetron 2mg orally"
+        },
+        "Instructions": [
+          {
+            "Name": "carboplatin (CBDCA)",
+            "Instruction": "in 500 ml normal saline iv"
+          },
+          {
+            "Name": "gemcitabine",
+            "Inst": "v 500ml FR iv",
+            "Instruction": "in 500 ml normal saline iv"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -10,13 +10,15 @@
   "NC": "21",
   "Day1": {
     "Premed": {
-      "Note": "Bez premedikácie"
+      "Note": "1. podanie: Paracetamol 1000 mg p.o. + Difenhydramín/Bisulepin 1 mg i.v. pred infúziou. Ďalšie podania: bez premedikácie ak bez reakcie."
     },
     "Instructions": [
       {
         "Name": "trastuzumab i.v",
-        "Inst": "v 500ml FR/ 90 min"
+        "Inst": "Prvé podanie: v 250 ml FR i.v. počas 90 min. Monitorovať 60 min po dotečení."
       }
     ]
-  }
+  },
+  "_source": "SmPC Herceptin; BCCA BRAJHERIV",
+  "_revision": "2026-06"
 }

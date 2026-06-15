@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "abirateron",
-            "Dosage": 1000.0,
-            "DosageMetric": "mg",
-            "Day": "1-28"
-        }
-    ],
-    "NC": "28",
-    "Day1": {
-        "Premed": {
-            "Note": ""
-        },
-        "Instructions": [
-            {
-                "Name": "abirateron",
-                "Inst": "rozdeli\u0165 na 2x 500mg tbl p.o."
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "abirateron",
+      "Dosage": 1000.0,
+      "DosageMetric": "mg",
+      "Day": "1-28"
     }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": ""
+    },
+    "Instructions": [
+      {
+        "Name": "abirateron",
+        "Inst": "2× 500 mg tbl p.o. NALAČNO (aspoň 2h pred a 1h po jedle). Alternatívna nová formulácia Yonsa: 500 mg s jedlom."
+      }
+    ]
+  },
+  "_source": "De Bono JS et al. NEJM 2011;364:1995 (COU-AA-301); Ryan CJ et al. NEJM 2013;368:138 (COU-AA-302)",
+  "_revision": "2026-06 | Klasická formulácia: 1000 mg nalačno. NOVÁ formulácia (Yonsa 500 mg) sa podáva s jedlom – skontrolovať lokálnu dostupnosť."
 }

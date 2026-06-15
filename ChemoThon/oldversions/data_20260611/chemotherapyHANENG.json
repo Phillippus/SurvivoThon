@@ -1,0 +1,190 @@
+[
+  {
+    "Chemo": [
+      {
+        "Name": "paclitaxel",
+        "Dosage": 80,
+        "DosageMetric": "mg/m2",
+        "Day": "1"
+      }
+    ],
+    "NextCycle": "7",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 20mg iv (first adm.), Bisulepine (Dithiaden) 1 mg iv, Pantoprazole 40mg p.o., Granisetron 2mg p.o."
+      },
+      "Instructions": [
+        {
+          "Name": "paclitaxel",
+          "Instruction": "first 30mg in 500ml NS over 45 min, remaining over 60 min"
+        }
+      ]
+    },
+    "name": "paclitaxel weekly",
+    "nc": 7
+  },
+  {
+    "Chemo": [
+      {
+        "Name": "methotrexate",
+        "Dosage": 40,
+        "DosageMetric": "mg/m2",
+        "Day": "1"
+      }
+    ],
+    "NextCycle": "7",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 8mg iv, Granisetron 2mg p.o., Pantoprazole 40mg p.o."
+      },
+      "Instructions": [
+        {
+          "Name": "methotrexate",
+          "Instruction": "diluted in 250ml NS over 30 min"
+        }
+      ]
+    },
+    "name": "methotrexate weekly",
+    "nc": 7
+  },
+  {
+    "Chemo": [
+      {
+        "Name": "cisplatin",
+        "Dosage": 80,
+        "DosageMetric": "mg/m2",
+        "Day": "1"
+      },
+      {
+        "Name": "fluorouracil",
+        "Dosage": 1000,
+        "DosageMetric": "mg/m2",
+        "Day": "1-4"
+      }
+    ],
+    "NextCycle": "21",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 8mg iv, Pantoprazole 40mg p.o., Ondansetron 8mg in 250ml NS iv"
+      },
+      "Instructions": [
+        {
+          "Name": "cisplatin",
+          "Instruction": "administer 50mg cisplatin in 500ml RR iv repeatedly until full dose is reached; follow final infusion with 250ml Mannitol 10% iv"
+        },
+        {
+          "Name": "fluorouracil",
+          "Instruction": "administered continuously over 24 hours via elastomeric pump"
+        }
+      ]
+    },
+    "name": "Pt/5-FU cisplatin-based",
+    "nc": 21
+  },
+  {
+    "Chemo": [
+      {
+        "Name": "carboplatin",
+        "Dosage": 5,
+        "DosageMetric": "AUC",
+        "Day": "1"
+      },
+      {
+        "Name": "fluorouracil",
+        "Dosage": 1000,
+        "DosageMetric": "mg/m2",
+        "Day": "1-4"
+      }
+    ],
+    "NextCycle": "21",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 8mg iv, Pantoprazole 40mg p.o., Ondansetron 8mg in 250ml NS iv"
+      },
+      "Instructions": [
+        {
+          "Name": "carboplatin",
+          "Instruction": "dose calculated using Calvert formula: (CrCl + 25) * AUC, diluted in 500ml RR iv"
+        },
+        {
+          "Name": "fluorouracil",
+          "Instruction": "administered continuously over 24 hours via elastomeric pump"
+        }
+      ]
+    },
+    "name": "Pt/5-FU carboplatin-based",
+    "nc": 21
+  },
+  {
+    "Chemo": [
+      {
+        "Name": "cetuximab",
+        "Dosage": 400,
+        "DosageMetric": "mg/m2",
+        "Day": 1
+      }
+    ],
+    "NextCycle": "7",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 20mg iv, Bisulepine 1 mg iv, Granisetron 2mg p.o."
+      },
+      "Instructions": [
+        {
+          "Name": "cetuximab",
+          "Instruction": "infused over 2 hours total"
+        }
+      ]
+    },
+    "name": "Cetuximab weekly (first)",
+    "nc": 7
+  },
+  {
+    "Chemo": [
+      {
+        "Name": "cetuximab",
+        "Dosage": 250,
+        "DosageMetric": "mg/m2",
+        "Day": 1
+      }
+    ],
+    "NextCycle": "7",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 20mg iv, Bisulepine 1 mg iv, Granisetron 2mg p.o."
+      },
+      "Instructions": [
+        {
+          "Name": "cetuximab",
+          "Instruction": "infused over 1 hour total"
+        }
+      ]
+    },
+    "name": "Cetuximab weekly (subsequent)",
+    "nc": 7
+  },
+  {
+    "Chemo": [
+      {
+        "Name": "cetuximab",
+        "Dosage": 500,
+        "DosageMetric": "mg/m2",
+        "Day": 1
+      }
+    ],
+    "NextCycle": "14",
+    "Day1": {
+      "Premed": {
+        "Note": "Dexamethasone 20mg iv, Bisulepine 1 mg iv, Granisetron 2mg p.o."
+      },
+      "Instructions": [
+        {
+          "Name": "cetuximab",
+          "Instruction": "infused over 2 hours total"
+        }
+      ]
+    },
+    "name": "Cetuximab biweekly",
+    "nc": 14
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "_source": "Prager GW et al. NEJM 2023;388:1657 (SUNLIGHT); SmPC Lonsurf",
+  "_revision": "2026-06-new",
+  "Chemo": [
+    {
+      "Name": "trifluridín/tipiracil",
+      "Dosage": 70,
+      "DosageMetric": "mg/m2/deň",
+      "Day": "D1-5, D8-12"
+    }
+  ],
+  "FlatChemo": [
+    {
+      "Name": "bevacizumab",
+      "Dosage": 5,
+      "DosageMetric": "mg/kg q2w",
+      "Day": "1, 15"
+    }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Granisetron 2 mg / Degan 1 tbl p.o. Bez premedikácie pre bev (pozri bevacizumab2w.json pre časy infúzií)."
+    },
+    "Instructions": [
+      {
+        "Name": "trifluridín/tipiracil",
+        "Inst": "p.o. rozdeliť na 2 dávky ráno a večer do 1h po jedle. Max jednotlivá dávka 80 mg."
+      },
+      {
+        "Name": "bevacizumab",
+        "Inst": "v 100 ml FR i.v. D1 a D15 (pozri SmPC pre časy infúzií)"
+      }
+    ]
+  }
+}

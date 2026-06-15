@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "prednison",
+            "Name": "prednisone",
             "Dosage": 5,
             "DosageMetric": "mg",
             "Day": "1-28"
@@ -14,7 +14,7 @@
         },
         "Instructions": [
             {
-                "Name": "prednison",
+                "Name": "prednisone",
                 "Inst": "1tbl denne"
             }
         ]

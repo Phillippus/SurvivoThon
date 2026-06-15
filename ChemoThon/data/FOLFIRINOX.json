@@ -1,13 +1,13 @@
 {
     "Chemo": [
         {
-            "Name": "oxaliplatina",
+            "Name": "oxaliplatin",
             "Dosage": 85,
             "DosageMetric": "mg/m2",
             "Day": "1"
         },
         {
-            "Name": "irinotekan",
+            "Name": "irinotecan",
             "Dosage": 135,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -26,11 +26,11 @@
         },
         "Instructions": [
             {
-                "Name": "oxaliplatina",
+                "Name": "oxaliplatin",
                 "Inst": "v 500ml 5%GLC iv"
             },
             {
-                "Name": "irinotekan",
+                "Name": "irinotecan",
                 "Inst": "v 500ml FR iv"
             },
             {
@@ -38,5 +38,7 @@
                 "Inst": "v 500ml FR iv"
             }
         ]
-    }
+    },
+    "_source": "Conroy T et al. NEJM 2011;364:1817 (PRODIGE4); mFOLFIRINOX: Iri 135 mg/m2 bez bolus 5-FU (znížená toxicita). 5-FU 2400 mg/m2 48h kivi dopočítané v app.",
+    "_revision": "2026-06 | Iri 135 = modifikovaná verzia (mFOLFIRINOX); originál 180 mg/m2 – vyššia toxicita"
 }

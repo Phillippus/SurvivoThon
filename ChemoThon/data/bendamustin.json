@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "bendamustin",
+            "Name": "bendamustine",
             "Dosage": 120,
             "DosageMetric": "mg/m2",
             "Day": "1,2"
@@ -14,7 +14,7 @@
         },
         "Instructions": [
             {
-                "Name": "bendamustin",
+                "Name": "bendamustine",
                 "Inst": "v 500ml FR iv/ pomaly"
             }
         ]

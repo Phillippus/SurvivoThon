@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "ribociclib",
+            "Dosage": 600,
+            "DosageMetric": "mg (flat dose)",
+            "Day": "1-28"
+        }
+    ],
+    "NC": "29",
+    "Day1": {
+        "Premed": {
+            "Note": "Degan 1tbl p.p."
+        },
+        "Instructions": [
+            {
+                "Name": "ribociclib",
+                "Inst": "p.o."
+            }
+        ]
+    }
+}

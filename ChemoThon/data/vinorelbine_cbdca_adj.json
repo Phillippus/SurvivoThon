@@ -1,0 +1,24 @@
+{
+    "_source": "Butts CA et al. J Clin Oncol 2010;28:122 (JBR.10 CBDCA variant); NCCN NSCLC 2025",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "vinorelbine",
+            "Dosage": 25,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 8"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. Karboplatina AUC 5-6 D1 (Calvert) q28d. Alternatíva k cisplatine pri renálnej insuficiencii alebo inej kontraindikácii DDP."
+        },
+        "Instructions": [
+            {
+                "Name": "vinorelbine",
+                "Inst": "v 125ml FR i.v. počas 10 min D1, D8"
+            }
+        ]
+    }
+}

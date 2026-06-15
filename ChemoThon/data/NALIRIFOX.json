@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "oxaliplatina",
+            "Name": "oxaliplatin",
             "Dosage": 60,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -26,7 +26,7 @@
         },
         "Instructions": [
             {
-                "Name": "oxaliplatina",
+                "Name": "oxaliplatin",
                 "Inst": "v 500ml 5%GLC iv"
             },
             {
@@ -38,5 +38,7 @@
                 "Inst": "v 500ml FR iv"
             }
         ]
-    }
+    },
+    "_source": "Wainberg ZA et al. Lancet 2023;402:1054 (NAPOLI-3); SmPC Onivyde",
+    "_revision": "2026-06"
 }

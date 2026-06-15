@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "ribociclib",
-            "Dosage": 600,
-            "DosageMetric": "mg (flat dose)",
-            "Day": "1-28"
-        }
-    ],
-    "NC": "29",
-    "Day1": {
-        "Premed": {
-            "Note": "Degan 1tbl p.p."
-        },
-        "Instructions": [
-            {
-                "Name": "ribociclib",
-                "Inst": "p.o."
-            }
-        ]
+  "_source": "Hortobagyi GN et al. NEJM 2016;375:1738 (MONALEESA-2); Slamon DJ et al. NEJM 2020;382:514 (MONALEESA-7); SmPC Kisqali",
+  "_revision": "2026-06",
+  "Chemo": [
+    {
+      "Name": "ribociclib",
+      "Dosage": 600,
+      "DosageMetric": "mg flat dose",
+      "Day": "1-21 (potom 7 dní pauza, NC=28)"
     }
+  ],
+  "NC": "28",
+  "Day1": {
+    "Premed": {
+      "Note": "Bez premedikácie (Degan 1tbl p.p. pri nausee). Dávkovanie: 600 mg/deň D1-21, pauza D22-28 (NC=28 dní). ADJUVANTNÁ indikácia (monarchE-like/NATALEE): 400 mg/deň D1-21, pauza 7 dní. Monitorovanie QTc!"
+    },
+    "Instructions": [
+      {
+        "Name": "ribociclib",
+        "Inst": "600 mg p.o. 1× denne D1-21 (pauza D22-28). Adjuvant: 400 mg/deň D1-21. Užívať vždy v rovnakom čase."
+      }
+    ]
+  }
 }

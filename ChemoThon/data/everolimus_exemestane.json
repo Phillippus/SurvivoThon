@@ -1,0 +1,34 @@
+{
+    "_source": "Baselga J et al. NEJM 2012;366:520 (BOLERO-2); Rugo HS et al. Ann Oncol 2017;28:1567 (SWISH); SmPC Afinitor",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "everolimus",
+            "Dosage": 10,
+            "DosageMetric": "mg flat dose",
+            "Day": "1-28 (denne, kontinuálne)"
+        },
+        {
+            "Name": "exemestane",
+            "Dosage": 25,
+            "DosageMetric": "mg flat dose",
+            "Day": "1-28 (denne, kontinuálne)"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "PROFYLAXIA STOMATITÍDY (SWISH protokol — POVINNÁ): Dexametazón 0,5 mg/5 ml perorálny roztok — 10 ml 4× denne vyplachujte ústa 2 minúty a vypľujte (NIE prehltnúť). Začať D1 everolim, pokračovať 8 týždňov. Zdroj: Rugo HS et al., Ann Oncol 2017 (SWISH). Znižuje výskyt stomatitídy G2+ zo 33 % na 2 %! | Everolimus: 10 mg/deň p.o. kontinuálne. Exemestan: 25 mg/deň p.o. s jedlom. Indikácia: HR+/HER2− metastatický karcinóm prsníka po non-steroidnom aromatázovom inhibítore (BOLERO-2). Monitorovanie: glykémia, triglyceridy, cholesterol, funkcia pľúc (neinfekčná pneumonitída)."
+        },
+        "Instructions": [
+            {
+                "Name": "everolimus",
+                "Inst": "10 mg p.o. 1× denne kontinuálne. Užiť vždy v rovnakom čase, s jedlom alebo bez."
+            },
+            {
+                "Name": "exemestane",
+                "Inst": "25 mg p.o. 1× denne kontinuálne po jedle."
+            }
+        ]
+    }
+}

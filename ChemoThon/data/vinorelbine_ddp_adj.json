@@ -1,0 +1,24 @@
+{
+    "_source": "Le Chevalier T et al. J Clin Oncol 2005;23:5910 (IALT); Douillard JY et al. NEJM 2006;355:1641 (ANITA); NCCN NSCLC 2025",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "vinorelbine",
+            "Dosage": 25,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 8"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. Hydratácia pred/po cisplatine: FR 500ml. Manitol 10% 250ml po cisplatine. Indikácia: adjuvantná liečba NSCLC štádium II-IIIA po R0 resekcii. Cisplatina 75-80 mg/m2 D1 q28d."
+        },
+        "Instructions": [
+            {
+                "Name": "vinorelbine",
+                "Inst": "v 125ml FR i.v. počas 10 min D1, D8 (alebo p.o. vinorelbin 60 mg/m2 D1,D8 C1, potom 80 mg/m2 D1,D8)"
+            }
+        ]
+    }
+}

@@ -1,1 +1,24 @@
-{"Chemo": [{"Name": "doxorubicin", "Dosage": 75.0, "DosageMetric": "mg/m2", "Day": "1"}], "NC": "21", "Day1": {"Premed": {"Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv/ Granisetron 2mg p.o."}, "Instructions": [{"Name": "doxorubicin", "Inst": "v 500 ml FR iv"}]}}
+{
+  "Chemo": [
+    {
+      "Name": "doxorubicin",
+      "Dosage": 75.0,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
+    }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv/ Granisetron 2mg p.o. | Echokardiografia pred liečbou a každé 2 cykly. Kumulatívny max: 550 mg/m2."
+    },
+    "Instructions": [
+      {
+        "Name": "doxorubicin",
+        "Inst": "v 500 ml FR iv"
+      }
+    ]
+  },
+  "_source": "Judson I et al. Lancet Oncol 2014;15:415 (EORTC 62012); ESMO STS guideline 2024",
+  "_revision": "2026-06 | Kumulatívna dávka: max 550 mg/m2 (450 mg/m2 pri predchádzajúcej mediastinálnej RT). Echokardiografia pred liečbou a každé 2 cykly."
+}

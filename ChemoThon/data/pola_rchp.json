@@ -1,0 +1,64 @@
+{
+    "_source": "Tilly H et al. NEJM 2022;386:351 (POLARIX); SmPC Polivy",
+    "_revision": "2026-06",
+    "Chemo": [
+        {
+            "Name": "polatuzumab vedotin",
+            "Dosage": 1.8,
+            "DosageMetric": "mg/kg",
+            "Day": "1"
+        },
+        {
+            "Name": "rituximab",
+            "Dosage": 375,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "cyclophosphamide",
+            "Dosage": 750,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "doxorubicin",
+            "Dosage": 50,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "prednisone",
+            "Dosage": 100,
+            "DosageMetric": "mg flat dose",
+            "Day": "1-5"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Hydrocortison 100mg i.v., Dithiaden 1amp i.v., Pantoprazol 40mg p.o., Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v. Vincristín VYNECHANÝ (Pola-R-CHP, nie R-CHOP). Indikácia: DLBCL 1. línia (IPI≥2). 6 cyklov."
+        },
+        "Instructions": [
+            {
+                "Name": "polatuzumab vedotin",
+                "Inst": "1. infúzia: v 100 ml FR i.v./90 min; ďalšie: 30 min. Premedikácia 30-60 min pred."
+            },
+            {
+                "Name": "rituximab",
+                "Inst": "v 500ml FR iv/ 1.infuzia: zacat 50ml/h, stupnovite zvysovat; dalsie cykly: 100ml/h"
+            },
+            {
+                "Name": "cyclophosphamide",
+                "Inst": "v 500ml FR iv/ 60min"
+            },
+            {
+                "Name": "doxorubicin",
+                "Inst": "v 250ml FR iv/ 60min"
+            },
+            {
+                "Name": "prednisone",
+                "Inst": "p.o. rozdeliť na 2-3 dávky D1-5"
+            }
+        ]
+    }
+}

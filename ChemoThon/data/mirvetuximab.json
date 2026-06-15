@@ -1,0 +1,24 @@
+{
+    "_source": "Moore KN et al. NEJM 2023;389:2162 (MIRASOL); SmPC Elahere",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "mirvetuximab soravtansine",
+            "Dosage": 6,
+            "DosageMetric": "mg/kg (ABW)",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazón 4 mg i.v. + Antihistaminikum (Bisulepin 1 mg i.v.) + Paracetamol 1000 mg p.o. Indikácia: platina-rezistentný ovariálny karcinóm (PROC), FRα pozitívny (PS2+). Hmotnosť: použiť ABW (adjusted body weight) ak BMI >25."
+        },
+        "Instructions": [
+            {
+                "Name": "mirvetuximab soravtansine",
+                "Inst": "v 500 ml FR i.v. počas 60-120 min. Monitorovať krvný tlak počas a 1h po infúzii. Pozor: okulotoxicita — oftal. kontroly q3w."
+            }
+        ]
+    }
+}

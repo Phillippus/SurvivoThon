@@ -1,13 +1,13 @@
 {
     "Chemo": [
         {
-            "Name": "prednison",
-            "Dosage": 40,
-            "DosageMetric": "mg/m2",
+            "Name": "prednisone",
+            "Dosage": 100,
+            "DosageMetric": "mg flat dose",
             "Day": "1-5"
         },
         {
-            "Name": "cyklofosfamid",
+            "Name": "cyclophosphamide",
             "Dosage": 750,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -22,22 +22,22 @@
     "NC": "21",
     "Day1": {
         "Premed": {
-            "Note": "Granisetron 2 mg p.o., pantoprazol 40mg p.o."
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o."
         },
         "Instructions": [
             {
-                "Name": "prednison",
-                "Inst": "p.o. rozdelit na 2-3 davky"
-            },
-            {
-                "Name": "cyklofosfamid",
+                "Name": "cyclophosphamide",
                 "Inst": "v 500ml FR iv/ 60min"
             },
             {
                 "Name": "doxorubicin",
                 "Inst": "v 250ml FR iv/ 60min"
+            },
+            {
+                "Name": "prednisone",
+                "Inst": "100 mg p.o. rozdeliť na 2-3 dávky denne"
             }
-            
         ]
-    }
+    },
+    "_source": "Fisher RI et al. NEJM 1993;328:1002; GELA LNH-98.5"
 }

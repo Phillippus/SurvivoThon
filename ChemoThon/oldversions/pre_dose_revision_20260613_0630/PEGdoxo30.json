@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "peg-doxorubicin",
+            "Dosage": 30.0,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+    ],
+    "NC": "29",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2mg p.o., Dexametazon 8mg iv, Pantoprazol 40mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "peg-doxorubicin",
+                "Inst": "v 250ml 5%GLC iv (nad 90mg v 500ml 5%GLC iv)"
+            }
+        ]
+    }
+}

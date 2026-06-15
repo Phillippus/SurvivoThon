@@ -1,7 +1,7 @@
 {
     "Chemo": [
         {
-            "Name": "irinotekan",
+            "Name": "irinotecan",
             "Dosage": 180,
             "DosageMetric": "mg/m2",
             "Day": "1"
@@ -26,7 +26,7 @@
         },
         "Instructions": [
             {
-                "Name": "irinotekan",
+                "Name": "irinotecan",
                 "Inst": "v 500ml FR iv"
             },
             {
@@ -38,5 +38,7 @@
                 "Inst": "bolus iv"
             }
         ]
-    }
+    },
+    "_source": "BCCA GICFOLFIRI; eviQ FOLFIRI; Douillard JY et al. Lancet 2000;355:1041. 5-FU 2400 mg/m2 48h kivi dopočítané v app.",
+    "_revision": "2026-06"
 }

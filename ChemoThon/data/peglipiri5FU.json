@@ -1,32 +1,34 @@
 {
-    "Chemo": [
-        {
-            "Name": "nanolipozomálny irinotekán (Onivyde)",
-            "Dosage": 70,
-            "DosageMetric": "mg/m2",
-            "Day": "1"
-        },
-        {
-            "Name": "leukovorin",
-            "Dosage": 400,
-            "DosageMetric": "mg/m2",
-            "Day": "1"
-        }
-    ],
-    "NC": "14",
-    "Day1": {
-        "Premed": {
-            "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv, (Atropin 0.2mg sc)"
-        },
-        "Instructions": [
-            {
-                "Name": "nanolipozomálny irinotekán (Onivyde)",
-                "Inst": "v 500ml FR iv/ 90 minut"
-            },
-            {
-                "Name": "leukovorin",
-                "Inst": "v 500ml FR iv"
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "nanolipozomálny irinotekán (Onivyde)",
+      "Dosage": 70,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
+    },
+    {
+      "Name": "leukovorin",
+      "Dosage": 400,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
     }
+  ],
+  "NC": "14",
+  "Day1": {
+    "Premed": {
+      "Note": "Dexametazon 8mg iv, Pantoprazol 40mg p.o., Ondasetron 8mg v 250ml FR iv, (Atropin 0.2mg sc) | Atropín 0.25 mg s.c. profylakticky 30 min pred iri pri anamnéze cholinergných príznakov"
+    },
+    "Instructions": [
+      {
+        "Name": "nanolipozomálny irinotekán (Onivyde)",
+        "Inst": "v 500ml FR iv/ 90 minut"
+      },
+      {
+        "Name": "leukovorin",
+        "Inst": "v 500ml FR iv"
+      }
+    ]
+  },
+  "_source": "Wang-Gillam A et al. Lancet 2016;387:545 (NAPOLI-1); SmPC Onivyde",
+  "_revision": "2026-06 | 70 mg/m2 = free-base ekvivalent (SmPC). eviQ používa 80 mg/m2 (HCl salt). Skontrolovať miestnu konvenciu."
 }

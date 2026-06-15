@@ -1,138 +1,204 @@
 {
-    "imunoterapie": [
-      {
-        "name": "Atezolizumab (Tecentriq)",
-        "regimen name": "Atezolizumab 2 weekly",
-        "dosage": "840 mg",
-        "frequency": "14 days",
-        "administration": "first dose over 60 minutes, subsequent over 30 minutes"
-      },
-      {
-        "name": "Atezolizumab (Tecentriq)",
-        "regimen name": "Atezolizumab 3 weekly",
-        "dosage": "1200 mg",
-        "frequency": "21 days",
-        "administration": "first dose over 60 minutes, subsequent over 30 minutes"
-      },
-      {
-        "name": "Atezolizumab (Tecentriq)",
-        "regimen name": "Atezolizumab 4 weekly",
-        "dosage": "1680 mg",
-        "frequency": "28 days",
-        "administration": "first dose over 60 minutes, subsequent over 30 minutes"
-      },
-      {
-        "name": "Avelumab (Bavencio)",
-        "regimen name": "Avelumab 2 weekly",
-        "dosage": "800 mg",
-        "frequency": "14 days",
-        "administration": "over 60 minutes",
-        "premedication": "levocetirizine 5mg and paracetamol 500mg or ibuprofen 400mg before each infusion."
-      },
-      {
-        "name": "Cemiplimab (Libtayo)",
-        "regimen name": "Cemiplimab 3 weekly",
-        "dosage": "350 mg",
-        "frequency": "21 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Durvalumab (Imfinzi)",
-        "regimen name": "Durvalumab 2 weekly monotherapy",
-        "dosage": "10 mg/kg",
-        "frequency": "14 days",
-        "administration": "over 60 minutes"
-      },
-      {
-        "name": "Durvalumab (Imfinzi)",
-        "regimen name": "Durvalumab 4 weekly",
-        "dosage": "1500 mg",
-        "frequency": "28 days",
-        "administration": "over 60 minutes"
-      },
-      {
-        "name": "Durvalumab (Imfinzi)",
-        "regimen name": "Durvalumab 3 weekly with carboplatin and paclitaxel",
-        "dosage": "1120 mg",
-        "frequency": "21 days",
-        "administration": "over 60 minutes"
-      },
-      {
-        "name": "Durvalumab (Imfinzi)",
-        "regimen name": "Durvalumab 4 weekly after chemotherapy combination",
-        "dosage": "1500 mg",
-        "frequency": "28 days",
-        "administration": "over 60 minutes"
-      },
-      {
-        "name": "Ipilimumab (Yervoy)",
-        "regimen name": "Ipilimumab 1 mg/kg with Nivolumab",
-        "dosage": "1 mg/kg",
-        "frequency": "21 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Ipilimumab (Yervoy)",
-        "regimen name": "Ipilimumab 3 mg/kg",
-        "dosage": "3 mg/kg",
-        "frequency": "21 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Ipilimumab (Yervoy)",
-        "regimen name": "Ipilimumab 1 mg/kg 6 weekly with Nivolumab",
-        "dosage": "1 mg/kg",
-        "frequency": "42 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Nivolumab (Opdivo)",
-        "regimen name": "Nivolumab 2 weekly",
-        "dosage": "240 mg",
-        "frequency": "14 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Nivolumab (Opdivo)",
-        "regimen name": "Nivolumab 4 weekly",
-        "dosage": "480 mg",
-        "frequency": "28 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Nivolumab (Opdivo)",
-        "regimen name": "Nivolumab 1 mg/kg with Ipilimumab 3 mg/kg",
-        "dosage": "1 mg/kg",
-        "frequency": "21 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Nivolumab (Opdivo)",
-        "regimen name": "Nivolumab 240 mg after combination with Ipilimumab",
-        "dosage": "240 mg",
-        "frequency": "14 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Nivolumab (Opdivo)",
-        "regimen name": "Nivolumab 480 mg after combination with Ipilimumab",
-        "dosage": "480 mg",
-        "frequency": "28 days",
-        "administration": "over 60 minutes"
-      },
-      {
-        "name": "Pembrolizumab (Keytruda)",
-        "regimen name": "Pembrolizumab 3 weekly",
-        "dosage": "200 mg",
-        "frequency": "21 days",
-        "administration": "over 30 minutes"
-      },
-      {
-        "name": "Pembrolizumab (Keytruda)",
-        "regimen name": "Pembrolizumab 6 weekly",
-        "dosage": "400 mg",
-        "frequency": "42 days",
-        "administration": "over 30 minutes"
-      }
-    ]
-  }
+  "imunoterapie": [
+    {
+      "name": "Atezolizumab (Tecentriq)",
+      "regimen name": "Atezolizumab 2 weekly",
+      "dosage": "840 mg",
+      "frequency": "14 days",
+      "administration": "first dose over 60 minutes, subsequent over 30 minutes"
+    },
+    {
+      "name": "Atezolizumab (Tecentriq)",
+      "regimen name": "Atezolizumab 3 weekly",
+      "dosage": "1200 mg",
+      "frequency": "21 days",
+      "administration": "first dose over 60 minutes, subsequent over 30 minutes"
+    },
+    {
+      "name": "Atezolizumab (Tecentriq)",
+      "regimen name": "Atezolizumab 4 weekly",
+      "dosage": "1680 mg",
+      "frequency": "28 days",
+      "administration": "first dose over 60 minutes, subsequent over 30 minutes"
+    },
+    {
+      "name": "Atezolizumab SC (Tecentriq SC)",
+      "regimen name": "Atezolizumab SC 1875 mg q4w",
+      "dosage": "1875 mg",
+      "frequency": "28 days",
+      "administration": "1875 mg s.c. into abdomen or thigh over 7-10 min (fixed dose)",
+      "premedication": "No routine premedication required. SC formulation does not require prolonged monitoring as compared to i.v.",
+      "source": "SmPC Tecentriq SC 2023. Indications: same as i.v. atezolizumab."
+    },
+    {
+      "name": "Avelumab (Bavencio)",
+      "regimen name": "Avelumab 2 weekly",
+      "dosage": "800 mg",
+      "frequency": "14 days",
+      "administration": "over 60 minutes",
+      "premedication": "levocetirizine 5mg and paracetamol 500mg or ibuprofen 400mg before each infusion."
+    },
+    {
+      "name": "Cemiplimab (Libtayo)",
+      "regimen name": "Cemiplimab 3 weekly",
+      "dosage": "350 mg",
+      "frequency": "21 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Durvalumab (Imfinzi)",
+      "regimen name": "Durvalumab 2 weekly monotherapy",
+      "dosage": "10 mg/kg",
+      "frequency": "14 days",
+      "administration": "over 60 minutes"
+    },
+    {
+      "name": "Durvalumab (Imfinzi)",
+      "regimen name": "Durvalumab 4 weekly",
+      "dosage": "1500 mg",
+      "frequency": "28 days",
+      "administration": "over 60 minutes"
+    },
+    {
+      "name": "Durvalumab (Imfinzi)",
+      "regimen name": "Durvalumab 3 weekly with carboplatin and paclitaxel",
+      "dosage": "1120 mg",
+      "frequency": "21 days",
+      "administration": "over 60 minutes"
+    },
+    {
+      "name": "Durvalumab (Imfinzi)",
+      "regimen name": "Durvalumab 4 weekly after chemotherapy combination",
+      "dosage": "1500 mg",
+      "frequency": "28 days",
+      "administration": "over 60 minutes"
+    },
+    {
+      "name": "Ipilimumab + Nivolumab",
+      "regimen name": "Ipi 3mg/kg + Nivo 1mg/kg q3w × 4, then Nivo 240mg q2w (melanoma, CheckMate-067)",
+      "dosage": "3 mg/kg (ipi) + 1 mg/kg (nivo)",
+      "frequency": "21 days (induction 4 cycles), then nivolumab 240 mg q2w",
+      "administration": "ipilimumab in 250 ml NaCl i.v./30 min, then nivolumab in 100 ml NaCl i.v./30 min. Induction: 4 cycles q3w, then nivolumab monotherapy.",
+      "premedication": "No premedication required",
+      "source": "Larkin J et al. NEJM 2015;373:23 (CheckMate-067). Melanoma 1st line."
+    },
+    {
+      "name": "Ipilimumab + Nivolumab",
+      "regimen name": "Ipi 1mg/kg + Nivo 3mg/kg q3w × 4, then Nivo 240mg q2w (NSCLC, CheckMate-227)",
+      "dosage": "1 mg/kg (ipi) + 3 mg/kg (nivo)",
+      "frequency": "21 days (induction 4 cycles), then nivolumab 240 mg q2w",
+      "administration": "nivolumab in 100 ml NaCl i.v./30 min, then ipilimumab in 250 ml NaCl i.v./30 min. Induction: 4 cycles q3w.",
+      "premedication": "No premedication required",
+      "source": "Hellmann MD et al. NEJM 2019;381:2020 (CheckMate-227). NSCLC 1st line."
+    },
+    {
+      "name": "Ipilimumab + Nivolumab",
+      "regimen name": "Ipi 1mg/kg q6w + Nivo 360mg q3w (NSCLC CheckMate-9LA; various indications)",
+      "dosage": "1 mg/kg (ipi q6w) + 360 mg (nivo q3w, flat dose)",
+      "frequency": "ipilimumab q6w, nivolumab q3w",
+      "administration": "nivolumab 360 mg flat i.v./30 min q3w + ipilimumab 1 mg/kg i.v./30 min q6w.",
+      "premedication": "No premedication required",
+      "source": "Reck M et al. Lancet 2021;397:1345 (CheckMate-9LA). NSCLC, HCC, and other indications."
+    },
+    {
+      "name": "Ipilimumab + Nivolumab",
+      "regimen name": "Ipi 1mg/kg + Nivo 3mg/kg q3w × 4, then Nivo 480mg q4w (mRCC, CheckMate-214)",
+      "dosage": "1 mg/kg (ipi) + 3 mg/kg (nivo)",
+      "frequency": "21 days (induction 4 cycles), then nivolumab 480 mg q4w",
+      "administration": "nivolumab in 100 ml NaCl i.v./30 min, then ipilimumab in 250 ml NaCl i.v./30 min. Maintenance: nivolumab 480 mg q4w.",
+      "premedication": "No premedication required",
+      "source": "Motzer RJ et al. NEJM 2018;378:1277 (CheckMate-214). mRCC 1st line."
+    },
+    {
+      "name": "Ipilimumab + Nivolumab",
+      "regimen name": "Ipi 3mg/kg q3w × 4 monotherapy (melanoma adjuvant, EORTC 18071)",
+      "dosage": "3 mg/kg (ipilimumab monotherapy)",
+      "frequency": "21 days (max 4 doses)",
+      "administration": "ipilimumab in 250 ml NaCl i.v./90 min. Max 4 doses.",
+      "premedication": "No premedication required",
+      "source": "Eggermont AMM et al. NEJM 2016;375:1845 (EORTC 18071). Adjuvant melanoma stage III."
+    },
+    {
+      "name": "Nivolumab (Opdivo)",
+      "regimen name": "Nivolumab 2 weekly",
+      "dosage": "240 mg",
+      "frequency": "14 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Nivolumab (Opdivo)",
+      "regimen name": "Nivolumab 4 weekly",
+      "dosage": "480 mg",
+      "frequency": "28 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Pembrolizumab (Keytruda)",
+      "regimen name": "Pembrolizumab 3 weekly",
+      "dosage": "200 mg",
+      "frequency": "21 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Pembrolizumab (Keytruda)",
+      "regimen name": "Pembrolizumab 6 weekly",
+      "dosage": "400 mg",
+      "frequency": "42 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Dostarlimab (Jemperli)",
+      "regimen name": "Dostarlimab 3 weekly (induction, 4 cycles)",
+      "dosage": "500 mg",
+      "frequency": "21 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Dostarlimab (Jemperli)",
+      "regimen name": "Dostarlimab 6 weekly (maintenance)",
+      "dosage": "1000 mg",
+      "frequency": "42 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Tremelimumab (Imjudo)",
+      "regimen name": "Tremelimumab 300mg single dose (STRIDE D1C1)",
+      "dosage": "300 mg",
+      "frequency": "D1C1 – single dose only",
+      "administration": "over 60 minutes"
+    },
+    {
+      "name": "Tislelizumab (Tevimbra)",
+      "regimen name": "Tislelizumab 3 weekly",
+      "dosage": "200 mg",
+      "frequency": "21 days",
+      "administration": "over 30 minutes"
+    },
+    {
+      "name": "Relatlimab + Nivolumab (Opdualag)",
+      "regimen name": "Relatlimab 160 mg + Nivolumab 480 mg q4w",
+      "dosage": "160/480 mg",
+      "frequency": "28 days",
+      "administration": "Relatlimab 160 mg + Nivolumab 480 mg co-formulated, i.v. over 30 min",
+      "source": "Tawbi HA et al. NEJM 2022;386:24 (RELATIVITY-047); SmPC Opdualag. Indication: melanoma (unresectable/metastatic, 1st line)"
+    },
+    {
+      "name": "Nivolumab SC",
+      "regimen name": "Nivolumab SC 600 mg q4w",
+      "dosage": "600 mg",
+      "frequency": "28 days",
+      "administration": "600 mg s.c. over 3-5 min",
+      "source": "SmPC Opdivo SC 2024. Same indications as i.v. formulations."
+    },
+    {
+      "name": "Ipilimumab (HIMALAYA – STRIDE)",
+      "regimen name": "Tremelimumab 300mg D1 + Durvalumab 1500mg flat q4w (HCC, HIMALAYA)",
+      "dosage": "Tremelimumab 300 mg single dose + Durvalumab 1500 mg flat",
+      "frequency": "Tremelimumab once (D1), then durvalumab q4w",
+      "administration": "Tremelimumab 300 mg i.v. D1, then durvalumab 1500 mg flat i.v./60 min q4w (STRIDE regimen).",
+      "premedication": "No premedication required",
+      "source": "Abou-Alfa GK et al. NEJM Evid 2022;1 (HIMALAYA). HCC 1st line."
+    }
+  ],
+  "_revision": "2026-06-ChemoThon-batch-ENG"
+}

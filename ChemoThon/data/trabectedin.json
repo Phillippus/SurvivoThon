@@ -1,22 +1,24 @@
 {
-    "Chemo": [
-        {
-            "Name": "trabectedin",
-            "Dosage": 1.5,
-            "DosageMetric": "mg/m2",
-            "Day": "1"
-        }
-    ],
-    "NC": "22",
-    "Day1": {
-        "Premed": {
-            "Note": "Ondasetron 8mg v 250ml FR iv, Dexametazon 20 mg iv, Pantoprazol 40mg p.o."
-        },
-        "Instructions": [
-            {
-                "Name": "trabectedin",
-                "Inst": "v 500ml FR iv/ 24hod (centralny kateter)"
-            }
-        ]
+  "Chemo": [
+    {
+      "Name": "trabectedin",
+      "Dosage": 1.5,
+      "DosageMetric": "mg/m2",
+      "Day": "1"
     }
+  ],
+  "NC": "22",
+  "Day1": {
+    "Premed": {
+      "Note": "Ondasetron 8mg v 250ml FR iv, Dexametazon 20 mg iv, Pantoprazol 40mg p.o."
+    },
+    "Instructions": [
+      {
+        "Name": "trabectedin",
+        "Inst": "v 500ml FR iv/ 24hod (centralny kateter)"
+      }
+    ]
+  },
+  "_source": "Demetri GD et al. J Clin Oncol 2016;34:786; SmPC Yondelis",
+  "_revision": "2026-06 | Povinný centrálny venózny katéter (SmPC). Dexametazón 20 mg i.v. 30 min pred = hepatoprotektívny a antiemetický efekt."
 }

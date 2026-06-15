@@ -1,0 +1,22 @@
+{
+    "Chemo": [
+        {
+            "Name": "darolutamid",
+            "Dosage": 1200,
+            "DosageMetric": "mg",
+            "Day": "1-28"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": ""
+        },
+        "Instructions": [
+            {
+                "Name": "darolutamid",
+                "Inst": "-- 300mg tablety 2-0-2 p.o."
+            }
+        ]
+    }
+}

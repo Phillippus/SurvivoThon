@@ -1,0 +1,24 @@
+{
+  "_source": "Judson I et al. Lancet Oncol 2014;15:415 (EORTC 62012); ESMO STS guideline 2024; eviQ Sarcoma Ifosfamide",
+  "_revision": "2026-06-new",
+  "Chemo": [
+    {
+      "Name": "ifosfamid (high-dose)",
+      "Dosage": 2000,
+      "DosageMetric": "mg/m2",
+      "Day": "1-5"
+    }
+  ],
+  "NC": "21",
+  "Day1": {
+    "Premed": {
+      "Note": "Mesna 400 mg/m2 i.v. pred ifosfamidom + 400 mg/m2 i.v. 4h a 8h po každom vaku (alebo kontinuálna infúzia mesna). Dexametazón 8 mg i.v. Granisetron 2 mg p.o. HYDRATÁCIA: FR 1000 ml pred a po každom vaku. Monitorovať príznaky encefalopatie."
+    },
+    "Instructions": [
+      {
+        "Name": "ifosfamid (high-dose)",
+        "Inst": "v 1000 ml FR i.v./3-4 h D1-D5. Vždy s Mesnou (viď premedikácia)."
+      }
+    ]
+  }
+}

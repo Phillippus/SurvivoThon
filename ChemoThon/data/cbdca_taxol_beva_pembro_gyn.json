@@ -1,0 +1,44 @@
+{
+    "_source": "Colombo N et al. NEJM 2023;389:2145 (ENGOT-en6-NSGO/GOG-3031/RUBY-dostarlimab); Eskander RN et al. NEJM 2023;388:2159 (NRG-GY018-pembro); Tewari KS et al. NEJM 2014;370:734 (GOG-240-beva+platina+taxol cervix); SmPC Keytruda, Avastin",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "pembrolizumab",
+            "Dosage": 200,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        },
+        {
+            "Name": "paclitaxel",
+            "Dosage": 175,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "bevacizumab",
+            "Dosage": 15,
+            "DosageMetric": "mg/kg",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazón 20mg i.v., Bisulepin 1mg i.v., Pantoprazol 40mg p.o., Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo. Bez premedikácie pre pembrolizumab a bevacizumab. Indikácia: pokročilý/rekurentný endometriálny karcinóm (RUBY/NRG-GY018) alebo cervikálny karcinóm (GOG-240 +beva). Platina (CBDCA AUC5 alebo DDP 50mg/m2) sa pridáva v app. Pembrolizumab: udržiavanie až 2 roky. Bevacizumab: až do progresie alebo toxicity."
+        },
+        "Instructions": [
+            {
+                "Name": "pembrolizumab",
+                "Inst": "v 100ml FR i.v./30 min"
+            },
+            {
+                "Name": "paclitaxel",
+                "Inst": "prvých 30mg v 500ml FR/45 min, zvyšok v 500ml FR/60 min. Pred paklitaxelom podať premedikáciu."
+            },
+            {
+                "Name": "bevacizumab",
+                "Inst": "1. infúzia v 250ml FR i.v./90 min, 2. infúzia/60 min, ďalšie/30 min (ak bez reakcie)"
+            }
+        ]
+    }
+}

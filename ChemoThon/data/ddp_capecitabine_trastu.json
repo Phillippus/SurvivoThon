@@ -1,0 +1,24 @@
+{
+    "_source": "Bang YJ et al. Lancet 2010;376:687 (ToGA); Van Cutsem E et al. J Clin Oncol 2015 (CAPOX+trastu); NCCN Gastric 2025",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "capecitabine",
+            "Dosage": 1000,
+            "DosageMetric": "mg/m2",
+            "Day": "1-14 (2× denne)"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h pred chemo, Dexametazón 12mg i.v., Pantoprazol 40mg p.o. Hydratácia pred/po cisplatine, Manitol 10% 250ml. Trastuzumab: 1. dávka 8 mg/kg iv, ďalšie 6 mg/kg q3w (iv) alebo podľa SC schémy. Indikácia: HER2+ (IHC3+ alebo IHC2+/ISH+) pokročilý/metastatický gastric alebo gastroezofageálny karcinóm."
+        },
+        "Instructions": [
+            {
+                "Name": "capecitabine",
+                "Inst": "p.o. 2× denne D1-14 s jedlom"
+            }
+        ]
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "_source": "Wilke H et al. Lancet Oncol 2014;15:1224 (RAINBOW); SmPC Cyramza",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "ramucirumab",
+            "Dosage": 8,
+            "DosageMetric": "mg/kg",
+            "Day": "1"
+        },
+        {
+            "Name": "paclitaxel",
+            "Dosage": 80,
+            "DosageMetric": "mg/m2",
+            "Day": "1, 8, 15"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "Antihistaminikum i.v. pred 1. a 2. ramucirumabom. Dexametazón 20 mg i.v., Bisulepin 1 mg i.v. pred paklitaxelom."
+        },
+        "Instructions": [
+            {
+                "Name": "ramucirumab",
+                "Inst": "v 250 ml FR i.v. počas 60 min D1"
+            },
+            {
+                "Name": "paclitaxel",
+                "Inst": "prvých 30 mg v 500 ml FR/45 min, zvyšok v 500 ml FR/60 min (D1, D8, D15)"
+            }
+        ]
+    }
+}

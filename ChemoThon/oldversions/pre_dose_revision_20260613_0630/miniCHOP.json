@@ -1,0 +1,43 @@
+{
+    "Chemo": [ 
+        {
+            "Name": "prednison",
+            "Dosage": 40,
+            "DosageMetric": "mg/m2",
+            "Day": "1-5"
+        },
+        {
+            "Name": "cyklofosfamid",
+            "Dosage": 400,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        },
+        {
+            "Name": "doxorubicin",
+            "Dosage": 25,
+            "DosageMetric": "mg/m2",
+            "Day": "1"
+        }
+       
+    ],
+    "NC": "22",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2 mg p.o., pantoprazol 40mg p.o."
+        },
+        "Instructions": [
+            {
+                "Name": "prednison",
+                "Inst": "p.o. rozdelit na 2-3 davky"
+            },
+            {
+                "Name": "cyklofosfamid",
+                "Inst": "v 500ml FRiv/ 60min"
+            },
+            {
+                "Name": "doxorubicin",
+                "Inst": "v 250ml FR iv/ 60min"
+            }            
+        ]
+    }
+}

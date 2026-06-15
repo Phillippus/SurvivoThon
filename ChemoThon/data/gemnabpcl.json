@@ -1,1 +1,34 @@
-{"Chemo": [{"Name": "gemcitabine", "Dosage": 1000, "DosageMetric": "mg/m2", "Day": "1,8,15"}, {"Name": "nab-paclitaxel", "Dosage": 125, "DosageMetric": "mg/m2", "Day": "1,8,15"}], "NC": "29", "Day1": {"Premed": {"Note": "Granisetron 2 tbl p.o., Dexamatazon 16mg iv, Pantoprazol 40mg tbl p.o., Dithiaden 1 amp iv"}, "Instructions": [{"Name": "gemcitabine", "Inst": "v 500ml FR iv"}, {"Name": "nab-paclitaxel", "Inst": "v 500ml FR iv"}]}}
+{
+    "Chemo": [
+        {
+            "Name": "gemcitabine",
+            "Dosage": 1000,
+            "DosageMetric": "mg/m2",
+            "Day": "1,8,15"
+        },
+        {
+            "Name": "nab-paclitaxel",
+            "Dosage": 125,
+            "DosageMetric": "mg/m2",
+            "Day": "1,8,15"
+        }
+    ],
+    "NC": "28",
+    "Day1": {
+        "Premed": {
+            "Note": "Granisetron 2 tbl p.o., Dexamatazon 16mg iv, Pantoprazol 40mg tbl p.o., Dithiaden 1 amp iv"
+        },
+        "Instructions": [
+            {
+                "Name": "gemcitabine",
+                "Inst": "v 500 ml FR i.v. počas 30 min"
+            },
+            {
+                "Name": "nab-paclitaxel",
+                "Inst": "v 500 ml FR i.v. počas 30 min po gemcitabíne"
+            }
+        ]
+    },
+    "_source": "Von Hoff DD et al. NEJM 2013;369:1691 (MPACT); BCCA GIPCGEMNAB",
+    "_revision": "2026-06 | NC opravené 29→28 dní per MPACT"
+}

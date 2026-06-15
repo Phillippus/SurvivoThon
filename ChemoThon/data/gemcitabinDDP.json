@@ -1,8 +1,8 @@
 {
     "Chemo": [
         {
-            "Name": "Gemcitabin",
-            "Dosage": 1200,
+            "Name": "Gemcitabine",
+            "Dosage": 1000,
             "DosageMetric": "mg/m2",
             "Day": "1,8"
         }
@@ -14,9 +14,11 @@
         },
         "Instructions": [
             {
-                "Name": "Gemcitabin",
-                "Inst": "v 500ml FR iv"
+                "Name": "Gemcitabine",
+                "Inst": "v 500 ml FR i.v. počas 30 min"
             }
         ]
-    }
+    },
+    "_source": "BCCA LUAVGEMDDP; eviQ Lung Gemcitabine+Cisplatin; Schiller JH et al. NEJM 2002;346:92 (ECOG 1594)",
+    "_revision": "2026-06 | Gem 1200→1000 mg/m2 D1,8 (BCCA/eviQ štandard pre GEM+DDP NSCLC)"
 }

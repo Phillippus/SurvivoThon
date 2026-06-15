@@ -1,0 +1,34 @@
+{
+    "_source": "Powles T et al. NEJM 2024;390:875 (EV-302/KEYNOTE-869); SmPC Padcev",
+    "_revision": "2026-06-new",
+    "Chemo": [
+        {
+            "Name": "enfortumab vedotin",
+            "Dosage": 1.25,
+            "DosageMetric": "mg/kg",
+            "Day": "1, 8"
+        },
+        {
+            "Name": "pembrolizumab",
+            "Dosage": 200,
+            "DosageMetric": "mg flat dose",
+            "Day": "1"
+        }
+    ],
+    "NC": "21",
+    "Day1": {
+        "Premed": {
+            "Note": "Dexametazón 12 mg i.v., Bisulepin 1 mg i.v., Pantoprazol 40 mg p.o., Granisetron 2 mg p.o. Indikácia: metastatický urotelový karcinóm, 1. línia. Pozor: neuropatia, kožná toxicita (SJS/TEN — stop pri G≥2), DM."
+        },
+        "Instructions": [
+            {
+                "Name": "enfortumab vedotin",
+                "Inst": "v 250 ml FR i.v./30 min D1 a D8 (bez infúzie D15). Max dávka: 125 mg."
+            },
+            {
+                "Name": "pembrolizumab",
+                "Inst": "v 100 ml FR i.v./30 min D1"
+            }
+        ]
+    }
+}
