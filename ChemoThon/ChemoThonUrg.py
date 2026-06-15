@@ -114,10 +114,11 @@ def urogenital(rbodysurf):
             weight_val = st.session_state['weight']
             import json as _j
             ev = _j.load(open("data/enfortumab_vedotin.json", encoding="utf-8"))
-            ev_dose = round(1.25 * weight_val, 2)
+            ev_dose = min(round(1.25 * weight_val, 2), 125)  # EV-302: strop 125 mg (pacienti ≥100 kg)
             pembro_dose = 200
             st.write("### Enfortumab vedotín + Pembrolizumab (EV-302)")
-            st.write(f"enfortumab vedotín 1.25 mg/kg ......... {ev_dose} mg D1, D8")
+            ev_cap_note = " (cappované na max 125 mg)" if 1.25 * weight_val > 125 else ""
+            st.write(f"enfortumab vedotín 1.25 mg/kg ......... {ev_dose} mg D1, D8{ev_cap_note}")
             st.write(f"pembrolizumab 200 mg flat dose D1")
             st.write("NC 21. deň")
             st.write("D1 - premedikácia:")
