@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def load_chemotherapy_data():
     """Loads all chemotherapy data from the consolidated JSON file."""
@@ -134,15 +134,20 @@ def display_simple_json(filename, bsa, weight=None):
             if drug:
                 metric = drug.get("DosageMetric", "")
                 dosage = drug.get("Dosage", 0)
-                if "mg/kg" in metric and weight:
-                    calc_dose = round(dosage * weight, 2)
-                elif "mg/m2" in metric:
-                    calc_dose = round(dosage * bsa, 2)
+                if "flat" in metric.lower():
+                    # flat-dose: instruction text already contains the dose → avoid duplication
+                    st.write(f"{drug_name} - {inst_text}")
                 else:
-                    calc_dose = dosage
-                st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
+                    if "mg/kg" in metric and weight:
+                        calc_dose = round(dosage * weight, 2)
+                    elif "mg/m2" in metric:
+                        calc_dose = round(dosage * bsa, 2)
+                    else:
+                        calc_dose = dosage
+                    st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
             else:
                 st.write(f"{drug_name} - {inst_text}")
+    show_evidence_eng(reg)
 
 def main():
     st.title("ChemoThon Breast v. 3.4 ENG")

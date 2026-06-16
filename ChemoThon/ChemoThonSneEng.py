@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def calculate_bsa(weight, height):
     """Calculates body surface area using the DuBois formula."""
@@ -43,6 +43,7 @@ def Chemo(bsa, filename):
                 st.write(f"{drug_name} {calc_dose} mg {inst_text}")
             else:
                 st.write(f"{drug_name} {inst_text}")
+    show_evidence_eng(reg)
 
 def ChemoDDP(bsa, filename):
     """Display cisplatin-based regimen (80 mg/m², split 50 mg + mannitol)."""
@@ -83,6 +84,7 @@ def ChemoDDP(bsa, filename):
             calc_dose = round(drug["Dosage"] * bsa, 2)
             st.write(f"{item}. {drug_name} {calc_dose} mg {sk_to_eng(inst.get('Inst', ''))}") 
             item += 1
+    show_evidence_eng(reg)
 
 def ChemoCBDCA(bsa, filename):
     """Display carboplatin-based regimen (AUC dosing)."""
@@ -117,6 +119,7 @@ def ChemoCBDCA(bsa, filename):
             if drug:
                 calc_dose = round(drug["Dosage"] * bsa, 2)
                 st.write(f"{drug_name} {calc_dose} mg {sk_to_eng(inst.get('Inst', ''))}") 
+        show_evidence_eng(reg)
 
 def ChemoIfo(bsa, dose_per_m2, with_epirubicin):
     """Ifosfamide regimen with MESNA and optional epirubicin."""

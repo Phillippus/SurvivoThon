@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def load_chemotherapy_data():
     try:
@@ -126,15 +126,20 @@ def display_simple_json(filename, bsa, weight=None):
             if drug:
                 metric = drug.get("DosageMetric", "")
                 dosage = drug.get("Dosage", 0)
-                if "mg/kg" in metric and weight:
-                    calc_dose = round(dosage * weight, 2)
-                elif "mg/m2" in metric:
-                    calc_dose = round(dosage * bsa, 2)
+                if "flat" in metric.lower():
+                    # flat-dose: instruction text already contains the dose → avoid duplication
+                    st.write(f"{drug_name} - {inst_text}")
                 else:
-                    calc_dose = dosage
-                st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
+                    if "mg/kg" in metric and weight:
+                        calc_dose = round(dosage * weight, 2)
+                    elif "mg/m2" in metric:
+                        calc_dose = round(dosage * bsa, 2)
+                    else:
+                        calc_dose = dosage
+                    st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
             else:
                 st.write(f"{drug_name} - {inst_text}")
+    show_evidence_eng(reg)
 
 def main():
     st.title("ChemoThon Urogenital v. 3.2 ENG")
@@ -166,7 +171,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
             "Enfortumab Vedotin + Pembrolizumab (EV-302, 1L metastatic urothelial)",
             "Olaparib 300 mg BID (HRR+ mCRPC, PROfound)",
             "Nivolumab 240 mg q2w adjuvant (high-risk urothelial post-cystectomy, CheckMate-274)",
-            "Split-dose Cisplatin D1+D8",
+            "Gemcitabine + Split-dose Cisplatin D1+D8 (urothelial)",
             "Paclitaxel weekly (urothelial / other)",
         ]
         selected_protocol_name = st.selectbox("Select a chemotherapy regimen:", [" "] + chemo_names + extra_new)
@@ -181,10 +186,11 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
             if selected_protocol_name == "Enfortumab Vedotin + Pembrolizumab (EV-302, 1L metastatic urothelial)":
                 import json as _j
                 ev = _j.load(open("data/enfortumab_vedotin.json", encoding="utf-8"))
-                ev_dose = round(1.25 * weight_val, 2)
+                ev_dose = min(round(1.25 * weight_val, 2), 125)  # EV-302: cap at 125 mg (patients ≥100 kg)
                 pembro_dose = 200
+                ev_cap_note = " (capped at max 125 mg)" if 1.25 * weight_val > 125 else ""
                 st.write("#### Chemotherapy Drugs")
-                st.write(f"enfortumab vedotin 1.25 mg/kg ......... {ev_dose} mg D1, D8")
+                st.write(f"enfortumab vedotin 1.25 mg/kg ......... {ev_dose} mg D1, D8{ev_cap_note}")
                 st.write(f"pembrolizumab 200 mg flat dose D1")
                 st.write(f"**Next Cycle:** 21 days")
                 st.write("#### D1 - Premedication")
@@ -192,27 +198,31 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                 st.write("#### D1 - Chemotherapy Instructions")
                 st.write(f"enfortumab vedotin {ev_dose} mg {sk_to_eng(ev['Day1']['Instructions'][0]['Inst'])}")
                 st.write(f"pembrolizumab {pembro_dose} mg {sk_to_eng(ev['Day1']['Instructions'][1]['Inst'])}")
+                show_evidence_eng(ev)
             elif selected_protocol_name == "Olaparib 300 mg BID (HRR+ mCRPC, PROfound)":
                 display_simple_json("olaparib_crpc.json", bsa, weight_val)
             elif selected_protocol_name == "Nivolumab 240 mg q2w adjuvant (high-risk urothelial post-cystectomy, CheckMate-274)":
                 display_simple_json("nivolumab_urothelial_adj.json", bsa, weight_val)
-            elif selected_protocol_name == "Split-dose Cisplatin D1+D8":
+            elif selected_protocol_name == "Gemcitabine + Split-dose Cisplatin D1+D8 (urothelial)":
                 total = round(70 * bsa, 2)
                 half = round(total / 2, 2)
+                gem_dose = round(1000 * bsa, 2)
                 vials_d1 = int(half // 50)
                 rem_d1 = round(half % 50, 2)
                 st.write("#### Chemotherapy Drugs")
+                st.write(f"gemcitabine 1000 mg/m² ......... {gem_dose} mg D1, D8")
                 st.write(f"cisplatin 70 mg/m² total ......... {total} mg — split: {half} mg D1 + {half} mg D8")
                 st.write("**Next Cycle:** 21 days")
                 st.write("#### D1 - Premedication")
                 st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Hydration: NaCl 500 ml before + 500 ml after. Repeat D8.")
                 st.write("#### D1 (and D8) - Chemotherapy")
+                st.write(f"gemcitabine {gem_dose} mg in 500 ml normal saline i.v./30 min (D1, D8)")
                 for i in range(vials_d1):
                     st.write(f"cisplatin 50 mg in 500 ml normal saline i.v.")
                 if rem_d1 > 0:
                     st.write(f"cisplatin {round(rem_d1, 2)} mg in 500 ml normal saline i.v.")
                 st.write("Mannitol 10% 250 ml i.v.")
-                st.write(f"*(Repeat on D8: {half} mg split the same way)*")
+                st.write(f"*(Repeat on D8: gemcitabine {gem_dose} mg + cisplatin {half} mg split the same way)*")
             elif selected_protocol_name == "Paclitaxel weekly (urothelial / other)":
                 display_simple_json("paclitaxelweekly.json", bsa, weight_val)
             else:

@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def load_chemotherapy_data():
     """Loads all chemotherapy data from a JSON file."""
@@ -107,15 +107,20 @@ def display_simple_json(filename, bsa, weight=None):
             if drug:
                 metric = drug.get("DosageMetric", "")
                 dosage = drug.get("Dosage", 0)
-                if "mg/kg" in metric and weight:
-                    calc_dose = round(dosage * weight, 2)
-                elif "mg/m2" in metric:
-                    calc_dose = round(dosage * bsa, 2)
+                if "flat" in metric.lower():
+                    # flat-dose: instruction text already contains the dose → avoid duplication
+                    st.write(f"{drug_name} - {inst_text}")
                 else:
-                    calc_dose = dosage
-                st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
+                    if "mg/kg" in metric and weight:
+                        calc_dose = round(dosage * weight, 2)
+                    elif "mg/m2" in metric:
+                        calc_dose = round(dosage * bsa, 2)
+                    else:
+                        calc_dose = dosage
+                    st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
             else:
                 st.write(f"{drug_name} - {inst_text}")
+    show_evidence_eng(reg)
 
 def main():
     st.title("ChemoThon  Gynecology  v 3.2 ENG")
@@ -205,6 +210,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                         st.write(f"paclitaxel {taxol_dose} mg {sk_to_eng(_bpj['Day1']['Instructions'][1]['Inst'])}")
                         st.write(f"carboplatin {cbdca_dose} mg in 500 ml NaCl i.v./60 min")
                         st.write(f"bevacizumab {beva_dose} mg {sk_to_eng(_bpj['Day1']['Instructions'][2]['Inst'])}")
+                        show_evidence_eng(_bpj)
                 elif pt_choice == "Cisplatin 50 mg/m2 D1":
                     ddp_dose = round(50 * bsa, 2)
                     ddp_vials = int(ddp_dose // 50); ddp_rem = round(ddp_dose % 50, 2)
@@ -225,6 +231,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                         st.write(f"cisplatin {ddp_rem} mg in 500 ml normal saline i.v./60 min")
                     st.write("Mannitol 10% 250 ml i.v. after cisplatin")
                     st.write(f"bevacizumab {beva_dose} mg {sk_to_eng(_bpj['Day1']['Instructions'][2]['Inst'])}")
+                    show_evidence_eng(_bpj)
             elif protocol:
                 if selected_protocol_name == "INTERLACE CBDCA/Paclitaxel":
                     st.info("⚠️ INTERLACE: 6 induction cycles of CBDCA/paclitaxel (AUC 2 / 80 mg/m²), then switch to cisplatin 40 mg/m² weekly during radiotherapy (alternative: flat dose cisplatin 50 mg weekly).")

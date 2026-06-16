@@ -213,4 +213,37 @@ def sk_to_eng(text: str) -> str:
     text = text.replace("po infúzii", "after infusion")
     text = text.replace("po infuzii", "after infusion")
 
+    # --- Evidence / indication terms ---
+    text = text.replace("Indikácia:", "Indication:")
+    text = text.replace("indikácia", "indication")
+    text = text.replace("Dávkovanie:", "Dosing:")
+    text = text.replace("Monitorovanie", "Monitoring")
+    text = text.replace("Štúdia", "Study")
+    text = text.replace("štúdia", "study")
+    text = text.replace("adjuvantná", "adjuvant").replace("adjuvantný", "adjuvant")
+    text = text.replace("ADJUVANTNÁ", "ADJUVANT")
+    text = text.replace("liečba", "treatment").replace("liečbu", "treatment")
+    text = text.replace("pokročilý", "advanced").replace("pokročilého", "advanced").replace("pokročilé", "advanced")
+    text = text.replace("metastatický", "metastatic").replace("metastatického", "metastatic")
+    text = text.replace("karcinómu", "carcinoma").replace("karcinóm", "carcinoma")
+    text = text.replace("prsníka", "breast").replace("prsník", "breast")
+    text = text.replace("vysokým rizikom relapsu", "high risk of relapse")
+    text = text.replace(" línii", " line").replace(" línie", " lines").replace(" línia", " line")
+    text = text.replace("po radikálnej", "after radical")
+    text = text.replace("vysoké riziko recidívy", "high risk of recurrence")
+    text = text.replace("Maximálne", "Maximum").replace("mesiacov", "months")
+
     return text
+
+
+import streamlit as st
+
+
+def show_evidence_eng(reg):
+    """If a regimen JSON has an 'Evidence' field, render it as a separate section
+    (clinical study + therapeutic indication), translated to English."""
+    ev = reg.get("Evidence") if isinstance(reg, dict) else None
+    if ev:
+        st.markdown("---")
+        st.markdown("**🔬 Evidence & therapeutic indications:**")
+        st.write(sk_to_eng(ev))

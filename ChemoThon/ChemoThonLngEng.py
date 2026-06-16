@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def calculate_bsa(weight, height):
     """Calculates body surface area using the DuBois formula."""
@@ -43,6 +43,7 @@ def Chemo(bsa, filename):
                 st.write(f"{drug_name} {calc_dose} mg {inst_text}")
             else:
                 st.write(f"{drug_name} {inst_text}")
+    show_evidence_eng(reg)
 
 def ChemoDDP(bsa, filename):
     """Display cisplatin-based regimen (split 50 mg per infusion + mannitol)."""
@@ -83,6 +84,7 @@ def ChemoDDP(bsa, filename):
             calc_dose = round(drug["Dosage"] * bsa, 2)
             st.write(f"{item}. {drug_name} {calc_dose} mg {sk_to_eng(inst.get('Inst', ''))}") 
             item += 1
+    show_evidence_eng(reg)
 
 def ChemoCBDCA(bsa, filename):
     """Display carboplatin-based regimen (AUC-based dosing)."""
@@ -119,6 +121,7 @@ def ChemoCBDCA(bsa, filename):
                 metric = drug.get("DosageMetric", "mg/m2")
                 calc_dose = drug["Dosage"] if "flat" in metric.lower() else round(drug["Dosage"] * bsa, 2)
                 st.write(f"{drug_name} {calc_dose} mg {sk_to_eng(inst.get('Inst', ''))}")
+        show_evidence_eng(reg)
 
 def lung(bsa, weight=None):
     """Lung cancer chemotherapy regimen selector."""
@@ -184,6 +187,7 @@ def lung(bsa, weight=None):
                 st.write(f"cisplatin {round(ddp_rem, 2)} mg in 500 ml normal saline i.v.")
             st.write("Mannitol 10% 250 ml i.v.")
             st.write(f"vinorelbine {vin_dose} mg in 125 ml NaCl i.v./10 min D1, D8")
+            show_evidence_eng(vn)
         elif pt_adj == "Carboplatin AUC 5-6 D1 (alternative)":
             crcl_a = st.number_input("Creatinine Clearance (ml/min):", min_value=1, max_value=250, value=None, key="crcl_adj")
             auc_a = st.number_input("AUC (5 or 6):", min_value=4, max_value=6, value=5, key="auc_adj")
@@ -201,6 +205,7 @@ def lung(bsa, weight=None):
                 st.write("#### D1 - Chemotherapy")
                 st.write(f"carboplatin {cbdca_dose} mg in 500 ml glucose 5% i.v./60 min")
                 st.write(f"vinorelbine {vin_dose} mg in 125 ml NaCl i.v./10 min D1, D8")
+                show_evidence_eng(vn)
 
 def main():
     st.title("ChemoThon Lung ENG v 2.3")

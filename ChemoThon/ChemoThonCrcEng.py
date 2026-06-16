@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def load_chemotherapy_data():
     """Loads all chemotherapy data from a JSON file."""
@@ -100,15 +100,20 @@ def display_simple_json(filename, bsa, weight=None):
             if drug:
                 metric = drug.get("DosageMetric", "")
                 dosage = drug.get("Dosage", 0)
-                if "mg/kg" in metric and weight:
-                    calc_dose = round(dosage * weight, 2)
-                elif "mg/m2" in metric:
-                    calc_dose = round(dosage * bsa, 2)
+                if "flat" in metric.lower():
+                    # flat-dose: instruction text already contains the dose → avoid duplication
+                    st.write(f"{drug_name} - {inst_text}")
                 else:
-                    calc_dose = dosage
-                st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
+                    if "mg/kg" in metric and weight:
+                        calc_dose = round(dosage * weight, 2)
+                    elif "mg/m2" in metric:
+                        calc_dose = round(dosage * bsa, 2)
+                    else:
+                        calc_dose = dosage
+                    st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
             else:
                 st.write(f"{drug_name} - {inst_text}")
+    show_evidence_eng(reg)
 
 def main():
     st.title("ChemoThon Colorectal v. 3.2 ENG")
@@ -188,6 +193,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                 st.write("#### D1 - Chemotherapy Instructions")
                 st.write(f"1. cetuximab {ctx_dose} mg – first 100 mg in 500 ml NaCl i.v./60 min, remainder in 500 ml NaCl i.v./90 min")
                 st.write(f"2. encorafenib 300 mg p.o. once daily with or without food (continuous)")
+                show_evidence_eng(enc)
             elif selected_protocol_name == "Pembrolizumab 200 mg flat q3w (MSI-H/dMMR, KEYNOTE-177)":
                 display_simple_json("pembrolizumab_msiH.json", bsa, weight_val)
             elif selected_protocol_name == "Trifluridine/Tipiracil + Bevacizumab 5 mg/kg q2w (SUNLIGHT, 3rd line)":
@@ -204,6 +210,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                 st.write("#### D1 - Chemotherapy Instructions")
                 st.write(f"trifluridine/tipiracil {ttd_dose} mg {sk_to_eng(sl['Day1']['Instructions'][0]['Inst'])}")
                 st.write(f"bevacizumab {beva_dose} mg {sk_to_eng(sl['Day1']['Instructions'][1]['Inst'])}")
+                show_evidence_eng(sl)
             elif selected_protocol_name == "Fruquintinib 5 mg/day (FRESCO-2, ≥3rd line mCRC)":
                 display_simple_json("fruquitinib.json", bsa, weight_val)
             else:

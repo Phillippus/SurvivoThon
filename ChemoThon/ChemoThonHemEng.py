@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def calculate_bsa(weight, height):
     """Calculates body surface area using the DuBois formula."""
@@ -59,6 +59,7 @@ def display_chemotherapy_details(bsa, filename):
             else:
                 calc_dose = round(drug["Dosage"] * bsa, 2)
                 st.write(f"{drug_name} {calc_dose} mg {sk_to_eng(inst.get('Inst', ''))}")
+    show_evidence_eng(reg)
 
 def Flatdoser(bsa, chemo_file, flat_file=None):
     """Display regimen with BSA-based drugs + flat-dose component (e.g. vincristine)."""
@@ -102,6 +103,55 @@ def Flatdoser(bsa, chemo_file, flat_file=None):
                     st.write(f"{inst['Name']} {capped} mg {sk_to_eng(inst.get('Inst', ''))}")
                 else:
                     st.write(f"{inst['Name']} {flat_drug['Dosage']} mg {sk_to_eng(inst.get('Inst', ''))}")
+    show_evidence_eng(reg)
+    if flat:
+        show_evidence_eng(flat)
+
+def DA_EPOCH(bsa, with_rituximab=False, dose_level=1):
+    """(DA-)EPOCH(-R): dose-adjusted EPOCH ± rituximab.
+    Etoposide, doxorubicin and vincristine run as a 96h continuous infusion D1-4.
+    dose_level scales etoposide/doxorubicin/cyclophosphamide by 1.2^(level-1)
+    (Wilson protocol; eviQ: 750→900→1080…). Vincristine and prednisone are fixed."""
+    name = "DA-EPOCH-R" if with_rituximab else "DA-EPOCH"
+    factor = round(1.2 ** (dose_level - 1), 4)
+    st.write(f"### Protocol {name} — dose level {dose_level} ({int(round(factor*100))}% of baseline)")
+
+    etop_pm = round(50 * factor, 2)
+    doxo_pm = round(10 * factor, 2)
+    cfa_pm = round(750 * factor, 2)
+    etop_d = round(etop_pm * bsa, 2);  etop_tot = round(etop_pm * 4 * bsa, 2)
+    doxo_d = round(doxo_pm * bsa, 2);  doxo_tot = round(doxo_pm * 4 * bsa, 2)
+    cfa = round(cfa_pm * bsa, 2)
+    vinc_d = round(0.4 * bsa, 2); vinc_tot = round(1.6 * bsa, 2)
+    pred = round(60 * bsa, 2)
+    ritux = round(375 * bsa, 2)
+
+    st.write("#### Chemotherapy Drugs")
+    if with_rituximab:
+        st.write(f"rituximab 375 mg/m² ......... {ritux} mg D1")
+    st.write(f"etoposide {etop_pm} mg/m²/day (CIV D1-4) ......... {etop_d} mg/day (total {etop_tot} mg over 96h)")
+    st.write(f"doxorubicin {doxo_pm} mg/m²/day (CIV D1-4) ......... {doxo_d} mg/day (total {doxo_tot} mg over 96h)")
+    st.write(f"vincristine 0.4 mg/m²/day (CIV D1-4, NO cap) ......... {vinc_d} mg/day (total {vinc_tot} mg over 96h)")
+    st.write(f"cyclophosphamide {cfa_pm} mg/m² ......... {cfa} mg D5")
+    st.write(f"prednisone 60 mg/m² twice daily ......... {pred} mg BID p.o. D1-5")
+    st.write("**Next Cycle:** 21 days")
+    st.write("#### D1 - Premedication")
+    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o." +
+             (" Before rituximab: Hydrocortisone 100 mg i.v., Chlorphenamine 1 amp i.v., Paracetamol 1 g p.o. (1st infusion 50 ml/h, step up; subsequent cycles 100 ml/h)." if with_rituximab else ""))
+    st.write("#### Chemotherapy")
+    if with_rituximab:
+        st.write(f"rituximab {ritux} mg in 500 ml NS i.v. D1")
+    st.write("D1-D4 — single 96-hour continuous infusion (one pump/line):")
+    st.write(f"  etoposide {etop_tot} mg + doxorubicin {doxo_tot} mg + vincristine {vinc_tot} mg in 1000 ml NS i.v. continuously over 96 hours (D1-4)")
+    st.write(f"D5: cyclophosphamide {cfa} mg in 500 ml NS i.v./30-60 min")
+    st.write(f"D1-D5: prednisone {pred} mg p.o. twice daily")
+    st.write("D6+: G-CSF (filgrastim) s.c. daily until neutrophil recovery")
+    st.info("⚠️ **Dose adjustment (Wilson protocol)** — based on PREVIOUS cycle nadir (monitor counts twice weekly):\n"
+            "- ANC nadir ≥ 0.5 ×10⁹/L (never below) → **increase by 1 level**\n"
+            "- ANC nadir < 0.5 on 1-2 measurements → **same level**\n"
+            "- ANC nadir < 0.5 on ≥3 measurements OR platelets < 25 ×10⁹/L → **decrease by 1 level**\n\n"
+            "Cycle 1 = always level 1. Only etoposide, doxorubicin and cyclophosphamide are adjusted "
+            "(by 20% per level); vincristine and prednisone stay fixed.")
 
 def DHAP(bsa):
     """DHAP: cisplatin + cytarabine + dexamethasone."""
@@ -176,6 +226,8 @@ def hematology(bsa):
         # --- Salvage regimens ---
         "R-DHAP": ("RDHAP_special", None),
         "DHAP": ("DHAP_special", None),
+        "DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)": ("DAEPOCHR_special", None),
+        "DA-EPOCH (without R, CIV D1-4)": ("DAEPOCH_special", None),
         "R-GemOx": ("RGemox.json", None),
         "GemOx": ("Gemox.json", None),
         "GDP (Gemcitabine + Cisplatin + Dex)": ("GDP.json", "flatdexametazon.json"),
@@ -188,11 +240,23 @@ def hematology(bsa):
 
     selected = st.selectbox("Select chemotherapy regimen:", list(chemo_options.keys()))
 
+    # DA-EPOCH dose level selector (outside the button so it persists on recompute)
+    da_level = 1
+    if selected in ("DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)", "DA-EPOCH (without R, CIV D1-4)"):
+        da_level = st.number_input(
+            "Dose level (1 = baseline; ↑ if ANC nadir ≥0.5, ↓ if ANC<0.5 on ≥3 measurements or platelets <25). "
+            "Reductions below level 1 per institutional protocol.",
+            min_value=1, max_value=5, value=1, step=1)
+
     if st.button("Display Protocol"):
         if selected == "DHAP":
             DHAP(bsa)
         elif selected == "R-DHAP":
             RDHAP(bsa)
+        elif selected == "DA-EPOCH-R (DLBCL/HG-BCL, CIV D1-4)":
+            DA_EPOCH(bsa, with_rituximab=True, dose_level=da_level)
+        elif selected == "DA-EPOCH (without R, CIV D1-4)":
+            DA_EPOCH(bsa, with_rituximab=False, dose_level=da_level)
         else:
             chemo_file, flat_file = chemo_options[selected]
             if flat_file:
@@ -238,6 +302,7 @@ Guidelines: [ESMO](https://www.esmo.org/guidelines/esmo-clinical-practice-guidel
 - **R-CVP (indolent NHL)** — Marcus et al., J Clin Oncol 2005.
 - **R-Bendamustine (BR, indolent/mantle)** — Rummel et al., Lancet 2013; Flinn et al., J Clin Oncol 2014.
 - **R-DHAP (salvage, pre-ASCT)** — Philip et al., NEJM 1995 (PARMA).
+- **DA-EPOCH-R (DLBCL / HG-BCL / primary mediastinal)** — Wilson et al., Blood 2002; Dunleavy et al., NEJM 2013 (PMBCL); CALGB 50303 – Bartlett et al., J Clin Oncol 2019.
 - **R-GemOx (salvage)** — Mounier et al., J Clin Oncol 2013.
 - **GDP (salvage)** — Crump et al., J Clin Oncol 2004.
 - **Rituximab (monotherapy)** — McLaughlin et al., J Clin Oncol 1998.

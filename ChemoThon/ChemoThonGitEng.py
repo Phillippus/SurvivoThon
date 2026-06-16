@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-from sk_to_eng import sk_to_eng
+from sk_to_eng import sk_to_eng, show_evidence_eng
 
 def load_chemotherapy_data():
     """Loads all chemotherapy data from a JSON file."""
@@ -131,15 +131,20 @@ def display_simple_json(filename, bsa, weight=None):
             if drug:
                 metric = drug.get("DosageMetric", "")
                 dosage = drug.get("Dosage", 0)
-                if "mg/kg" in metric and weight:
-                    calc_dose = round(dosage * weight, 2)
-                elif "mg/m2" in metric:
-                    calc_dose = round(dosage * bsa, 2)
+                if "flat" in metric.lower():
+                    # flat-dose: instruction text already contains the dose → avoid duplication
+                    st.write(f"{drug_name} - {inst_text}")
                 else:
-                    calc_dose = dosage
-                st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
+                    if "mg/kg" in metric and weight:
+                        calc_dose = round(dosage * weight, 2)
+                    elif "mg/m2" in metric:
+                        calc_dose = round(dosage * bsa, 2)
+                    else:
+                        calc_dose = dosage
+                    st.write(f"{drug_name} - {calc_dose} mg, {inst_text}")
             else:
                 st.write(f"{drug_name} - {inst_text}")
+    show_evidence_eng(reg)
 
 def main():
     st.title("ChemoThon Gastrointestinal (Except CRC) v 3.2 ENG")
@@ -237,7 +242,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                     st.write(f"cisplatin 25 mg/m² ......... {ddp_dose} mg D1, D8")
                     st.write("**Next Cycle:** 21 days")
                     st.write("#### D1 - Premedication")
-                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Hydration: NaCl 500ml before cisplatin, Mannitol 10% 250ml after cisplatin. Indication: advanced/metastatic biliary tract cancer, 1st line (ABC-02).")
+                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Hydration: NaCl 500ml before cisplatin, Mannitol 10% 250ml after cisplatin.")
                     st.write("#### D1 - Chemotherapy Instructions")
                     for i in range(ddp_vials):
                         st.write(f"cisplatin 50 mg in 500 ml NaCl i.v.")
@@ -245,15 +250,17 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                         st.write(f"cisplatin {round(ddp_rem, 2)} mg in 500 ml NaCl i.v.")
                     st.write("Mannitol 10% 250 ml i.v.")
                     st.write(f"gemcitabine {gem_dose} mg in 250 ml NaCl i.v./30 min D1, D8")
+                    show_evidence_eng(json.load(open("data/cisplatin_gem_biliary.json", encoding="utf-8")))
                 elif biliary_pt == "Carboplatin AUC 5 D1 (alternative)" and crcl is not None:
                     cbdca_dose = (crcl + 25) * auc
                     st.write(f"carboplatin AUC {auc} ......... {cbdca_dose} mg D1")
                     st.write("**Next Cycle:** 21 days")
                     st.write("#### D1 - Premedication")
-                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Indication: advanced/metastatic biliary tract cancer (carboplatin alternative).")
+                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o.")
                     st.write("#### D1 - Chemotherapy Instructions")
                     st.write(f"carboplatin {cbdca_dose} mg in 500 ml glucose i.v./60 min")
                     st.write(f"gemcitabine {gem_dose} mg in 250 ml NaCl i.v./30 min D1, D8")
+                    show_evidence_eng(json.load(open("data/cbdca_gem_biliary.json", encoding="utf-8")))
                 else:
                     st.info("Please select a platinum option and enter CrCl if using carboplatin.")
             elif selected_protocol_name == "Platinum + Capecitabine + Trastuzumab (HER2+ gastric, ToGA)":
@@ -271,7 +278,7 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                     st.write(f"cisplatin 80 mg/m² ......... {ddp_dose} mg D1")
                     st.write("**Next Cycle:** 21 days")
                     st.write("#### D1 - Premedication")
-                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Hydration before/after cisplatin, Mannitol 10% 250 ml. Trastuzumab: loading dose 8 mg/kg i.v., subsequent 6 mg/kg q3w. Indication: HER2+ (IHC3+ or IHC2+/ISH+) advanced gastric/GEJ cancer (ToGA).")
+                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Hydration before/after cisplatin, Mannitol 10% 250 ml.")
                     st.write("#### D1 - Chemotherapy Instructions")
                     st.write(f"1. trastuzumab {trastu_load} mg (loading) or {trastu_maint} mg (subsequent) i.v./90 min (1st) or /30 min (subsequent)")
                     for i in range(ddp_vials):
@@ -280,26 +287,29 @@ We welcome your feedback to improve this app further. Feel free to reach out at 
                         st.write(f"cisplatin {round(ddp_rem, 2)} mg in 500 ml NaCl i.v.")
                     st.write("Mannitol 10% 250 ml i.v.")
                     st.write(f"capecitabine {cape_dose} mg p.o. BID D1-14 with food")
+                    show_evidence_eng(json.load(open("data/ddp_capecitabine_trastu.json", encoding="utf-8")))
                 elif gastric_pt == "Carboplatin AUC 5 D1" and crcl is not None:
                     cbdca_dose = (crcl + 25) * auc
                     st.write(f"carboplatin AUC {auc} ......... {cbdca_dose} mg D1")
                     st.write("**Next Cycle:** 21 days")
                     st.write("#### D1 - Premedication")
-                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Trastuzumab: loading 8 mg/kg i.v., subsequent 6 mg/kg q3w.")
+                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o.")
                     st.write("#### D1 - Chemotherapy Instructions")
                     st.write(f"1. trastuzumab {trastu_load} mg (loading) or {trastu_maint} mg (subsequent) i.v.")
                     st.write(f"carboplatin {cbdca_dose} mg in 500 ml glucose i.v./60 min")
                     st.write(f"capecitabine {cape_dose} mg p.o. BID D1-14 with food")
+                    show_evidence_eng(json.load(open("data/cbdca_capecitabine_trastu.json", encoding="utf-8")))
                 elif gastric_pt == "Oxaliplatin 130 mg/m² D1":
                     oxa_dose = round(130 * bsa_v, 2)
                     st.write(f"oxaliplatin 130 mg/m² ......... {oxa_dose} mg D1")
                     st.write("**Next Cycle:** 21 days")
                     st.write("#### D1 - Premedication")
-                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Trastuzumab: loading 8 mg/kg i.v., subsequent 6 mg/kg q3w. Note: use glucose 5% for oxaliplatin (NOT NaCl).")
+                    st.write("Palonosetron 0.5mg/Netupitant 300mg (Akynzeo) p.o. 1h before chemo, Dexamethasone 12 mg i.v., Pantoprazole 40 mg p.o. Note: use glucose 5% for oxaliplatin (NOT NaCl).")
                     st.write("#### D1 - Chemotherapy Instructions")
                     st.write(f"1. trastuzumab {trastu_load} mg (loading) or {trastu_maint} mg (subsequent) i.v.")
                     st.write(f"oxaliplatin {oxa_dose} mg in 500 ml glucose 5% i.v./2h")
                     st.write(f"capecitabine {cape_dose} mg p.o. BID D1-14 with food")
+                    show_evidence_eng(json.load(open("data/oxa_capecitabine_trastu.json", encoding="utf-8")))
                 else:
                     st.info("Please select a platinum option and enter CrCl if using carboplatin.")
             elif protocol:
